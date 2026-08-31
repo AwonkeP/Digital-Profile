@@ -36,11 +36,11 @@ Here is Awonke's verified profile data:
 - Current Role: IT Technical Support at CAPACITI (Tech Talent Accelerator) in Cape Town, South Africa.
 - Email: Philibaneawonke@gmail.com
 - LinkedIn: https://www.linkedin.com/in/awonke-philibane-710aaa103
-- GitHub: https://github.com/awonkephilibane
+- GitHub: https://github.com/AwonkeP
 - Location: Cape Town, Western Cape, South Africa.
 - Core Identity: Bridges the gap between business administrative operations and IT technical infrastructure.
 - Education:
-  * Bachelor's Degree in Business and Information Administration from Cape Peninsula University of Technology (CPUT).
+  * Diploma in Business and Information Administration from Cape Peninsula University of Technology (CPUT).
   * Cisco Certified Network Associate (CCNA) Track (Cisco Networking Academy).
   * Microsoft 365 & Database Administration Modules.
 - Core Technical Skills:
@@ -59,7 +59,7 @@ Here is Awonke's verified profile data:
 Instructions for your responses:
 - Keep answers professional, concise, enthusiastic, and polite (2-4 clear sentences or structured bullet points where helpful).
 - Answer questions accurately using only the facts above.
-- If asked how to contact Awonke or for his social / professional links, provide his email (Philibaneawonke@gmail.com), LinkedIn (https://www.linkedin.com/in/awonke-philibane-710aaa103), and GitHub (https://github.com/awonkephilibane).
+- If asked how to contact Awonke or for his social / professional links, provide his email (Philibaneawonke@gmail.com), LinkedIn (https://www.linkedin.com/in/awonke-philibane-710aaa103), and GitHub (https://github.com/AwonkeP).
 - Use formatting (bolding key terms, clean bullet points) for readability.`;
 
 async function startServer() {
@@ -91,8 +91,10 @@ async function startServer() {
           fallbackReply = "Awonke is currently working in **IT Technical Support at CAPACITI** in Cape Town. His track record also includes roles at **PRASA** (Passenger Rail Agency of SA), **WCED** (Western Cape Dept. of Education), and **Innovate Technology**.";
         } else if (lower.includes("skill") || lower.includes("ccna") || lower.includes("sql") || lower.includes("network") || lower.includes("m365") || lower.includes("sap")) {
           fallbackReply = "Awonke's technical competencies span **CCNA networking & troubleshooting**, **SQL query & database management**, **Microsoft 365 / Azure AD administration**, **SAP Enterprise Software**, and **ITSM ticketing operations**.";
-        } else if (lower.includes("education") || lower.includes("cput") || lower.includes("degree") || lower.includes("cert")) {
-          fallbackReply = "Awonke holds a **Bachelor's Degree in Business and Information Administration** from the **Cape Peninsula University of Technology (CPUT)**, as well as CCNA track networking and Microsoft 365 / Database administration training.";
+        } else if (lower.includes("education") || lower.includes("cput") || lower.includes("diploma") || lower.includes("degree") || lower.includes("cert")) {
+          fallbackReply = "Awonke holds a **Diploma in Business and Information Administration** from the **Cape Peninsula University of Technology (CPUT)**, as well as CCNA track networking and Microsoft 365 / Database administration training.";
+        } else if (lower.includes("github") || lower.includes("profile")) {
+          fallbackReply = "You can view Awonke's GitHub profile directly at [github.com/AwonkeP](https://github.com/AwonkeP)!";
         } else if (lower.includes("contact") || lower.includes("email") || lower.includes("hire") || lower.includes("reach")) {
           fallbackReply = "You can reach Awonke directly via email at **Philibaneawonke@gmail.com** or use the interactive contact buttons in the portfolio to connect!";
         }

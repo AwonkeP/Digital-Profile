@@ -48,7 +48,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             </div>
             <div className="px-3.5 py-1.5 rounded-xl bg-white border border-neutral-300 text-xs font-bold text-neutral-950 flex items-center gap-2 shadow-xs">
               <GraduationCap className="w-3.5 h-3.5 text-neutral-950" />
-              <span>B.Tech CPUT Graduate</span>
+              <span>CPUT Diploma Graduate</span>
             </div>
           </div>
 
@@ -189,7 +189,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
               <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-300">
                 <div className="text-xl font-black text-neutral-950">CPUT</div>
                 <div className="text-xs text-neutral-700 font-bold mt-0.5">
-                  B.Tech Degree
+                  Diploma
                 </div>
               </div>
             </div>
@@ -206,7 +206,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                 </li>
                 <li className="flex items-center gap-2.5 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-neutral-950 shrink-0" />
-                  <span>Workflow Bottleneck Elimination</span>
+                  <span>Fixing Slowdowns</span>
                 </li>
                 <li className="flex items-center gap-2.5 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-neutral-950 shrink-0" />

@@ -44,7 +44,7 @@ WORK EXPERIENCE
    - Managed IT services, troubleshooting, maintenance, software deployment.
 
 EDUCATION & QUALIFICATIONS
-- Bachelor's Degree in Business & Information Administration - Cape Peninsula University of Technology (CPUT)
+- Diploma in Business & Information Administration - Cape Peninsula University of Technology (CPUT)
 - Cisco Certified Network Associate (CCNA) Track - Cisco Networking Academy
 - Microsoft 365 & Database Administration Modules`;
 

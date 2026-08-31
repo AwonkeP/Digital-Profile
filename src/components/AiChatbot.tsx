@@ -23,7 +23,8 @@ export const AiChatbot: React.FC = () => {
   const quickChips = [
     'Core Experience?',
     'SQL & CCNA Skills?',
-    'CPUT Degree?',
+    'CPUT Diploma?',
+    'IT Qualifications?',
     'Contact Info?',
   ];
 

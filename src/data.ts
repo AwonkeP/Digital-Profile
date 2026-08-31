@@ -9,10 +9,10 @@ export const PROFILE_INFO = {
   email: "Philibaneawonke@gmail.com",
   linkedin: "https://www.linkedin.com/in/awonke-philibane-710aaa103",
   linkedinHandle: "awonke-philibane-710aaa103",
-  github: "https://github.com/awonkephilibane",
-  githubHandle: "awonkephilibane",
+  github: "https://github.com/AwonkeP",
+  githubHandle: "AwonkeP",
   currentCompany: "CAPACITI",
-  degree: "B.Tech Business & Information Administration (CPUT)",
+  degree: "Diploma in Business & Information Administration (CPUT)",
   profileImage: profilePhoto,
   summary: "Dedicated IT Technical Support in Cape Town, combining Business and Information Administration expertise from CPUT with hands-on technical skills in CCNA networking, SQL database management, Microsoft 365, and enterprise service desk operations.",
   elevatorPitch: "I am an IT Technical Support with a strong background in Business and Information Administration, currently driving service excellence at CAPACITI. By combining technical proficiency in CCNA networking and SQL with a focus on operational excellence, I ensure that technology serves as a seamless backbone for organizational productivity."
@@ -187,11 +187,11 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
 
 export const EDUCATION_DATA: EducationItem[] = [
   {
-    id: 'cput-degree',
-    degree: 'Business & Information Administration',
+    id: 'cput-diploma',
+    degree: 'Diploma in Business & Information Administration',
     institution: 'Cape Peninsula University of Technology (CPUT)',
-    tag: "Bachelor's Degree",
-    type: 'Higher Education Degree',
+    tag: 'Diploma',
+    type: 'Higher Education Diploma',
     details: 'Comprehensive grounding in administrative information systems, workflow design, database fundamentals, and enterprise organizational strategy.',
     icon: 'GraduationCap',
     badge: 'Systems & Admin Core'
@@ -265,10 +265,11 @@ export const SCENARIOS: Record<string, Scenario> = {
     description: 'High volume of manual paper-form entries creating a multi-day administrative backlog between operational units.',
     resolutionTime: 'Process Transformation',
     steps: [
-      'Workflow Mapping: Apply B.Tech Business & Information Administration principles to pinpoint redundant manual review stages.',
+      'Workflow Mapping: Apply Business & Information Administration principles to pinpoint redundant manual review stages.',
       'Digital Transformation: Replace paper forms with standardized digital Microsoft 365 Forms connected to a structured SQL database backend.',
       'Administrative Training: Conduct interactive enablement session for operational staff on automated record validation.',
       'Impact Measurement: Eliminated duplicate data entry, reduced processing turnaround time from 3 days to under 2 hours.'
     ]
   }
 };
+
