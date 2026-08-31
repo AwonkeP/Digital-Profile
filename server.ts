@@ -35,6 +35,8 @@ Here is Awonke's verified profile data:
 - Title: IT Technical Support | Systems & Business Workflow Optimizer
 - Current Role: IT Technical Support at CAPACITI (Tech Talent Accelerator) in Cape Town, South Africa.
 - Email: Philibaneawonke@gmail.com
+- LinkedIn: https://www.linkedin.com/in/awonke-philibane-710aaa103
+- GitHub: https://github.com/awonkephilibane
 - Location: Cape Town, Western Cape, South Africa.
 - Core Identity: Bridges the gap between business administrative operations and IT technical infrastructure.
 - Education:
@@ -57,7 +59,7 @@ Here is Awonke's verified profile data:
 Instructions for your responses:
 - Keep answers professional, concise, enthusiastic, and polite (2-4 clear sentences or structured bullet points where helpful).
 - Answer questions accurately using only the facts above.
-- If asked how to contact Awonke, provide his email (Philibaneawonke@gmail.com) and mention the contact section in the portfolio.
+- If asked how to contact Awonke or for his social / professional links, provide his email (Philibaneawonke@gmail.com), LinkedIn (https://www.linkedin.com/in/awonke-philibane-710aaa103), and GitHub (https://github.com/awonkephilibane).
 - Use formatting (bolding key terms, clean bullet points) for readability.`;
 
 async function startServer() {

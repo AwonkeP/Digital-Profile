@@ -107,11 +107,11 @@ export const AiChatbot: React.FC = () => {
           id="chatbot-toggle-btn"
           onClick={() => setIsOpen(true)}
           aria-label="Open AI Assistant"
-          className="flex items-center gap-3 bg-gradient-to-r from-sky-600 via-indigo-600 to-blue-600 hover:from-sky-500 hover:to-indigo-500 text-white px-5 py-3.5 rounded-full shadow-2xl hover:scale-105 transition-all group border border-white/20"
+          className="flex items-center gap-3 bg-neutral-950 hover:bg-neutral-800 text-white px-5 py-3.5 rounded-full shadow-2xl hover:scale-105 transition-all group border border-neutral-700"
         >
           <div className="relative">
             <Bot className="w-5 h-5" />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-slate-900 animate-pulse"></span>
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-neutral-900 animate-pulse"></span>
           </div>
           <span className="font-bold text-xs sm:text-sm">Ask Awonke's AI Assistant</span>
         </button>
@@ -121,25 +121,25 @@ export const AiChatbot: React.FC = () => {
       {isOpen && (
         <div
           id="chatbot-window"
-          className="w-[92vw] sm:w-[440px] h-[540px] max-h-[82vh] rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl flex flex-col overflow-hidden transition-all duration-300"
+          className="w-[92vw] sm:w-[440px] h-[540px] max-h-[82vh] rounded-3xl bg-white border border-neutral-300 shadow-2xl flex flex-col overflow-hidden transition-all duration-300 text-neutral-950"
         >
           {/* Header */}
-          <div className="p-4 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white flex items-center justify-between border-b border-slate-800 shrink-0">
+          <div className="p-4 bg-neutral-950 text-white flex items-center justify-between border-b border-neutral-800 shrink-0">
             <div className="flex items-center gap-3">
               <div className="relative shrink-0">
                 <img
                   src={PROFILE_INFO.profileImage}
                   alt={PROFILE_INFO.name}
                   referrerPolicy="no-referrer"
-                  className="w-10 h-10 rounded-full object-cover ring-2 ring-sky-400 border border-white/20 shadow-md"
+                  className="w-10 h-10 rounded-full object-cover ring-2 ring-white border border-neutral-800 shadow-md"
                 />
-                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-slate-900" />
+                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-neutral-900" />
               </div>
               <div>
                 <h4 className="font-extrabold text-sm leading-tight text-white">
                   Awonke's AI Profile Assistant
                 </h4>
-                <div className="flex items-center gap-1.5 text-[10px] text-emerald-400">
+                <div className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-bold">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span>Online • Gemini 3.7 Powered</span>
                 </div>
@@ -150,21 +150,21 @@ export const AiChatbot: React.FC = () => {
               id="chatbot-close-btn"
               onClick={() => setIsOpen(false)}
               aria-label="Close Chat"
-              className="p-1.5 text-slate-400 hover:text-white transition-colors rounded-xl hover:bg-slate-800"
+              className="p-1.5 text-neutral-400 hover:text-white transition-colors rounded-xl hover:bg-neutral-800"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Quick Prompt Suggestion Chips */}
-          <div className="px-4 py-2.5 bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200/60 dark:border-slate-800/80 flex items-center gap-1.5 overflow-x-auto text-xs whitespace-nowrap shrink-0">
-            <span className="text-slate-400 font-medium text-[11px] mr-1">Quick ask:</span>
+          <div className="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center gap-1.5 overflow-x-auto text-xs whitespace-nowrap shrink-0">
+            <span className="text-neutral-500 font-bold text-[11px] mr-1">Quick ask:</span>
             {quickChips.map((chip, idx) => (
               <button
                 key={idx}
                 onClick={() => handleSendMessage(chip)}
                 disabled={isLoading}
-                className="px-2.5 py-1 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-sky-500 text-slate-700 dark:text-slate-300 text-[11px] font-medium transition-colors"
+                className="px-2.5 py-1 rounded-full bg-white border border-neutral-300 hover:border-neutral-900 text-neutral-900 text-[11px] font-bold transition-colors"
               >
                 {chip}
               </button>
@@ -172,14 +172,14 @@ export const AiChatbot: React.FC = () => {
           </div>
 
           {/* Messages Scroll Area */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 text-xs">
+          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 text-xs bg-white">
             {messages.map((msg) => (
               <div
                 key={msg.id}
                 className={`flex gap-2.5 items-start ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {msg.role === 'assistant' && (
-                  <div className="w-7 h-7 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <div className="w-7 h-7 rounded-xl bg-neutral-950 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                     <Bot className="w-4 h-4" />
                   </div>
                 )}
@@ -187,8 +187,8 @@ export const AiChatbot: React.FC = () => {
                 <div
                   className={`p-3.5 rounded-2xl max-w-[85%] leading-relaxed ${
                     msg.role === 'user'
-                      ? 'bg-sky-600 text-white rounded-tr-none shadow-sm'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-slate-200/50 dark:border-slate-700/50'
+                      ? 'bg-neutral-950 text-white rounded-tr-none shadow-sm font-medium'
+                      : 'bg-neutral-100 text-neutral-950 rounded-tl-none border border-neutral-200 font-medium'
                   }`}
                 >
                   <div className="markdown-body space-y-1.5">
@@ -196,7 +196,7 @@ export const AiChatbot: React.FC = () => {
                   </div>
                   <span
                     className={`block text-[9px] mt-1.5 ${
-                      msg.role === 'user' ? 'text-sky-200 text-right' : 'text-slate-400 text-left'
+                      msg.role === 'user' ? 'text-neutral-400 text-right' : 'text-neutral-500 text-left'
                     }`}
                   >
                     {msg.timestamp}
@@ -204,7 +204,7 @@ export const AiChatbot: React.FC = () => {
                 </div>
 
                 {msg.role === 'user' && (
-                  <div className="w-7 h-7 rounded-xl bg-slate-700 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <div className="w-7 h-7 rounded-xl bg-neutral-800 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
                     <User className="w-4 h-4" />
                   </div>
                 )}
@@ -214,13 +214,13 @@ export const AiChatbot: React.FC = () => {
             {/* Loading / Typing indicator */}
             {isLoading && (
               <div className="flex gap-2.5 items-start">
-                <div className="w-7 h-7 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-7 h-7 rounded-xl bg-neutral-950 text-white flex items-center justify-center shrink-0 mt-0.5">
                   <Bot className="w-4 h-4" />
                 </div>
-                <div className="p-3.5 rounded-2xl rounded-tl-none bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center gap-1.5 border border-slate-200/50 dark:border-slate-700/50">
-                  <span className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-bounce"></span>
-                  <span className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-bounce [animation-delay:0.2s]"></span>
-                  <span className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+                <div className="p-3.5 rounded-2xl rounded-tl-none bg-neutral-100 text-neutral-600 flex items-center gap-1.5 border border-neutral-200">
+                  <span className="w-1.5 h-1.5 bg-neutral-900 rounded-full animate-bounce"></span>
+                  <span className="w-1.5 h-1.5 bg-neutral-900 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                  <span className="w-1.5 h-1.5 bg-neutral-900 rounded-full animate-bounce [animation-delay:0.4s]"></span>
                 </div>
               </div>
             )}
@@ -231,7 +231,7 @@ export const AiChatbot: React.FC = () => {
           {/* Input Form */}
           <form
             onSubmit={handleFormSubmit}
-            className="p-3 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2 shrink-0"
+            className="p-3 bg-white border-t border-neutral-200 flex items-center gap-2 shrink-0"
           >
             <input
               ref={inputRef}
@@ -241,13 +241,13 @@ export const AiChatbot: React.FC = () => {
               value={inputQuery}
               onChange={(e) => setInputQuery(e.target.value)}
               disabled={isLoading}
-              className="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-xs rounded-2xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-sky-500 border border-transparent dark:border-slate-700"
+              className="flex-1 bg-neutral-50 text-neutral-950 text-xs rounded-2xl px-3.5 py-2.5 focus:outline-none focus:ring-2 focus:ring-neutral-900 border border-neutral-300 font-medium"
             />
             <button
               type="submit"
               id="chat-submit-btn"
               disabled={!inputQuery.trim() || isLoading}
-              className="w-10 h-10 rounded-2xl bg-sky-600 hover:bg-sky-500 disabled:opacity-40 text-white flex items-center justify-center transition-colors shrink-0 shadow-md shadow-sky-600/20"
+              className="w-10 h-10 rounded-2xl bg-neutral-950 hover:bg-neutral-800 disabled:opacity-40 text-white flex items-center justify-center transition-colors shrink-0 shadow-sm"
             >
               <Send className="w-4 h-4" />
             </button>

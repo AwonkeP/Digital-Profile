@@ -1,5 +1,5 @@
 import { SkillItem, ExperienceItem, EducationItem, Scenario } from './types';
-import profilePhoto from './assets/images/awonke_original_photo_1788162799634.jpg';
+import profilePhoto from './assets/images/awonke_photo_actual.jpg';
 
 export const PROFILE_INFO = {
   name: "Awonke Philibane",
@@ -7,6 +7,10 @@ export const PROFILE_INFO = {
   headline: "IT Technical Support | Optimizing Systems & Business Workflows",
   location: "Cape Town, Western Cape, South Africa",
   email: "Philibaneawonke@gmail.com",
+  linkedin: "https://www.linkedin.com/in/awonke-philibane-710aaa103",
+  linkedinHandle: "awonke-philibane-710aaa103",
+  github: "https://github.com/awonkephilibane",
+  githubHandle: "awonkephilibane",
   currentCompany: "CAPACITI",
   degree: "B.Tech Business & Information Administration (CPUT)",
   profileImage: profilePhoto,

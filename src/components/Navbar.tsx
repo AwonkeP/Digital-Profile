@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Moon, Sun, Menu, X, Send, Award, FileText } from 'lucide-react';
+import { Moon, Sun, Menu, X, Send, Award, FileText, Linkedin, Github } from 'lucide-react';
 import { PROFILE_INFO } from '../data';
 
 interface NavbarProps {
@@ -21,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
   ];
 
   return (
-    <header className="sticky top-0 z-40 glass-panel border-b border-slate-200/80 dark:border-slate-800/80 transition-colors">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-300 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <a href="#hero" className="flex items-center gap-3 group">
           <div className="relative">
@@ -30,60 +30,74 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
               src={PROFILE_INFO.profileImage}
               alt={PROFILE_INFO.name}
               referrerPolicy="no-referrer"
-              className="w-10 h-10 rounded-full object-cover ring-2 ring-sky-500/50 group-hover:ring-sky-500 group-hover:scale-105 transition-all shadow-md"
+              className="w-10 h-10 rounded-full object-cover ring-2 ring-neutral-900 group-hover:scale-105 transition-all shadow-sm"
             />
-            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900" />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-white" />
           </div>
           <div>
-            <span className="font-bold text-slate-900 dark:text-white text-base sm:text-lg tracking-tight block leading-none">
+            <span className="font-extrabold text-neutral-950 text-base sm:text-lg tracking-tight block leading-none">
               Awonke Philibane
             </span>
-            <span className="text-xs text-sky-600 dark:text-sky-400 font-medium">
+            <span className="text-xs text-neutral-600 font-semibold">
               IT Support & Systems Workflow
             </span>
           </div>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7 font-medium text-sm text-slate-600 dark:text-slate-300">
+        <nav className="hidden md:flex items-center gap-7 font-bold text-sm text-neutral-800">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+              className="hover:text-neutral-950 hover:underline underline-offset-4 transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          {/* Social Links in Header */}
+          <div className="hidden lg:flex items-center gap-1.5 pr-1 border-r border-neutral-200">
+            <a
+              id="nav-linkedin-link"
+              href={PROFILE_INFO.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn Profile"
+              className="p-2 rounded-xl text-neutral-800 hover:text-black hover:bg-neutral-100 transition-colors"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+            <a
+              id="nav-github-link"
+              href={PROFILE_INFO.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub Profile"
+              className="p-2 rounded-xl text-neutral-800 hover:text-black hover:bg-neutral-100 transition-colors"
+            >
+              <Github className="w-4 h-4" />
+            </a>
+          </div>
+
           {/* Resume / CV Modal Trigger */}
           <button
             id="view-cv-btn"
             onClick={onOpenResume}
             aria-label="View Resume"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-colors"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-neutral-100 hover:bg-neutral-200 text-neutral-950 border border-neutral-300 transition-colors"
           >
-            <FileText className="w-3.5 h-3.5 text-sky-500" />
+            <FileText className="w-3.5 h-3.5 text-neutral-950" />
             <span>View CV</span>
-          </button>
-
-          {/* Dark Mode Toggle */}
-          <button
-            id="theme-toggle-btn"
-            onClick={() => setDarkMode((prev) => !prev)}
-            aria-label="Toggle Theme"
-            className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
-          >
-            {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
           </button>
 
           {/* Quick Connect CTA */}
           <a
             id="nav-connect-btn"
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-xl font-medium text-sm shadow-sm shadow-sky-600/20 hover:shadow-sky-600/30 transition-all"
+            className="hidden sm:inline-flex items-center gap-2 bg-neutral-950 hover:bg-neutral-800 text-white px-4 py-2 rounded-xl font-bold text-sm shadow-sm transition-all"
           >
             <Send className="w-3.5 h-3.5" />
             <span>Connect</span>
@@ -94,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
             id="mobile-menu-toggle-btn"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle Mobile Navigation"
-            className="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+            className="md:hidden p-2.5 rounded-xl bg-neutral-100 text-neutral-950 border border-neutral-200"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -103,32 +117,55 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-5 space-y-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg">
+        <div className="md:hidden border-b border-neutral-200 px-4 pt-2 pb-5 space-y-2 bg-white/98 backdrop-blur-lg">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-slate-700 dark:text-slate-200 font-medium hover:text-sky-600 text-sm"
+              className="block py-2 text-neutral-950 font-bold hover:underline text-sm"
             >
               {link.label}
             </a>
           ))}
-          <div className="pt-2 flex flex-col gap-2">
+
+          {/* Social Links in Mobile Drawer */}
+          <div className="flex items-center gap-3 py-2 border-t border-neutral-200">
+            <a
+              href={PROFILE_INFO.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl bg-neutral-100 text-neutral-950 border border-neutral-200 text-xs font-bold"
+            >
+              <Linkedin className="w-3.5 h-3.5 text-[#0077B5]" />
+              <span>LinkedIn</span>
+            </a>
+            <a
+              href={PROFILE_INFO.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-2 rounded-xl bg-neutral-100 text-neutral-950 border border-neutral-200 text-xs font-bold"
+            >
+              <Github className="w-3.5 h-3.5" />
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <div className="pt-1 flex flex-col gap-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenResume();
               }}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 text-sm font-semibold border border-slate-200 dark:border-slate-700"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-neutral-100 text-neutral-950 text-sm font-bold border border-neutral-300"
             >
-              <FileText className="w-4 h-4 text-sky-500" />
+              <FileText className="w-4 h-4 text-neutral-950" />
               <span>View Full CV</span>
             </button>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center bg-sky-600 hover:bg-sky-700 text-white py-2.5 rounded-xl font-semibold text-sm shadow-md"
+              className="block w-full text-center bg-neutral-950 hover:bg-neutral-800 text-white py-2.5 rounded-xl font-bold text-sm shadow-md"
             >
               Connect with Awonke
             </a>

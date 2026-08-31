@@ -1,6 +1,6 @@
 import React from 'react';
 import { PROFILE_INFO } from '../data';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Linkedin, Github, Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -8,8 +8,8 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800 py-10 bg-white dark:bg-slate-950 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-slate-500 dark:text-slate-400">
+    <footer className="border-t border-neutral-300 py-10 bg-white transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-neutral-600 font-medium">
         
         <div className="flex items-center gap-3">
           <img
@@ -17,33 +17,62 @@ export const Footer: React.FC = () => {
             src={PROFILE_INFO.profileImage}
             alt={PROFILE_INFO.name}
             referrerPolicy="no-referrer"
-            className="w-9 h-9 rounded-full object-cover ring-2 ring-sky-500/30 shadow-sm"
+            className="w-9 h-9 rounded-full object-cover ring-2 ring-neutral-900 shadow-sm"
           />
           <div>
-            <div className="font-bold text-slate-900 dark:text-white">
+            <div className="font-extrabold text-neutral-950 text-sm">
               {PROFILE_INFO.name}
             </div>
-            <div className="text-[11px] text-slate-500">
-              © {new Date().getFullYear()} All rights reserved.
+            <div className="text-[11px] text-neutral-500 font-medium">
+              © {new Date().getFullYear()} All rights reserved. IT Support Portfolio.
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-6 font-medium">
-          <a href="#about" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">About</a>
-          <a href="#skills" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Skills</a>
-          <a href="#experience" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Experience</a>
-          <a href="#education" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Education</a>
-          <a href="#value" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Value</a>
-          <a href="#contact" className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">Contact</a>
+        <div className="flex flex-wrap items-center justify-center gap-6 font-bold text-neutral-800">
+          <a href="#about" className="hover:text-black hover:underline transition-colors">About</a>
+          <a href="#skills" className="hover:text-black hover:underline transition-colors">Skills</a>
+          <a href="#experience" className="hover:text-black hover:underline transition-colors">Experience</a>
+          <a href="#education" className="hover:text-black hover:underline transition-colors">Education</a>
+          <a href="#value" className="hover:text-black hover:underline transition-colors">Value</a>
+          <a href="#contact" className="hover:text-black hover:underline transition-colors">Contact</a>
         </div>
 
-        <div className="flex items-center gap-4">
-          <span>{PROFILE_INFO.location}</span>
+        <div className="flex items-center gap-3">
+          {/* Social icons */}
+          <a
+            id="footer-linkedin-link"
+            href={PROFILE_INFO.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn Profile"
+            className="p-2 rounded-xl bg-neutral-100 text-neutral-950 hover:bg-neutral-200 border border-neutral-200 transition-colors"
+          >
+            <Linkedin className="w-4 h-4 text-[#0077B5]" />
+          </a>
+          <a
+            id="footer-github-link"
+            href={PROFILE_INFO.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub Profile"
+            className="p-2 rounded-xl bg-neutral-100 text-neutral-950 hover:bg-neutral-200 border border-neutral-200 transition-colors"
+          >
+            <Github className="w-4 h-4 text-neutral-950" />
+          </a>
+          <a
+            id="footer-email-link"
+            href={`mailto:${PROFILE_INFO.email}`}
+            title="Send Email"
+            className="p-2 rounded-xl bg-neutral-100 text-neutral-950 hover:bg-neutral-200 border border-neutral-200 transition-colors"
+          >
+            <Mail className="w-4 h-4 text-neutral-950" />
+          </a>
+
           <button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-xl bg-neutral-100 text-neutral-950 hover:bg-neutral-200 border border-neutral-200 transition-colors ml-1"
           >
             <ArrowUp className="w-4 h-4" />
           </button>

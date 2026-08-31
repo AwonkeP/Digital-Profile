@@ -13,15 +13,7 @@ import { ResumeModal } from './components/ResumeModal';
 import { Footer } from './components/Footer';
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('theme');
-      if (stored) return stored === 'dark';
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return false;
-  });
-
+  const [darkMode, setDarkMode] = useState<boolean>(false);
   const [isResumeOpen, setIsResumeOpen] = useState<boolean>(false);
 
   useEffect(() => {
@@ -35,7 +27,7 @@ export default function App() {
   }, [darkMode]);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300 font-sans selection:bg-sky-500 selection:text-white">
+    <div className="min-h-screen bg-neutral-200 text-neutral-950 transition-colors duration-300 font-sans selection:bg-neutral-900 selection:text-white">
       {/* Navigation Bar */}
       <Navbar
         darkMode={darkMode}
