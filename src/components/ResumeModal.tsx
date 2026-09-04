@@ -27,9 +27,9 @@ PROFESSIONAL SUMMARY
 ${PROFILE_INFO.summary}
 
 CORE COMPETENCIES
-- CCNA Routing & Switching, LAN/WAN, TCP/IP, Gateway Troubleshooting
+- Fundamental Network (CCNA) Routing & Switching, LAN/WAN, TCP/IP, Gateway Troubleshooting
 - Microsoft 365 Admin, Azure AD / Entra ID, Identity Management
-- SQL Relational Database Queries & Schema Maintenance
+- PC Hardware Diagnostics & Workstation Maintenance
 - SAP Enterprise ERP & Service Desk Incident Management (ITSM)
 - Business Information Administration & Workflow Automation
 
@@ -45,8 +45,8 @@ WORK EXPERIENCE
 
 EDUCATION & QUALIFICATIONS
 - Diploma in Business & Information Administration - Cape Peninsula University of Technology (CPUT)
-- Cisco Certified Network Associate (CCNA) Track - Cisco Networking Academy
-- Microsoft 365 & Database Administration Modules`;
+- Fundamental Network (CCNA) - Cisco Networking Academy
+- Microsoft 365 & IT Systems Administration Modules`;
 
     navigator.clipboard.writeText(cvText).then(() => {
       setCopied(true);

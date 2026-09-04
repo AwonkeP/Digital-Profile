@@ -12,7 +12,7 @@ export const AiChatbot: React.FC = () => {
     {
       id: 'welcome-1',
       role: 'assistant',
-      text: "Hello! I am Awonke's AI Profile Assistant. Ask me anything about his technical support experience at CAPACITI/PRASA/WCED, CCNA networking, SQL databases, or qualifications!",
+      text: "Hello! I am Awonke's interactive AI Profile Assistant. I answer questions strictly based on Awonke Philibane's verified profile, IT technical support experience, Fundamental Network (CCNA) knowledge, and qualifications. How can I help you today?",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -21,11 +21,11 @@ export const AiChatbot: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const quickChips = [
-    'Core Experience?',
-    'SQL & CCNA Skills?',
-    'CPUT Diploma?',
-    'IT Qualifications?',
-    'Contact Info?',
+    'Current Role @ CAPACITI',
+    'Fundamental Network (CCNA)',
+    'CPUT Diploma',
+    'Experience @ PRASA & WCED',
+    'Contact Info & Links',
   ];
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export const AiChatbot: React.FC = () => {
       const fallbackMsg: ChatMessage = {
         id: `bot-${Date.now()}`,
         role: 'assistant',
-        text: "Awonke Philibane works in IT Technical Support currently driving service excellence at CAPACITI in Cape Town. He holds a degree in Business & Information Administration from CPUT and has expertise in CCNA networking, SQL databases, and Microsoft 365 administration. You can reach him directly at Philibaneawonke@gmail.com!",
+        text: "Awonke Philibane works in IT Technical Support at CAPACITI in Cape Town, holding a Diploma in Business & Information Administration from CPUT. His verified profile highlights expertise in **Fundamental Network (CCNA)**, Microsoft 365 / Azure AD administration, PC workstation hardware diagnostics, and enterprise service desk operations. You can reach him directly at Philibaneawonke@gmail.com!",
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
       setMessages((prev) => [...prev, fallbackMsg]);
@@ -142,7 +142,7 @@ export const AiChatbot: React.FC = () => {
                 </h4>
                 <div className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-bold">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                  <span>Online • Gemini 3.7 Powered</span>
+                  <span>Online • Strictly Profile Grounded</span>
                 </div>
               </div>
             </div>
@@ -238,7 +238,7 @@ export const AiChatbot: React.FC = () => {
               ref={inputRef}
               type="text"
               id="chat-input-field"
-              placeholder="Ask about Awonke's skills, roles, or background..."
+              placeholder="Ask strictly based on Awonke's profile..."
               value={inputQuery}
               onChange={(e) => setInputQuery(e.target.value)}
               disabled={isLoading}

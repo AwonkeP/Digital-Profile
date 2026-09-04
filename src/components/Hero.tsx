@@ -36,11 +36,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
           <div className="flex flex-wrap gap-2.5 pt-1">
             <div className="px-3.5 py-1.5 rounded-xl bg-white border border-neutral-300 text-xs font-bold text-neutral-950 flex items-center gap-2 shadow-xs">
               <Network className="w-3.5 h-3.5 text-neutral-950" />
-              <span>CCNA Track</span>
+              <span>Fundamental Network (CCNA)</span>
             </div>
             <div className="px-3.5 py-1.5 rounded-xl bg-white border border-neutral-300 text-xs font-bold text-neutral-950 flex items-center gap-2 shadow-xs">
-              <Database className="w-3.5 h-3.5 text-neutral-950" />
-              <span>SQL & Databases</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-neutral-950" />
+              <span>Hardware & Systems Support</span>
             </div>
             <div className="px-3.5 py-1.5 rounded-xl bg-white border border-neutral-300 text-xs font-bold text-neutral-950 flex items-center gap-2 shadow-xs">
               <Layers className="w-3.5 h-3.5 text-neutral-950" />
@@ -210,7 +210,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                 </li>
                 <li className="flex items-center gap-2.5 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-neutral-950 shrink-0" />
-                  <span>Network & Database Maintenance</span>
+                  <span>Fundamental Network & Systems Maintenance</span>
                 </li>
                 <li className="flex items-center gap-2.5 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-neutral-950 shrink-0" />

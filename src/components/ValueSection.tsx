@@ -26,7 +26,7 @@ export const ValueSection: React.FC = () => {
             Dual Perspective
           </h4>
           <p className="text-xs sm:text-sm text-neutral-800 leading-relaxed font-medium">
-            Combines deep administrative and workflow understanding with hard technical support skills (SQL, Fundamental CCNA, M365) to ensure systems support human workflows effectively.
+            Combines deep administrative and workflow understanding with hard technical support skills (Fundamental Network (CCNA), M365, workstation support) to ensure systems support human workflows effectively.
           </p>
         </div>
 

@@ -84,8 +84,8 @@ export const SimulatorSection: React.FC = () => {
                 onChange={(e) => handleScenarioChange(e.target.value)}
                 className="w-full bg-neutral-50 border border-neutral-300 text-neutral-950 text-sm rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-neutral-900 font-medium cursor-pointer"
               >
-                <option value="network">Network & Connectivity Bottleneck (CCNA)</option>
-                <option value="database">SQL Database Query / Data Discrepancy</option>
+                <option value="network">Network & Connectivity Diagnostics (Fundamental Network (CCNA))</option>
+                <option value="hardware">Workstation Hardware & OS Diagnostics</option>
                 <option value="m365">Microsoft 365 Role-Based Access & Licensing</option>
                 <option value="workflow">Departmental Administrative Bottleneck</option>
               </select>
@@ -109,7 +109,7 @@ export const SimulatorSection: React.FC = () => {
             <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200 text-[11px] text-neutral-800 flex items-start gap-2.5">
               <Cpu className="w-4 h-4 text-neutral-950 shrink-0 mt-0.5" />
               <span>
-                <strong className="text-neutral-950">Dual-layer execution:</strong> Combines CCNA/SQL technical diagnostics with administrative business process checks to ensure sustained resolution.
+                <strong className="text-neutral-950">Dual-layer execution:</strong> Combines Fundamental Network (CCNA) and hardware diagnostics with administrative business process checks to ensure sustained resolution.
               </span>
             </div>
           </div>

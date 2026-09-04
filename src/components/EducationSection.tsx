@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Network, Database, Award } from 'lucide-react';
+import { GraduationCap, Network, ShieldCheck, Award } from 'lucide-react';
 import { EDUCATION_DATA } from '../data';
 
 export const EducationSection: React.FC = () => {
@@ -9,8 +9,8 @@ export const EducationSection: React.FC = () => {
         return <GraduationCap className="w-5 h-5 text-neutral-950" />;
       case 'Network':
         return <Network className="w-5 h-5 text-neutral-950" />;
-      case 'Database':
-        return <Database className="w-5 h-5 text-neutral-950" />;
+      case 'ShieldCheck':
+        return <ShieldCheck className="w-5 h-5 text-neutral-950" />;
       default:
         return <Award className="w-5 h-5 text-neutral-950" />;
     }

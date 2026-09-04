@@ -14,8 +14,8 @@ export const PROFILE_INFO = {
   currentCompany: "CAPACITI",
   degree: "Diploma in Business & Information Administration (CPUT)",
   profileImage: profilePhoto,
-  summary: "Dedicated IT Technical Support in Cape Town, combining Business and Information Administration expertise from CPUT with hands-on technical skills in CCNA networking, SQL database management, Microsoft 365, and enterprise service desk operations.",
-  elevatorPitch: "I am an IT Technical Support with a strong background in Business and Information Administration, currently driving service excellence at CAPACITI. By combining technical proficiency in CCNA networking and SQL with a focus on operational excellence, I ensure that technology serves as a seamless backbone for organizational productivity."
+  summary: "Dedicated IT Technical Support in Cape Town, combining Business and Information Administration expertise from CPUT with hands-on technical skills in Fundamental Network (CCNA), Microsoft 365, workstation hardware diagnostics, and enterprise service desk operations.",
+  elevatorPitch: "I am an IT Technical Support with a strong background in Business and Information Administration, currently driving service excellence at CAPACITI. By combining technical proficiency in Fundamental Network (CCNA) and Microsoft 365 with a focus on operational excellence, I ensure that technology serves as a seamless backbone for organizational productivity."
 };
 
 export const SKILLS_DATA: SkillItem[] = [
@@ -27,9 +27,9 @@ export const SKILLS_DATA: SkillItem[] = [
     icon: 'Network',
     description: 'Hardware, routing, switching, and end-to-end network connectivity troubleshooting.',
     bullets: [
-      'Fundamental CCNA Networking (Routing & Switching)',
+      'Fundamental Network (CCNA) (Routing & Switching)',
       'Microsoft 365 & Azure AD Identity Administration',
-      'Database Systems & Server Connectivity',
+      'Hardware Diagnostics & Workstation Maintenance',
       'First-Line LAN/WAN & Gateway Troubleshooting'
     ]
   },
@@ -39,12 +39,12 @@ export const SKILLS_DATA: SkillItem[] = [
     category: 'enterprise',
     domain: 'Domain 2',
     icon: 'Layers',
-    description: 'Enterprise ERP platforms, databases, and structured ITSM service desk workflows.',
+    description: 'Enterprise ERP platforms, CRM systems, and structured ITSM service desk workflows.',
     bullets: [
       'SAP Enterprise Software & Module Navigation',
-      'SQL Queries & Relational Database Management',
-      'Enterprise CRM Systems & Customer Data Pipelines',
-      'ITSM & Service Desk Incident Ticketing'
+      'ITSM & Service Desk Incident Ticketing',
+      'Enterprise CRM Systems & User Account Management',
+      'SLA Compliance & Ticket Lifecycle Tracking'
     ]
   },
   {
@@ -192,38 +192,38 @@ export const EDUCATION_DATA: EducationItem[] = [
     institution: 'Cape Peninsula University of Technology (CPUT)',
     tag: 'Diploma',
     type: 'Higher Education Diploma',
-    details: 'Comprehensive grounding in administrative information systems, workflow design, database fundamentals, and enterprise organizational strategy.',
+    details: 'Comprehensive grounding in administrative information systems, workflow design, business records management, and enterprise organizational strategy.',
     icon: 'GraduationCap',
     badge: 'Systems & Admin Core'
   },
   {
     id: 'ccna-cert',
-    degree: 'Cisco Certified Network Associate (CCNA)',
+    degree: 'Fundamental Network (CCNA)',
     institution: 'Cisco Networking Academy',
     tag: 'Professional Track',
     type: 'Networking Certification Track',
     details: 'Mastery of TCP/IP, IP subnetting, VLAN segmentation, switch and router configuration, ping/traceroute network diagnostic methodologies.',
     icon: 'Network',
-    badge: 'Networking & Routing'
+    badge: 'Fundamental Network (CCNA)'
   },
   {
-    id: 'm365-db',
-    degree: 'Microsoft 365 & Database Administration',
+    id: 'm365-admin',
+    degree: 'Microsoft 365 & IT Systems Administration',
     institution: 'Enterprise Technical Training Modules',
     tag: 'Technical Modules',
-    type: 'Enterprise Cloud & DB Track',
-    details: 'Hands-on proficiency in Azure Active Directory / Entra ID, Microsoft 365 Admin Center, SQL query design, database schema management, and role-based access.',
-    icon: 'Database',
-    badge: 'Cloud & Relational DB'
+    type: 'Enterprise Cloud & Systems Track',
+    details: 'Hands-on proficiency in Azure Active Directory / Entra ID, Microsoft 365 Admin Center, workstation hardware diagnostics, and role-based access management.',
+    icon: 'ShieldCheck',
+    badge: 'Cloud & Systems Admin'
   }
 ];
 
 export const SCENARIOS: Record<string, Scenario> = {
   network: {
     id: 'network',
-    title: 'Network & Connectivity Bottleneck (CCNA)',
+    title: 'Network Connectivity & Gateway Diagnostics (Fundamental Network (CCNA))',
     category: 'Infrastructure',
-    description: 'User reports intermittent connectivity, packet dropouts, and slow cloud database sync within a branch office network.',
+    description: 'User reports intermittent connectivity, packet dropouts, and slow cloud sync within a branch office network.',
     resolutionTime: '< 15 mins',
     steps: [
       'First-Line Analysis: Execute ping, traceroute, and ARP table checks to isolate the packet loss hop.',
@@ -232,17 +232,17 @@ export const SCENARIOS: Record<string, Scenario> = {
       'Verification & Follow-up: Run continuous throughput benchmarks and confirm zero packet drop with the end-user.'
     ]
   },
-  database: {
-    id: 'database',
-    title: 'SQL Database Query / Data Discrepancy',
-    category: 'Database & SQL',
-    description: 'Administrative staff cannot extract weekly report metrics from the SQL database system due to execution timeouts and lock contention.',
+  hardware: {
+    id: 'hardware',
+    title: 'Workstation Hardware & OS Diagnostics',
+    category: 'Hardware & Systems',
+    description: 'Workstation boot failure with peripheral disconnects and system crash interrupting daily operational tasks.',
     resolutionTime: '< 20 mins',
     steps: [
-      'Incident Triage: Log ticket in ITSM tool, isolate query execution plan, and identify blocking database locks.',
-      'SQL Query Optimization: Refactor unindexed WHERE clauses and apply non-locking READ COMMITTED snapshot hints.',
-      'Workflow Automation: Schedule heavy batch metric extracts during off-peak windows via automated SQL Agent jobs.',
-      'Documentation & Training: Deliver parameterized query templates to administrative leads to prevent future table locks.'
+      'Incident Triage: Log ticket in ITSM tool, capture system crash stop code, and isolate failing hardware components.',
+      'Diagnostics & Testing: Test memory modules, examine system event logs, and execute system file integrity checks.',
+      'Hardware & Driver Remediation: Reseat internal connections, update conflicting drivers, and verify system temperatures.',
+      'Post-Repair Verification: Run automated diagnostic stress tests and confirm stable system recovery with the user.'
     ]
   },
   m365: {
@@ -266,7 +266,7 @@ export const SCENARIOS: Record<string, Scenario> = {
     resolutionTime: 'Process Transformation',
     steps: [
       'Workflow Mapping: Apply Business & Information Administration principles to pinpoint redundant manual review stages.',
-      'Digital Transformation: Replace paper forms with standardized digital Microsoft 365 Forms connected to a structured SQL database backend.',
+      'Digital Transformation: Replace paper forms with standardized digital Microsoft 365 Forms connected to structured operational registries.',
       'Administrative Training: Conduct interactive enablement session for operational staff on automated record validation.',
       'Impact Measurement: Eliminated duplicate data entry, reduced processing turnaround time from 3 days to under 2 hours.'
     ]

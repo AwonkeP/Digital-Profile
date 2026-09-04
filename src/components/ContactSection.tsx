@@ -21,7 +21,7 @@ Email: ${PROFILE_INFO.email}
 LinkedIn: ${PROFILE_INFO.linkedin}
 GitHub: ${PROFILE_INFO.github}
 Education: ${PROFILE_INFO.degree}
-Technical Domains: CCNA Networking, SQL Database Admin, Microsoft 365, SAP Enterprise, Workflow Automation.`;
+Technical Domains: Fundamental Network (CCNA), Microsoft 365, Hardware Diagnostics, SAP Enterprise, Workflow Automation.`;
 
     navigator.clipboard.writeText(summaryText).then(() => {
       setCopied(true);
@@ -58,7 +58,7 @@ Technical Domains: CCNA Networking, SQL Database Admin, Microsoft 365, SAP Enter
               Let's Optimize Your IT Infrastructure & Workflows
             </h3>
             <p className="text-neutral-700 text-sm sm:text-base leading-relaxed max-w-xl font-medium">
-              Whether you are looking for technical support leadership, network diagnostics, database management, or operational process optimization in Cape Town or remote teams, I am ready to add immediate value.
+              Whether you are looking for technical support leadership, Fundamental Network (CCNA) diagnostics, workstation maintenance, or operational process optimization in Cape Town or remote teams, I am ready to add immediate value.
             </p>
             
             <div className="pt-2 flex flex-wrap gap-2.5 text-xs sm:text-sm font-bold">

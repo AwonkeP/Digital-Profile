@@ -25,7 +25,7 @@ export const AboutSection: React.FC = () => {
             Currently serving as an <strong className="text-neutral-950 font-bold">IT Technical Support at CAPACITI</strong>, I deliver service desk management, first-line incident diagnostics, and user support. My experience spans diverse multi-tier environments—including the <strong className="text-neutral-950 font-bold">Passenger Rail Agency of South Africa (PRASA)</strong>, <strong className="text-neutral-950 font-bold">Western Cape Department of Education (WCED)</strong>, and <strong className="text-neutral-950 font-bold">Innovate Technology</strong>—providing me with a comprehensive grasp of both public and private sector enterprise technology needs.
           </p>
           <p>
-            Whether managing SQL relational databases, diagnosing CCNA-level network issues, or configuring Microsoft 365 permissions, my methodology centers on root-cause resolution, minimal user downtime, and clear inter-departmental communication.
+            Whether diagnosing Fundamental Network (CCNA) connectivity, managing workstation hardware, or configuring Microsoft 365 permissions, my methodology centers on root-cause resolution, minimal user downtime, and clear inter-departmental communication.
           </p>
 
           {/* Strategic Pillars Grid */}
