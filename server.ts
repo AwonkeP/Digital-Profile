@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
@@ -120,6 +121,17 @@ async function startServer() {
   const app = express();
   app.use(express.json({ limit: "5mb" }));
 
+  // Enable CORS & preflight handling so cross-origin, preview iframe, and deployed requests never fail
+  app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    if (req.method === "OPTIONS") {
+      return res.sendStatus(204);
+    }
+    next();
+  });
+
   // API Health Check
   app.get("/api/health", (req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
@@ -160,14 +172,14 @@ async function startServer() {
         parts: [{ text: message }],
       });
 
-      // Try candidate models with fallback for high-demand spikes (503)
-      const candidateModels = ["gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.1-flash-lite", "gemini-3.8-flash"];
+      // Valid Gemini models supported by @google/genai (fastest & highly available first)
+      const candidateModels = ["gemini-3.1-flash-lite", "gemini-3.8-flash", "gemini-flash-latest"];
       let replyText: string | null = null;
 
       for (const candidateModel of candidateModels) {
         try {
           const timeoutPromise = new Promise<never>((_, reject) =>
-            setTimeout(() => reject(new Error(`Timeout with ${candidateModel}`)), 7000)
+            setTimeout(() => reject(new Error(`Timeout with ${candidateModel}`)), 4500)
           );
 
           const response = await Promise.race([
@@ -209,7 +221,15 @@ async function startServer() {
   });
 
   // Handle Vite in dev or static files in production
-  const isProduction = process.env.NODE_ENV === "production" || (process.argv[1] && process.argv[1].includes("dist"));
+  const distPath = path.resolve(process.cwd(), "dist");
+  const indexPath = path.resolve(distPath, "index.html");
+  const distExists = fs.existsSync(indexPath);
+
+  const isProduction =
+    process.env.NODE_ENV === "production" ||
+    distExists ||
+    (process.argv[1] && process.argv[1].includes("dist"));
+
   if (!isProduction) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -217,8 +237,6 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), "dist");
-    const indexPath = path.join(distPath, "index.html");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
       res.sendFile(indexPath);

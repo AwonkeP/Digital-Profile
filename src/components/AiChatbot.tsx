@@ -3,6 +3,7 @@ import { Bot, X, Send, Sparkles, User, RefreshCw, MessageSquare } from 'lucide-r
 import Markdown from 'react-markdown';
 import { ChatMessage } from '../types';
 import { PROFILE_INFO } from '../data';
+import { resolveClientSideGroundedFallback } from '../utils/aiAssistantFallback';
 
 export const AiChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,21 +58,34 @@ export const AiChatbot: React.FC = () => {
         text: m.text,
       }));
 
-      const res = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: trimmed,
-          conversationHistory,
-        }),
-      });
+      let replyText = '';
 
-      if (!res.ok) {
-        throw new Error(`Server returned status ${res.status}`);
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: trimmed,
+            conversationHistory,
+          }),
+        });
+
+        if (res.ok) {
+          const contentType = res.headers.get('content-type') || '';
+          if (contentType.includes('application/json')) {
+            const data = await res.json();
+            if (data && typeof data.response === 'string' && data.response.trim()) {
+              replyText = data.response;
+            }
+          }
+        }
+      } catch (networkErr) {
+        console.warn('Network call to /api/chat failed, activating client fallback:', networkErr);
       }
 
-      const data = await res.json();
-      const replyText = data.response || "Awonke Philibane works in IT Technical Support in Cape Town. Feel free to contact him at Philibaneawonke@gmail.com!";
+      if (!replyText) {
+        replyText = resolveClientSideGroundedFallback(trimmed);
+      }
 
       const botMsg: ChatMessage = {
         id: `bot-${Date.now()}`,
@@ -82,11 +96,12 @@ export const AiChatbot: React.FC = () => {
 
       setMessages((prev) => [...prev, botMsg]);
     } catch (err) {
-      console.error('Chatbot fetch error:', err);
+      console.error('Chatbot processing error:', err);
+      const fallbackReply = resolveClientSideGroundedFallback(trimmed);
       const fallbackMsg: ChatMessage = {
         id: `bot-${Date.now()}`,
         role: 'assistant',
-        text: "Awonke Philibane works in IT Technical Support at CAPACITI in Cape Town, holding a Diploma in Business & Information Administration from CPUT. His verified profile highlights expertise in **Fundamental Network (CCNA)**, Microsoft 365 / Azure AD administration, PC workstation hardware diagnostics, and enterprise service desk operations. You can reach him directly at Philibaneawonke@gmail.com!",
+        text: fallbackReply,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
       setMessages((prev) => [...prev, fallbackMsg]);
