@@ -33,18 +33,18 @@ export const SimulatorSection: React.FC = () => {
 
   return (
     <section id="simulator" className="pt-10 scroll-mt-20">
-      <div className="p-6 sm:p-8 rounded-3xl bg-white text-neutral-950 shadow-md space-y-6 border border-neutral-200">
+      <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900 text-neutral-950 dark:text-neutral-100 shadow-md space-y-6 border border-neutral-200 dark:border-neutral-800">
         
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200 pb-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-neutral-200 dark:border-neutral-800 pb-5">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-ping"></span>
-              <span className="text-xs font-bold text-neutral-900 uppercase tracking-wider">
+              <span className="text-xs font-bold text-neutral-900 dark:text-neutral-400 uppercase tracking-wider">
                 Interactive Support Sandbox
               </span>
             </div>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-950">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-950 dark:text-white">
               Awonke's IT Resolution Approach Simulator
             </h3>
           </div>
@@ -53,7 +53,7 @@ export const SimulatorSection: React.FC = () => {
             <button
               onClick={runLiveSimulation}
               disabled={isSimulating}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-950 hover:bg-neutral-800 disabled:opacity-50 text-white text-xs font-bold transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 disabled:opacity-50 text-white dark:text-neutral-950 text-xs font-bold transition-all shadow-sm"
             >
               {isSimulating ? (
                 <>
@@ -75,14 +75,14 @@ export const SimulatorSection: React.FC = () => {
           {/* Left Column: Selector & Details */}
           <div className="lg:col-span-5 space-y-4">
             <div>
-              <label htmlFor="scenarioSelect" className="block text-xs font-bold text-neutral-800 uppercase tracking-wider mb-2">
+              <label htmlFor="scenarioSelect" className="block text-xs font-bold text-neutral-800 dark:text-neutral-300 uppercase tracking-wider mb-2">
                 Select Incident Scenario:
               </label>
               <select
                 id="scenarioSelect"
                 value={selectedScenarioKey}
                 onChange={(e) => handleScenarioChange(e.target.value)}
-                className="w-full bg-neutral-50 border border-neutral-300 text-neutral-950 text-sm rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-neutral-900 font-medium cursor-pointer"
+                className="w-full bg-neutral-50 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-neutral-950 dark:text-white text-sm rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-white font-medium cursor-pointer"
               >
                 <option value="network">Network & Connectivity Diagnostics (Fundamental Network (CCNA))</option>
                 <option value="hardware">Workstation Hardware & OS Diagnostics</option>
@@ -92,36 +92,36 @@ export const SimulatorSection: React.FC = () => {
             </div>
 
             {/* Scenario Description Card */}
-            <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-2">
-              <div className="flex items-center justify-between text-xs text-neutral-950 font-bold">
+            <div className="p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 space-y-2">
+              <div className="flex items-center justify-between text-xs text-neutral-950 dark:text-white font-bold">
                 <span className="uppercase">{currentScenario.category}</span>
-                <span className="flex items-center gap-1 text-neutral-700">
+                <span className="flex items-center gap-1 text-neutral-700 dark:text-neutral-400">
                   <Clock className="w-3 h-3" />
                   <span>Target SLA: {currentScenario.resolutionTime}</span>
                 </span>
               </div>
-              <p className="text-xs text-neutral-800 leading-relaxed font-medium">
+              <p className="text-xs text-neutral-800 dark:text-neutral-300 leading-relaxed font-medium">
                 {currentScenario.description}
               </p>
             </div>
 
             {/* Resolution Strategy Philosophy */}
-            <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200 text-[11px] text-neutral-800 flex items-start gap-2.5">
-              <Cpu className="w-4 h-4 text-neutral-950 shrink-0 mt-0.5" />
+            <div className="p-3.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 text-[11px] text-neutral-800 dark:text-neutral-300 flex items-start gap-2.5">
+              <Cpu className="w-4 h-4 text-neutral-950 dark:text-white shrink-0 mt-0.5" />
               <span>
-                <strong className="text-neutral-950">Dual-layer execution:</strong> Combines Fundamental Network (CCNA) and hardware diagnostics with administrative business process checks to ensure sustained resolution.
+                <strong className="text-neutral-950 dark:text-white">Dual-layer execution:</strong> Combines Fundamental Network (CCNA) and hardware diagnostics with administrative business process checks to ensure sustained resolution.
               </span>
             </div>
           </div>
 
           {/* Right Column: Dynamic Terminal / Output Steps */}
-          <div className="lg:col-span-7 p-4 sm:p-5 rounded-2xl bg-neutral-50 border border-neutral-300 font-mono text-xs space-y-3 shadow-inner">
-            <div className="text-neutral-700 border-b border-neutral-300 pb-2.5 flex items-center justify-between">
-              <span className="flex items-center gap-2 text-neutral-950 font-bold">
-                <Terminal className="w-4 h-4 text-neutral-950" />
+          <div className="lg:col-span-7 p-4 sm:p-5 rounded-2xl bg-neutral-50 dark:bg-neutral-950 border border-neutral-300 dark:border-neutral-800 font-mono text-xs space-y-3 shadow-inner">
+            <div className="text-neutral-700 dark:text-neutral-400 border-b border-neutral-300 dark:border-neutral-800 pb-2.5 flex items-center justify-between">
+              <span className="flex items-center gap-2 text-neutral-950 dark:text-white font-bold">
+                <Terminal className="w-4 h-4 text-neutral-950 dark:text-white" />
                 <span>// AWONKE_IT_SOP_RESOLUTION_LOGS</span>
               </span>
-              <span className="text-neutral-950 text-[11px] font-bold">
+              <span className="text-neutral-950 dark:text-neutral-300 text-[11px] font-bold">
                 {activeStepIndex} of {currentScenario.steps.length} Steps Active
               </span>
             </div>
@@ -136,19 +136,19 @@ export const SimulatorSection: React.FC = () => {
                     key={idx}
                     className={`p-3 rounded-xl border transition-all ${
                       isExecuted
-                        ? 'bg-white border-neutral-300 text-neutral-950 font-medium'
+                        ? 'bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700 text-neutral-950 dark:text-neutral-100 font-medium'
                         : isCurrent
-                        ? 'bg-neutral-200 border-neutral-400 text-neutral-950 animate-pulse font-bold'
-                        : 'bg-neutral-100/60 border-neutral-200 text-neutral-500'
+                        ? 'bg-neutral-200 dark:bg-neutral-800 border-neutral-400 dark:border-neutral-600 text-neutral-950 dark:text-white animate-pulse font-bold'
+                        : 'bg-neutral-100/60 dark:bg-neutral-900/40 border-neutral-200 dark:border-neutral-800 text-neutral-500 dark:text-neutral-500'
                     } flex items-start gap-2.5`}
                   >
                     <div className="mt-0.5 shrink-0">
                       {isExecuted ? (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                       ) : isCurrent ? (
-                        <RefreshCw className="w-4 h-4 text-neutral-950 animate-spin" />
+                        <RefreshCw className="w-4 h-4 text-neutral-950 dark:text-white animate-spin" />
                       ) : (
-                        <span className="w-4 h-4 rounded-full border border-neutral-300 flex items-center justify-center text-[10px] text-neutral-500">
+                        <span className="w-4 h-4 rounded-full border border-neutral-300 dark:border-neutral-700 flex items-center justify-center text-[10px] text-neutral-500">
                           {idx + 1}
                         </span>
                       )}
@@ -162,7 +162,7 @@ export const SimulatorSection: React.FC = () => {
             </div>
 
             {activeStepIndex >= currentScenario.steps.length && (
-              <div className="pt-2 text-[11px] text-emerald-700 font-bold flex items-center gap-2">
+              <div className="pt-2 text-[11px] text-emerald-700 dark:text-emerald-400 font-bold flex items-center gap-2">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Status: Incident fully resolved with root cause documented & verified.</span>
               </div>

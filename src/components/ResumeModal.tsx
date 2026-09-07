@@ -55,16 +55,16 @@ EDUCATION & QUALIFICATIONS
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white w-full max-w-4xl max-h-[90vh] rounded-3xl shadow-2xl border border-neutral-300 flex flex-col overflow-hidden text-neutral-950">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
+      <div className="bg-white dark:bg-neutral-900 w-full max-w-4xl max-h-[90vh] rounded-3xl shadow-2xl border border-neutral-300 dark:border-neutral-800 flex flex-col overflow-hidden text-neutral-950 dark:text-neutral-100">
         
         {/* Modal Top Bar */}
-        <div className="px-6 py-4 border-b border-neutral-200 flex items-center justify-between bg-neutral-50 shrink-0">
+        <div className="px-6 py-4 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between bg-neutral-50 dark:bg-neutral-950 shrink-0">
           <div className="flex items-center gap-2.5">
-            <span className="font-extrabold text-neutral-950 text-base sm:text-lg">
+            <span className="font-extrabold text-neutral-950 dark:text-white text-base sm:text-lg">
               Awonke Philibane - Curriculum Vitae
             </span>
-            <span className="text-xs bg-neutral-200 text-neutral-900 font-bold px-2.5 py-0.5 rounded-full border border-neutral-300">
+            <span className="text-xs bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-200 font-bold px-2.5 py-0.5 rounded-full border border-neutral-300 dark:border-neutral-700">
               Verified
             </span>
           </div>
@@ -72,15 +72,15 @@ EDUCATION & QUALIFICATIONS
           <div className="flex items-center gap-2">
             <button
               onClick={handleCopyCV}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-300 text-xs font-bold transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 text-xs font-bold transition-colors"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-neutral-900" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-neutral-900 dark:text-neutral-100" />}
               <span>{copied ? 'Copied' : 'Copy Text'}</span>
             </button>
 
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-bold transition-colors shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-neutral-950 text-xs font-bold transition-colors shadow-sm"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print / PDF</span>
@@ -88,7 +88,7 @@ EDUCATION & QUALIFICATIONS
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl text-neutral-500 hover:text-neutral-950 hover:bg-neutral-200 transition-colors"
+              className="p-1.5 rounded-xl text-neutral-500 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -96,28 +96,28 @@ EDUCATION & QUALIFICATIONS
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="flex-1 p-6 sm:p-8 overflow-y-auto space-y-6 text-neutral-900 text-xs sm:text-sm">
+        <div className="flex-1 p-6 sm:p-8 overflow-y-auto space-y-6 text-neutral-900 dark:text-neutral-200 text-xs sm:text-sm">
           
           {/* Resume Header */}
-          <div className="border-b border-neutral-200 pb-6 flex flex-col sm:flex-row items-center sm:items-start gap-5">
+          <div className="border-b border-neutral-200 dark:border-neutral-800 pb-6 flex flex-col sm:flex-row items-center sm:items-start gap-5">
             <img
               id="resume-profile-photo"
               src={PROFILE_INFO.profileImage}
               alt={PROFILE_INFO.name}
               referrerPolicy="no-referrer"
-              className="w-20 h-20 rounded-full object-cover ring-2 ring-neutral-950 border-2 border-white shadow-md shrink-0"
+              className="w-20 h-20 rounded-full object-cover ring-2 ring-neutral-950 dark:ring-white border-2 border-white dark:border-neutral-900 shadow-md shrink-0"
             />
             <div className="space-y-1.5 text-center sm:text-left flex-1">
-              <h1 className="text-2xl sm:text-3xl font-black text-neutral-950 tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-neutral-950 dark:text-white tracking-tight">
                 {PROFILE_INFO.name}
               </h1>
-              <p className="text-sm font-bold text-neutral-800">
+              <p className="text-sm font-bold text-neutral-800 dark:text-neutral-300">
                 {PROFILE_INFO.headline}
               </p>
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-xs text-neutral-600 pt-1 font-medium">
-                <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-neutral-950" /> {PROFILE_INFO.location}</span>
-                <a href={`mailto:${PROFILE_INFO.email}`} className="flex items-center gap-1 hover:text-black transition-colors">
-                  <Mail className="w-3.5 h-3.5 text-neutral-950" /> {PROFILE_INFO.email}
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-2 text-xs text-neutral-600 dark:text-neutral-400 pt-1 font-medium">
+                <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-neutral-950 dark:text-white" /> {PROFILE_INFO.location}</span>
+                <a href={`mailto:${PROFILE_INFO.email}`} className="flex items-center gap-1 hover:text-black dark:hover:text-white transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-neutral-950 dark:text-white" /> {PROFILE_INFO.email}
                 </a>
                 <a
                   href={PROFILE_INFO.linkedin}
@@ -132,7 +132,7 @@ EDUCATION & QUALIFICATIONS
                   href={PROFILE_INFO.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-neutral-950 hover:underline font-bold"
+                  className="flex items-center gap-1 text-neutral-950 dark:text-white hover:underline font-bold"
                 >
                   <Github className="w-3.5 h-3.5" />
                   <span>github.com/{PROFILE_INFO.githubHandle}</span>
@@ -143,27 +143,27 @@ EDUCATION & QUALIFICATIONS
 
           {/* Professional Summary */}
           <div className="space-y-2">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-400">
               Executive Profile & Focus
             </h2>
-            <p className="text-neutral-800 leading-relaxed font-medium">
+            <p className="text-neutral-800 dark:text-neutral-300 leading-relaxed font-medium">
               {PROFILE_INFO.summary}
             </p>
           </div>
 
           {/* Core Competencies Matrix */}
           <div className="space-y-2">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-400">
               Technical & Operational Competencies
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
               {SKILLS_DATA.map((s) => (
-                <div key={s.id} className="p-3 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-1">
-                  <div className="font-bold text-neutral-950 text-xs">{s.name}</div>
-                  <ul className="text-[11px] text-neutral-700 space-y-0.5 font-medium">
+                <div key={s.id} className="p-3 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 space-y-1">
+                  <div className="font-bold text-neutral-950 dark:text-white text-xs">{s.name}</div>
+                  <ul className="text-[11px] text-neutral-700 dark:text-neutral-300 space-y-0.5 font-medium">
                     {s.bullets.map((b, bIdx) => (
                       <li key={bIdx} className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-900"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 dark:bg-neutral-200"></span>
                         <span>{b}</span>
                       </li>
                     ))}
@@ -175,30 +175,30 @@ EDUCATION & QUALIFICATIONS
 
           {/* Professional Experience */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-400">
               Work Experience
             </h2>
             <div className="space-y-4">
               {EXPERIENCE_DATA.map((exp) => (
-                <div key={exp.id} className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-2">
+                <div key={exp.id} className="p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 space-y-2">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <div>
-                      <span className="font-extrabold text-neutral-950 text-sm">
+                      <span className="font-extrabold text-neutral-950 dark:text-white text-sm">
                         {exp.role}
                       </span>
-                      <span className="text-neutral-600 font-medium"> — {exp.company}</span>
+                      <span className="text-neutral-600 dark:text-neutral-400 font-medium"> — {exp.company}</span>
                     </div>
-                    <span className="text-[11px] font-bold text-neutral-900 bg-neutral-200 px-2 py-0.5 rounded-md border border-neutral-300">
+                    <span className="text-[11px] font-bold text-neutral-900 dark:text-neutral-200 bg-neutral-200 dark:bg-neutral-700 px-2 py-0.5 rounded-md border border-neutral-300 dark:border-neutral-600">
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-xs text-neutral-800 font-medium">
+                  <p className="text-xs text-neutral-800 dark:text-neutral-300 font-medium">
                     {exp.summary}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
                     {exp.highlights.map((hl, hIdx) => (
-                      <div key={hIdx} className="text-[11px] text-neutral-700 font-medium">
-                        <strong className="text-neutral-950">{hl.title}:</strong> {hl.desc}
+                      <div key={hIdx} className="text-[11px] text-neutral-700 dark:text-neutral-300 font-medium">
+                        <strong className="text-neutral-950 dark:text-white">{hl.title}:</strong> {hl.desc}
                       </div>
                     ))}
                   </div>
@@ -209,15 +209,15 @@ EDUCATION & QUALIFICATIONS
 
           {/* Education & Qualifications */}
           <div className="space-y-3">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-400">
               Education & Certifications
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {EDUCATION_DATA.map((edu) => (
-                <div key={edu.id} className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-200 space-y-1">
-                  <div className="text-[10px] font-bold uppercase text-neutral-900">{edu.tag}</div>
-                  <div className="font-bold text-neutral-950 text-xs">{edu.degree}</div>
-                  <div className="text-[11px] text-neutral-600 font-medium">{edu.institution}</div>
+                <div key={edu.id} className="p-3.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 space-y-1">
+                  <div className="text-[10px] font-bold uppercase text-neutral-900 dark:text-neutral-300">{edu.tag}</div>
+                  <div className="font-bold text-neutral-950 dark:text-white text-xs">{edu.degree}</div>
+                  <div className="text-[11px] text-neutral-600 dark:text-neutral-400 font-medium">{edu.institution}</div>
                 </div>
               ))}
             </div>
@@ -226,11 +226,11 @@ EDUCATION & QUALIFICATIONS
         </div>
 
         {/* Modal Footer */}
-        <div className="px-6 py-4 border-t border-neutral-200 bg-neutral-50 flex items-center justify-between shrink-0 text-xs text-neutral-600 font-medium">
+        <div className="px-6 py-4 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 flex items-center justify-between shrink-0 text-xs text-neutral-600 dark:text-neutral-400 font-medium">
           <span>Awonke Philibane • Cape Town, South Africa</span>
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-xl bg-neutral-950 text-white font-bold hover:bg-neutral-800 transition-colors"
+            className="px-4 py-2 rounded-xl bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-bold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
           >
             Close
           </button>

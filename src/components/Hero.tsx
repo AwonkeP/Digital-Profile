@@ -15,39 +15,39 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
         <div className="lg:col-span-8 space-y-6">
           
           {/* Active Status Badge */}
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-300 text-neutral-900 text-xs font-bold tracking-wide uppercase">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-neutral-100 text-xs font-bold tracking-wide uppercase">
             <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
             Active IT Support @ CAPACITI
           </div>
 
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-neutral-950 tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-neutral-950 dark:text-white tracking-tight leading-[1.15]">
               IT Technical Support
-              <span className="block text-neutral-900 mt-1 font-bold">
+              <span className="block text-neutral-900 dark:text-neutral-200 mt-1 font-bold">
                 Optimizing Systems & Business Workflows
               </span>
             </h1>
-            <p className="text-sm sm:text-base text-neutral-700 leading-relaxed max-w-2xl pt-1">
+            <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed max-w-2xl pt-1">
               {PROFILE_INFO.elevatorPitch}
             </p>
           </div>
 
           {/* Key Competency Pills */}
           <div className="flex flex-wrap gap-2.5 pt-1">
-            <div className="px-3.5 py-1.5 rounded-xl bg-white border border-neutral-300 text-xs font-bold text-neutral-950 flex items-center gap-2 shadow-xs">
-              <Network className="w-3.5 h-3.5 text-neutral-950" />
+            <div className="px-3.5 py-1.5 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-950 dark:text-neutral-100 flex items-center gap-2 shadow-xs">
+              <Network className="w-3.5 h-3.5 text-neutral-950 dark:text-white" />
               <span>Fundamental Network (CCNA)</span>
             </div>
-            <div className="px-3.5 py-1.5 rounded-xl bg-white border border-neutral-300 text-xs font-bold text-neutral-950 flex items-center gap-2 shadow-xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-neutral-950" />
+            <div className="px-3.5 py-1.5 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-950 dark:text-neutral-100 flex items-center gap-2 shadow-xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-neutral-950 dark:text-white" />
               <span>Hardware & Systems Support</span>
             </div>
-            <div className="px-3.5 py-1.5 rounded-xl bg-white border border-neutral-300 text-xs font-bold text-neutral-950 flex items-center gap-2 shadow-xs">
-              <Layers className="w-3.5 h-3.5 text-neutral-950" />
+            <div className="px-3.5 py-1.5 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-950 dark:text-neutral-100 flex items-center gap-2 shadow-xs">
+              <Layers className="w-3.5 h-3.5 text-neutral-950 dark:text-white" />
               <span>M365 & SAP Admin</span>
             </div>
-            <div className="px-3.5 py-1.5 rounded-xl bg-white border border-neutral-300 text-xs font-bold text-neutral-950 flex items-center gap-2 shadow-xs">
-              <GraduationCap className="w-3.5 h-3.5 text-neutral-950" />
+            <div className="px-3.5 py-1.5 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-xs font-bold text-neutral-950 dark:text-neutral-100 flex items-center gap-2 shadow-xs">
+              <GraduationCap className="w-3.5 h-3.5 text-neutral-950 dark:text-white" />
               <span>CPUT Diploma Graduate</span>
             </div>
           </div>
@@ -57,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             <a
               id="hero-contact-cta"
               href="#contact"
-              className="px-5 py-2.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 text-white font-bold text-sm shadow-md transition-all flex items-center gap-2"
+              className="px-5 py-2.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-200 text-white dark:text-neutral-950 font-bold text-sm shadow-md transition-all flex items-center gap-2"
             >
               <Send className="w-4 h-4" />
               <span>Get in Touch</span>
@@ -66,19 +66,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             <a
               id="hero-experience-cta"
               href="#experience"
-              className="px-5 py-2.5 rounded-xl bg-white hover:bg-neutral-100 text-neutral-950 border border-neutral-300 font-bold text-sm transition-colors flex items-center gap-2 shadow-xs"
+              className="px-5 py-2.5 rounded-xl bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-950 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 font-bold text-sm transition-colors flex items-center gap-2 shadow-xs"
             >
-              <Briefcase className="w-4 h-4 text-neutral-950" />
+              <Briefcase className="w-4 h-4 text-neutral-950 dark:text-neutral-100" />
               <span>Experience</span>
             </a>
 
             <button
               id="hero-view-cv-cta"
               onClick={onOpenResume}
-              className="px-4 py-2.5 rounded-xl bg-white hover:bg-neutral-100 text-neutral-950 font-bold text-sm border border-neutral-300 transition-colors flex items-center gap-1.5 shadow-xs"
+              className="px-4 py-2.5 rounded-xl bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-950 dark:text-neutral-100 font-bold text-sm border border-neutral-300 dark:border-neutral-700 transition-colors flex items-center gap-1.5 shadow-xs"
             >
               <span>View CV</span>
-              <ArrowUpRight className="w-4 h-4 text-neutral-950" />
+              <ArrowUpRight className="w-4 h-4 text-neutral-950 dark:text-neutral-100" />
             </button>
 
             {/* Social Profile Quick Links */}
@@ -89,7 +89,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="LinkedIn Profile"
-                className="p-2.5 rounded-xl bg-white hover:bg-neutral-100 text-neutral-950 border border-neutral-300 transition-all flex items-center gap-1.5 text-xs font-bold shadow-xs"
+                className="p-2.5 rounded-xl bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-950 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 transition-all flex items-center gap-1.5 text-xs font-bold shadow-xs"
               >
                 <Linkedin className="w-4 h-4 text-[#0077B5] shrink-0" />
                 <span className="hidden sm:inline">LinkedIn</span>
@@ -101,9 +101,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="GitHub Profile"
-                className="p-2.5 rounded-xl bg-white hover:bg-neutral-100 text-neutral-950 border border-neutral-300 transition-all flex items-center gap-1.5 text-xs font-bold shadow-xs"
+                className="p-2.5 rounded-xl bg-white dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-950 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 transition-all flex items-center gap-1.5 text-xs font-bold shadow-xs"
               >
-                <Github className="w-4 h-4 text-neutral-950 shrink-0" />
+                <Github className="w-4 h-4 text-neutral-950 dark:text-neutral-100 shrink-0" />
                 <span className="hidden sm:inline">GitHub</span>
               </a>
             </div>
@@ -113,39 +113,39 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
 
         {/* Right Column: Profile Identity Card with Round Circle Photo */}
         <div className="lg:col-span-4">
-          <div className="p-6 rounded-3xl bg-white border border-neutral-300 shadow-md space-y-5">
+          <div className="p-6 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 shadow-md space-y-5">
             
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 text-center sm:text-left">
               {/* Round Circle Picture */}
               <div className="relative shrink-0">
-                <div className="w-24 h-24 sm:w-20 sm:h-20 rounded-full p-1 bg-neutral-900 shadow-md">
+                <div className="w-24 h-24 sm:w-20 sm:h-20 rounded-full p-1 bg-neutral-900 dark:bg-neutral-700 shadow-md">
                   <img
                     id="hero-profile-avatar"
                     src={PROFILE_INFO.profileImage}
                     alt={PROFILE_INFO.name}
                     referrerPolicy="no-referrer"
-                    className="w-full h-full rounded-full object-cover border-2 border-white"
+                    className="w-full h-full rounded-full object-cover border-2 border-white dark:border-neutral-800"
                   />
                 </div>
                 {/* Active Indicator Dot */}
                 <span
                   title="Active IT Technical Support"
-                  className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white shadow-sm"
+                  className="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-neutral-900 shadow-sm"
                 />
               </div>
 
               <div>
-                <h2 className="font-extrabold text-neutral-950 text-lg leading-tight">
+                <h2 className="font-extrabold text-neutral-950 dark:text-white text-lg leading-tight">
                   {PROFILE_INFO.name}
                 </h2>
-                <p className="text-xs text-neutral-900 font-bold mt-0.5">
+                <p className="text-xs text-neutral-900 dark:text-neutral-200 font-bold mt-0.5">
                   {PROFILE_INFO.role}
                 </p>
-                <p className="text-xs text-neutral-700 flex items-center justify-center sm:justify-start gap-1 mt-0.5 font-medium">
-                  <MapPin className="w-3 h-3 text-neutral-950" />
+                <p className="text-xs text-neutral-700 dark:text-neutral-400 flex items-center justify-center sm:justify-start gap-1 mt-0.5 font-medium">
+                  <MapPin className="w-3 h-3 text-neutral-950 dark:text-neutral-200" />
                   <span>Cape Town, South Africa</span>
                 </p>
-                <div className="mt-1.5 flex items-center justify-center sm:justify-start gap-1.5 text-xs text-neutral-950 font-bold">
+                <div className="mt-1.5 flex items-center justify-center sm:justify-start gap-1.5 text-xs text-neutral-950 dark:text-white font-bold">
                   <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                   <span>Ready for IT & Systems Roles</span>
                 </div>
@@ -159,7 +159,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                 href={PROFILE_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-neutral-50 hover:bg-neutral-100 text-neutral-950 border border-neutral-300 text-xs font-bold transition-colors"
+                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-950 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 text-xs font-bold transition-colors"
               >
                 <Linkedin className="w-3.5 h-3.5 text-[#0077B5]" />
                 <span>LinkedIn</span>
@@ -169,26 +169,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                 href={PROFILE_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-neutral-50 hover:bg-neutral-100 text-neutral-950 border border-neutral-300 text-xs font-bold transition-colors"
+                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-neutral-50 dark:bg-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-700 text-neutral-950 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 text-xs font-bold transition-colors"
               >
-                <Github className="w-3.5 h-3.5 text-neutral-950" />
+                <Github className="w-3.5 h-3.5 text-neutral-950 dark:text-neutral-100" />
                 <span>GitHub</span>
               </a>
             </div>
 
-            <hr className="border-neutral-200" />
+            <hr className="border-neutral-200 dark:border-neutral-800" />
 
             {/* Quick Stats */}
             <div className="grid grid-cols-2 gap-3.5">
-              <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-300">
-                <div className="text-2xl font-black text-neutral-950">4+</div>
-                <div className="text-xs text-neutral-700 font-bold mt-0.5">
+              <div className="p-3.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-300 dark:border-neutral-700">
+                <div className="text-2xl font-black text-neutral-950 dark:text-white">4+</div>
+                <div className="text-xs text-neutral-700 dark:text-neutral-400 font-bold mt-0.5">
                   Enterprise Roles
                 </div>
               </div>
-              <div className="p-3.5 rounded-2xl bg-neutral-50 border border-neutral-300">
-                <div className="text-xl font-black text-neutral-950">CPUT</div>
-                <div className="text-xs text-neutral-700 font-bold mt-0.5">
+              <div className="p-3.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/80 border border-neutral-300 dark:border-neutral-700">
+                <div className="text-xl font-black text-neutral-950 dark:text-white">CPUT</div>
+                <div className="text-xs text-neutral-700 dark:text-neutral-400 font-bold mt-0.5">
                   Diploma
                 </div>
               </div>
@@ -196,24 +196,24 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
 
             {/* Focus Highlights */}
             <div className="space-y-2.5">
-              <div className="text-xs font-bold uppercase text-neutral-700 tracking-wider">
+              <div className="text-xs font-bold uppercase text-neutral-700 dark:text-neutral-400 tracking-wider">
                 Support Pillars
               </div>
-              <ul className="space-y-2 text-xs sm:text-sm text-neutral-900">
+              <ul className="space-y-2 text-xs sm:text-sm text-neutral-900 dark:text-neutral-200">
                 <li className="flex items-center gap-2.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-neutral-950 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-neutral-950 dark:text-neutral-200 shrink-0" />
                   <span>First-Line Incident Diagnostics</span>
                 </li>
                 <li className="flex items-center gap-2.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-neutral-950 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-neutral-950 dark:text-neutral-200 shrink-0" />
                   <span>Fixing Slowdowns</span>
                 </li>
                 <li className="flex items-center gap-2.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-neutral-950 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-neutral-950 dark:text-neutral-200 shrink-0" />
                   <span>Fundamental Network & Systems Maintenance</span>
                 </li>
                 <li className="flex items-center gap-2.5 font-medium">
-                  <CheckCircle2 className="w-4 h-4 text-neutral-950 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-neutral-950 dark:text-neutral-200 shrink-0" />
                   <span>Public & Private Sector Experience</span>
                 </li>
               </ul>
