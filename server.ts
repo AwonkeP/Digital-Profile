@@ -57,6 +57,10 @@ Awonke Philibane's Verified Profile Information:
   * PRASA (Passenger Rail Agency of South Africa): Administrative strategy, enterprise information systems, documentation flows, and transport operations data.
   * WCED (Western Cape Department of Education): Data systems management, educational administration, administrative documentation, and user technical support.
   * Innovate Technology: Managed IT service delivery, PC hardware diagnostics, software troubleshooting, preventative maintenance, updates, and client satisfaction.
+- Key Projects:
+  * TechnoResolve Desk (CAPACITI Enterprise IT Service Desk): Collaborative tier-based ITSM platform featuring role portals for Admins, Technicians, and Customers, AI ticket classification, and real-time Firestore persistence. Repository: https://github.com/AvumileTati/CAPACITI-Project
+  * Fundamental Network (CCNA) Multi-VLAN Subnetting & Gateway Infrastructure: Enterprise branch office simulation with 802.1Q encapsulation and DHCP snooping.
+  * Microsoft 365 & Azure AD Identity Administration: Cloud user provisioning, MFA deployment, and least-privilege RBAC.
 - Core Value Proposition:
   * Dual Perspective: Combines deep administrative and workflow understanding with hard technical support skills (Fundamental Network (CCNA), M365, workstation support) to ensure systems support human workflows.
   * Proactive Diagnostics: Shifts IT from reactive ticket-fixing to root-cause analysis, preventing repeat incidents.
@@ -83,7 +87,11 @@ function resolveStrictGroundedFallback(message: string): string {
   }
 
   if (lower.includes("github") || lower.includes("repo") || lower.includes("git")) {
-    return "You can explore Awonke's GitHub profile directly at [github.com/AwonkeP](https://github.com/AwonkeP).\n\nCan I help you with any other details from his profile?";
+    return "You can explore Awonke's GitHub repositories:\n- **Digital Profile (This Portfolio)**: [github.com/AwonkeP/Digital-Profile](https://github.com/AwonkeP/Digital-Profile)\n- **TechnoResolve Desk (CAPACITI Collaborative Project)**: [github.com/AvumileTati/CAPACITI-Project](https://github.com/AvumileTati/CAPACITI-Project)\n- **GitHub Profile**: [github.com/AwonkeP](https://github.com/AwonkeP)\n\nCan I help you with any other details from his profile?";
+  }
+
+  if (lower.includes("project") || lower.includes("technoresolve") || lower.includes("capaciti-project") || lower.includes("digital-profile")) {
+    return "Awonke's featured projects include:\n- **TechnoResolve Desk (CAPACITI Project)**: Enterprise tiered ITSM support portal with multi-role portals (Admin, Technician, Customer), AI ticket triage, and Firestore persistence. [View on GitHub](https://github.com/AvumileTati/CAPACITI-Project)\n- **Interactive Digital Profile**: Full-stack portfolio and technical architecture showcase with Gemini AI integration. [View on GitHub](https://github.com/AwonkeP/Digital-Profile)\n- **Fundamental Network (CCNA) Multi-VLAN Subnetting**: Branch office network simulation with 802.1Q encapsulation.\n- **Microsoft 365 & Azure AD Identity Administration**: Cloud onboarding automation & MFA security.\n\nWould you like more technical details on any of these?";
   }
 
   if (lower.includes("contact") || lower.includes("email") || lower.includes("hire") || lower.includes("reach") || lower.includes("linkedin") || lower.includes("phone")) {

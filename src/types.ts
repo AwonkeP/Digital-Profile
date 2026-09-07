@@ -45,6 +45,8 @@ export interface ProjectItem {
   technologies: string[];
   status: string;
   icon: string;
+  badge?: string;
+  featured?: boolean;
   projectUrl?: string;
   githubUrl?: string;
 }

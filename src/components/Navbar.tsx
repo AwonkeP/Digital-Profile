@@ -19,13 +19,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
     { id: 'skills', label: 'Skills', href: '#skills' },
     { id: 'experience', label: 'Experience', href: '#experience' },
     { id: 'education', label: 'Education', href: '#education' },
-    { id: 'value', label: 'Value', href: '#value' },
     { id: 'projects', label: 'Projects', href: '#projects' },
     { id: 'contact', label: 'Contact', href: '#contact' },
   ];
 
   useEffect(() => {
-    const sectionIds = ['about', 'skills', 'experience', 'education', 'value', 'projects', 'contact'];
+    const sectionIds = ['about', 'skills', 'experience', 'education', 'projects', 'contact'];
 
     // Read initial hash from URL if present
     const currentHash = window.location.hash.replace('#', '');

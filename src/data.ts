@@ -11,6 +11,7 @@ export const PROFILE_INFO = {
   linkedinHandle: "awonke-philibane-710aaa103",
   github: "https://github.com/AwonkeP",
   githubHandle: "AwonkeP",
+  githubRepo: "https://github.com/AwonkeP/Digital-Profile",
   currentCompany: "CAPACITI",
   degree: "Diploma in Business & Information Administration (CPUT)",
   profileImage: profilePhoto,
@@ -275,68 +276,40 @@ export const SCENARIOS: Record<string, Scenario> = {
 
 export const PROJECTS_DATA: ProjectItem[] = [
   {
-    id: 'cisco-network-topology',
-    title: 'Fundamental Network (CCNA) Multi-VLAN Subnetting & Gateway Infrastructure',
-    category: 'Infrastructure & Networking',
-    summary: 'Branch network architecture simulation featuring multi-VLAN segmentation, inter-VLAN routing, and hardened gateway diagnostics.',
-    description: 'Engineered and tested an enterprise-grade branch office network simulation. Designed hierarchical IP addressing schemes, configured router-on-a-stick topology with 802.1Q encapsulation, and implemented DHCP snooping to protect network integrity from rogue DHCP servers.',
-    highlights: [
-      'Engineered structured IPv4 subnetting plan with dedicated management, operational, and guest VLANs.',
-      'Configured Inter-VLAN routing, standard and extended Access Control Lists (ACLs), and NAT/PAT.',
-      'Formulated diagnostic ping/traceroute verification runbooks enabling first-line isolation of packet loss in < 10 minutes.'
-    ],
-    technologies: ['Fundamental Network (CCNA)', 'Cisco Packet Tracer', 'IPv4 Subnetting', '802.1Q VLANs', 'Wireshark', 'Routing & Switching'],
-    status: 'Completed',
-    icon: 'Network',
-    githubUrl: 'https://github.com/AwonkeP'
-  },
-  {
-    id: 'm365-identity-governance',
-    title: 'Microsoft 365 & Azure AD Identity Administration Framework',
-    category: 'Cloud & Identity',
-    summary: 'Centralized cloud identity lifecycle management, multi-factor authentication (MFA) rollouts, and role-based access control (RBAC).',
-    description: 'Designed a standardized user onboarding and offboarding framework utilizing Microsoft 365 Admin Center and Microsoft Entra ID (Azure AD). Enforced principle-of-least-privilege access across SharePoint document libraries, Exchange mailboxes, and enterprise Teams channels.',
-    highlights: [
-      'Implemented automated user provisioning templates reducing new-hire IT setup time from 4 hours to under 20 minutes.',
-      'Deployed MFA security defaults and self-service password reset (SSPR) protocols across departmental accounts.',
-      'Audited license allocations and streamlined permission sets to prevent unauthorized privilege creep.'
-    ],
-    technologies: ['Microsoft 365 Admin Center', 'Azure AD / Entra ID', 'Exchange Online', 'SharePoint Security', 'RBAC Security'],
-    status: 'In Production',
-    icon: 'ShieldCheck',
-    githubUrl: 'https://github.com/AwonkeP'
-  },
-  {
-    id: 'itsm-incident-triage-pipeline',
-    title: 'ITSM Service Desk Incident Triage & SLA Escalation System',
+    id: 'capaciti-technoresolve-desk',
+    title: 'TechnoResolve Desk – Enterprise Tiered ITSM Support Portal (CAPACITI Project)',
     category: 'IT Service Management',
-    summary: 'Structured service desk incident triage methodology, first-contact resolution (FCR) workflows, and workstation health diagnostics.',
-    description: 'Architected a comprehensive first-line technical incident management workflow for hardware, software, and local network disruptions. Established standardized categorization, severity prioritization matrices, and symptom-to-solution diagnostic trees to meet stringent SLA targets.',
+    summary: 'Tiered enterprise service desk with AI ticket triage, role-specific workspaces (Admin, Technician, Customer), Firestore cloud persistence, and notification alerts.',
+    description: 'Collaborative enterprise IT service desk platform engineered during the UVU Africa (CAPACITI) IT Technical Support programme. Built dedicated role-specific portals (Customer Self-Service & Ticket Submission, Technician Incident Queue & Diagnostic Workspace, and Admin Control Center for SLA management and team oversight). Integrated AI ticket classification, priority grading, and end-to-end resolution audit logs.',
     highlights: [
-      'Boosted First-Contact Resolution (FCR) rate by establishing standardized troubleshooting checklists for recurrent issues.',
-      'Built a root-cause diagnostic matrix for PC boot failures, thermal throttling, and OS driver conflicts.',
-      'Penned 15+ user-facing Standard Operating Procedures (SOPs) reducing repetitive support tickets by 30%.'
+      'Engineered multi-role permission architecture separating Customer self-service, Technician diagnostic queues, and Admin approval oversight.',
+      'Integrated AI-assisted ticket triage automatically categorizing hardware, network, and software incidents with urgency and SLA grading.',
+      'Built persistent ticket lifecycle tracking with real-time Firestore database updates, diagnostic audit histories, and resolution notifications.'
     ],
-    technologies: ['ITSM Service Desk', 'Incident Management', 'Hardware Diagnostics', 'SLA Tracking', 'Root Cause Analysis'],
-    status: 'Completed',
+    technologies: ['React 19', 'TypeScript', 'Tailwind CSS', 'Firebase Firestore', 'Express', 'Gemini AI API', 'ITSM / SLA Tracking'],
+    status: 'Featured Team Project',
     icon: 'Headset',
-    githubUrl: 'https://github.com/AwonkeP'
+    badge: 'UVU Africa / CAPACITI',
+    featured: true,
+    githubUrl: 'https://github.com/AvumileTati/CAPACITI-Project'
   },
   {
-    id: 'business-process-digitization',
-    title: 'Business Information Digitization & Operational Workflow Automation',
-    category: 'Process Optimization',
-    summary: 'End-to-end transformation of legacy paper-based administrative records into digitized, validated automated workflows.',
-    description: 'Bridging Business & Information Administration (CPUT) with modern digital tools to overhaul cumbersome departmental paper registers. Implemented digital forms with real-time field validation, eliminating data corruption and manual handoffs.',
+    id: 'awonke-digital-profile',
+    title: 'Awonke Philibane – Interactive IT Technical Systems Portfolio',
+    category: 'Web & Systems Architecture',
+    summary: 'High-performance interactive digital portfolio and system architecture showcase with AI assistant integration, verified IT competencies, and dark mode persistence.',
+    description: 'Custom-built responsive digital portfolio and IT technical support demonstration platform. Highlights verified competencies across Fundamental Network (CCNA), Microsoft 365, workstation support, and enterprise administrative processes. Features an AI assistant powered by Google Gemini, dark/light theme switching, and accessible design.',
     highlights: [
-      'Audited operational bottlenecks and designed streamlined digital replacement workflows with full audit logging.',
-      'Eliminated duplicate data entry and reduced inter-departmental document processing time from 3 days to under 2 hours.',
-      'Conducted end-user training sessions ensuring 100% adoption and data compliance across staff teams.'
+      'Built with React 19, TypeScript, Tailwind CSS, and Express server with full mobile responsiveness.',
+      'Embedded server-side Gemini AI assistant grounded with verified CV context for interactive recruiter inquiries.',
+      'Architected client-side dark/light mode toggle with local storage persistence and keyboard shortcuts.'
     ],
-    technologies: ['Business Information Admin', 'Digital Forms', 'Data Integrity Auditing', 'Workflow Optimization', 'SOP Documentation'],
-    status: 'Completed',
+    technologies: ['React 19', 'TypeScript', 'Tailwind CSS', 'Express Server', 'Gemini AI SDK', 'Vite', 'Motion'],
+    status: 'Live & Open Source',
     icon: 'Workflow',
-    githubUrl: 'https://github.com/AwonkeP'
+    badge: 'Personal Repository',
+    featured: true,
+    githubUrl: 'https://github.com/AwonkeP/Digital-Profile'
   }
 ];
 

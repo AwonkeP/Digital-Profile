@@ -76,7 +76,7 @@ export const ProjectsSection: React.FC = () => {
             Featured Projects & Systems
           </h2>
           <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400 max-w-2xl">
-            Practical demonstrations of network design, cloud identity administration, service desk optimization, and business workflow digitization.
+            Production-ready enterprise IT service desk portals and interactive digital systems architecture.
           </p>
         </div>
 
@@ -96,39 +96,41 @@ export const ProjectsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Filter and Search Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        {/* Category Pills */}
-        <div className="flex flex-wrap items-center gap-2">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              id={`project-filter-${cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                selectedCategory === cat
-                  ? 'bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-sm ring-1 ring-neutral-900 dark:ring-white'
-                  : 'bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-800 hover:border-neutral-500'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+      {/* Filter and Search Bar (shown when more than 2 projects exist) */}
+      {PROJECTS_DATA.length > 2 && (
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          {/* Category Pills */}
+          <div className="flex flex-wrap items-center gap-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                id={`project-filter-${cat.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  selectedCategory === cat
+                    ? 'bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-sm ring-1 ring-neutral-900 dark:ring-white'
+                    : 'bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 border border-neutral-300 dark:border-neutral-800 hover:border-neutral-500'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
 
-        {/* Search Input */}
-        <div className="relative w-full md:w-64 shrink-0">
-          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
-          <input
-            id="projects-search-input"
-            type="text"
-            placeholder="Search projects or tools..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-white text-neutral-950 dark:text-white placeholder-neutral-400 font-medium"
-          />
+          {/* Search Input */}
+          <div className="relative w-full md:w-64 shrink-0">
+            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400" />
+            <input
+              id="projects-search-input"
+              type="text"
+              placeholder="Search projects or tools..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 dark:focus:ring-white text-neutral-950 dark:text-white placeholder-neutral-400 font-medium"
+            />
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -136,7 +138,11 @@ export const ProjectsSection: React.FC = () => {
           <article
             key={project.id}
             id={`project-card-${project.id}`}
-            className="rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden"
+            className={`rounded-3xl bg-white dark:bg-neutral-900 border p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-all group relative overflow-hidden ${
+              project.featured
+                ? 'border-neutral-900 dark:border-neutral-600 ring-1 ring-neutral-900/10 dark:ring-white/10'
+                : 'border-neutral-300 dark:border-neutral-800'
+            }`}
           >
             <div className="space-y-4">
               {/* Header: Icon, Category and Status */}
@@ -146,9 +152,16 @@ export const ProjectsSection: React.FC = () => {
                     {renderIcon(project.icon)}
                   </div>
                   <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 block">
-                      {project.category}
-                    </span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 block">
+                        {project.category}
+                      </span>
+                      {project.badge && (
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700">
+                          {project.badge}
+                        </span>
+                      )}
+                    </div>
                     <h3 className="text-base sm:text-lg font-bold text-neutral-950 dark:text-white leading-snug group-hover:text-neutral-800 dark:group-hover:text-neutral-200 transition-colors">
                       {project.title}
                     </h3>
