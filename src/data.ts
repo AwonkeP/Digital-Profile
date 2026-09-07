@@ -1,4 +1,4 @@
-import { SkillItem, ExperienceItem, EducationItem, Scenario } from './types';
+import { SkillItem, ExperienceItem, EducationItem, Scenario, ProjectItem } from './types';
 import profilePhoto from './assets/images/awonke_photo_actual.jpg';
 
 export const PROFILE_INFO = {
@@ -272,4 +272,72 @@ export const SCENARIOS: Record<string, Scenario> = {
     ]
   }
 };
+
+export const PROJECTS_DATA: ProjectItem[] = [
+  {
+    id: 'cisco-network-topology',
+    title: 'Fundamental Network (CCNA) Multi-VLAN Subnetting & Gateway Infrastructure',
+    category: 'Infrastructure & Networking',
+    summary: 'Branch network architecture simulation featuring multi-VLAN segmentation, inter-VLAN routing, and hardened gateway diagnostics.',
+    description: 'Engineered and tested an enterprise-grade branch office network simulation. Designed hierarchical IP addressing schemes, configured router-on-a-stick topology with 802.1Q encapsulation, and implemented DHCP snooping to protect network integrity from rogue DHCP servers.',
+    highlights: [
+      'Engineered structured IPv4 subnetting plan with dedicated management, operational, and guest VLANs.',
+      'Configured Inter-VLAN routing, standard and extended Access Control Lists (ACLs), and NAT/PAT.',
+      'Formulated diagnostic ping/traceroute verification runbooks enabling first-line isolation of packet loss in < 10 minutes.'
+    ],
+    technologies: ['Fundamental Network (CCNA)', 'Cisco Packet Tracer', 'IPv4 Subnetting', '802.1Q VLANs', 'Wireshark', 'Routing & Switching'],
+    status: 'Completed',
+    icon: 'Network',
+    githubUrl: 'https://github.com/AwonkeP'
+  },
+  {
+    id: 'm365-identity-governance',
+    title: 'Microsoft 365 & Azure AD Identity Administration Framework',
+    category: 'Cloud & Identity',
+    summary: 'Centralized cloud identity lifecycle management, multi-factor authentication (MFA) rollouts, and role-based access control (RBAC).',
+    description: 'Designed a standardized user onboarding and offboarding framework utilizing Microsoft 365 Admin Center and Microsoft Entra ID (Azure AD). Enforced principle-of-least-privilege access across SharePoint document libraries, Exchange mailboxes, and enterprise Teams channels.',
+    highlights: [
+      'Implemented automated user provisioning templates reducing new-hire IT setup time from 4 hours to under 20 minutes.',
+      'Deployed MFA security defaults and self-service password reset (SSPR) protocols across departmental accounts.',
+      'Audited license allocations and streamlined permission sets to prevent unauthorized privilege creep.'
+    ],
+    technologies: ['Microsoft 365 Admin Center', 'Azure AD / Entra ID', 'Exchange Online', 'SharePoint Security', 'RBAC Security'],
+    status: 'In Production',
+    icon: 'ShieldCheck',
+    githubUrl: 'https://github.com/AwonkeP'
+  },
+  {
+    id: 'itsm-incident-triage-pipeline',
+    title: 'ITSM Service Desk Incident Triage & SLA Escalation System',
+    category: 'IT Service Management',
+    summary: 'Structured service desk incident triage methodology, first-contact resolution (FCR) workflows, and workstation health diagnostics.',
+    description: 'Architected a comprehensive first-line technical incident management workflow for hardware, software, and local network disruptions. Established standardized categorization, severity prioritization matrices, and symptom-to-solution diagnostic trees to meet stringent SLA targets.',
+    highlights: [
+      'Boosted First-Contact Resolution (FCR) rate by establishing standardized troubleshooting checklists for recurrent issues.',
+      'Built a root-cause diagnostic matrix for PC boot failures, thermal throttling, and OS driver conflicts.',
+      'Penned 15+ user-facing Standard Operating Procedures (SOPs) reducing repetitive support tickets by 30%.'
+    ],
+    technologies: ['ITSM Service Desk', 'Incident Management', 'Hardware Diagnostics', 'SLA Tracking', 'Root Cause Analysis'],
+    status: 'Completed',
+    icon: 'Headset',
+    githubUrl: 'https://github.com/AwonkeP'
+  },
+  {
+    id: 'business-process-digitization',
+    title: 'Business Information Digitization & Operational Workflow Automation',
+    category: 'Process Optimization',
+    summary: 'End-to-end transformation of legacy paper-based administrative records into digitized, validated automated workflows.',
+    description: 'Bridging Business & Information Administration (CPUT) with modern digital tools to overhaul cumbersome departmental paper registers. Implemented digital forms with real-time field validation, eliminating data corruption and manual handoffs.',
+    highlights: [
+      'Audited operational bottlenecks and designed streamlined digital replacement workflows with full audit logging.',
+      'Eliminated duplicate data entry and reduced inter-departmental document processing time from 3 days to under 2 hours.',
+      'Conducted end-user training sessions ensuring 100% adoption and data compliance across staff teams.'
+    ],
+    technologies: ['Business Information Admin', 'Digital Forms', 'Data Integrity Auditing', 'Workflow Optimization', 'SOP Documentation'],
+    status: 'Completed',
+    icon: 'Workflow',
+    githubUrl: 'https://github.com/AwonkeP'
+  }
+];
+
 

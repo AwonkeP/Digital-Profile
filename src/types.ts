@@ -35,6 +35,20 @@ export interface EducationItem {
   badge: string;
 }
 
+export interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  summary: string;
+  description: string;
+  highlights: string[];
+  technologies: string[];
+  status: string;
+  icon: string;
+  projectUrl?: string;
+  githubUrl?: string;
+}
+
 export interface ScenarioStep {
   title: string;
   detail: string;
