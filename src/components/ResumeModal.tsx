@@ -1,6 +1,7 @@
 import React from 'react';
-import { X, Printer, Download, Mail, MapPin, Briefcase, GraduationCap, CheckCircle2, Copy, Check, Linkedin, Github, ExternalLink } from 'lucide-react';
+import { X, Printer, Download, Mail, MapPin, Briefcase, GraduationCap, CheckCircle2, Copy, Check, Linkedin, Github, ExternalLink, ChevronDown, Loader2 } from 'lucide-react';
 import { PROFILE_INFO, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA } from '../data';
+import { generateResumePdf, triggerPrintCv } from '../utils/generatePdf';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -9,11 +10,42 @@ interface ResumeModalProps {
 
 export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
   const [copied, setCopied] = React.useState(false);
+  const [downloading, setDownloading] = React.useState(false);
+  const [downloadSuccess, setDownloadSuccess] = React.useState(false);
+  const [showMenu, setShowMenu] = React.useState(false);
+  const menuRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setShowMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   if (!isOpen) return null;
 
+  const handleDownloadPdf = () => {
+    try {
+      setDownloading(true);
+      setShowMenu(false);
+      generateResumePdf();
+      setDownloadSuccess(true);
+      setTimeout(() => {
+        setDownloadSuccess(false);
+        setDownloading(false);
+      }, 3000);
+    } catch (err) {
+      console.error('Failed to generate PDF:', err);
+      setDownloading(false);
+    }
+  };
+
   const handlePrint = () => {
-    window.print();
+    setShowMenu(false);
+    triggerPrintCv();
   };
 
   const handleCopyCV = () => {
@@ -71,6 +103,7 @@ EDUCATION & QUALIFICATIONS
 
           <div className="flex items-center gap-2">
             <button
+              id="resume-copy-text-btn"
               onClick={handleCopyCV}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-900 dark:text-neutral-100 border border-neutral-300 dark:border-neutral-700 text-xs font-bold transition-colors"
             >
@@ -78,15 +111,65 @@ EDUCATION & QUALIFICATIONS
               <span>{copied ? 'Copied' : 'Copy Text'}</span>
             </button>
 
-            <button
-              onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-neutral-950 text-xs font-bold transition-colors shadow-sm"
-            >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Print / PDF</span>
-            </button>
+            {/* Print / PDF with direct PDF download & print menu */}
+            <div className="relative inline-flex items-center" ref={menuRef}>
+              <button
+                id="resume-print-pdf-btn"
+                onClick={handleDownloadPdf}
+                disabled={downloading}
+                title="Download Awonke's CV as a PDF file"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-l-xl bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-neutral-950 text-xs font-bold transition-all shadow-sm active:scale-95 disabled:opacity-75"
+              >
+                {downloadSuccess ? (
+                  <Check className="w-3.5 h-3.5 text-emerald-400 dark:text-emerald-600" />
+                ) : downloading ? (
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                ) : (
+                  <Printer className="w-3.5 h-3.5" />
+                )}
+                <span>{downloadSuccess ? 'Downloaded!' : downloading ? 'Generating...' : 'Print / PDF'}</span>
+              </button>
+
+              <button
+                id="resume-print-menu-toggle"
+                onClick={() => setShowMenu(!showMenu)}
+                title="Download or Print options"
+                aria-label="Toggle download and print options"
+                className="px-2 py-1.5 rounded-r-xl border-l border-neutral-700 dark:border-neutral-300 bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-neutral-950 text-xs font-bold transition-colors shadow-sm"
+              >
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${showMenu ? 'rotate-180' : ''}`} />
+              </button>
+
+              {showMenu && (
+                <div className="absolute right-0 top-full mt-2 w-52 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 shadow-2xl py-1.5 z-50 animate-fade-in">
+                  <button
+                    id="resume-menu-download-btn"
+                    onClick={handleDownloadPdf}
+                    className="w-full px-3.5 py-2 text-left text-xs font-bold hover:bg-neutral-100 dark:hover:bg-neutral-800 flex items-center gap-2.5 text-neutral-900 dark:text-neutral-100 transition-colors"
+                  >
+                    <Download className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                    <div>
+                      <div>Download PDF File</div>
+                      <div className="text-[10px] font-normal text-neutral-500">Save Awonke_Philibane_CV.pdf</div>
+                    </div>
+                  </button>
+                  <button
+                    id="resume-menu-print-btn"
+                    onClick={handlePrint}
+                    className="w-full px-3.5 py-2 text-left text-xs font-bold hover:bg-neutral-100 dark:hover:bg-neutral-800 flex items-center gap-2.5 text-neutral-900 dark:text-neutral-100 transition-colors border-t border-neutral-100 dark:border-neutral-800"
+                  >
+                    <Printer className="w-4 h-4 text-neutral-600 dark:text-neutral-400 shrink-0" />
+                    <div>
+                      <div>Print Document</div>
+                      <div className="text-[10px] font-normal text-neutral-500">Open clean printer preview</div>
+                    </div>
+                  </button>
+                </div>
+              )}
+            </div>
 
             <button
+              id="resume-modal-close-top"
               onClick={onClose}
               className="p-1.5 rounded-xl text-neutral-500 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
             >
@@ -226,14 +309,34 @@ EDUCATION & QUALIFICATIONS
         </div>
 
         {/* Modal Footer */}
-        <div className="px-6 py-4 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 flex items-center justify-between shrink-0 text-xs text-neutral-600 dark:text-neutral-400 font-medium">
-          <span>Awonke Philibane • Cape Town, South Africa</span>
-          <button
-            onClick={onClose}
-            className="px-4 py-2 rounded-xl bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-bold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
-          >
-            Close
-          </button>
+        <div className="px-6 py-4 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0 text-xs text-neutral-600 dark:text-neutral-400 font-medium">
+          <div className="flex items-center gap-2">
+            <span>Awonke Philibane • Cape Town, South Africa</span>
+            <span className="hidden sm:inline text-neutral-400">•</span>
+            <span className="text-neutral-500 hidden sm:inline">Available for Technical Support Roles</span>
+          </div>
+          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+            <button
+              id="resume-modal-footer-download-btn"
+              onClick={handleDownloadPdf}
+              disabled={downloading}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 font-bold hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors shadow-sm text-xs active:scale-95 disabled:opacity-75"
+            >
+              {downloadSuccess ? (
+                <Check className="w-3.5 h-3.5 text-emerald-400 dark:text-emerald-600" />
+              ) : (
+                <Download className="w-3.5 h-3.5" />
+              )}
+              <span>{downloadSuccess ? 'Downloaded!' : 'Download PDF'}</span>
+            </button>
+            <button
+              id="resume-modal-footer-close-btn"
+              onClick={onClose}
+              className="px-4 py-2 rounded-xl bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 font-bold hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors text-xs"
+            >
+              Close
+            </button>
+          </div>
         </div>
 
       </div>
