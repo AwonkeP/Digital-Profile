@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Moon, Sun, Menu, X, Send, Award, FileText, Linkedin, Github } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Send, FileText, Linkedin, Github } from 'lucide-react';
+import { motion } from 'motion/react';
 import { PROFILE_INFO } from '../data';
 
 interface NavbarProps {
@@ -8,22 +9,102 @@ interface NavbarProps {
   onOpenResume: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenResume }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('about');
 
   const navLinks = [
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Education', href: '#education' },
-    { label: 'Value', href: '#value' },
-    { label: 'Sandbox', href: '#simulator' },
+    { id: 'about', label: 'About', href: '#about' },
+    { id: 'skills', label: 'Skills', href: '#skills' },
+    { id: 'experience', label: 'Experience', href: '#experience' },
+    { id: 'education', label: 'Education', href: '#education' },
+    { id: 'value', label: 'Value', href: '#value' },
+    { id: 'simulator', label: 'Sandbox', href: '#simulator' },
   ];
+
+  useEffect(() => {
+    const sectionIds = ['about', 'skills', 'experience', 'education', 'value', 'simulator', 'contact'];
+
+    // Read initial hash from URL if present
+    const currentHash = window.location.hash.replace('#', '');
+    if (currentHash && sectionIds.includes(currentHash)) {
+      setActiveSection(currentHash);
+    }
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // Bottom of page activates the last section or contact
+      if (scrollY + windowHeight >= documentHeight - 60) {
+        setActiveSection('contact');
+        return;
+      }
+
+      // Check sections from top to bottom
+      const triggerPoint = scrollY + 160;
+
+      let current = '';
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (triggerPoint >= top && triggerPoint < top + height) {
+            current = id;
+            break;
+          }
+        }
+      }
+
+      if (current) {
+        setActiveSection(current);
+      } else if (scrollY < 180) {
+        setActiveSection('about');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, sectionId: string) => {
+    e.preventDefault();
+    setActiveSection(sectionId);
+    setMobileMenuOpen(false);
+
+    if (sectionId === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.pushState(null, '', '#hero');
+      return;
+    }
+
+    const targetElement = document.getElementById(sectionId);
+    if (targetElement) {
+      const headerOffset = 76;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+
+      window.history.pushState(null, '', href);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-300 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-3 group">
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick(e, '#hero', 'hero')}
+          className="flex items-center gap-3 group"
+        >
           <div className="relative">
             <img
               id="navbar-profile-avatar"
@@ -44,17 +125,41 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
           </div>
         </a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-7 font-bold text-sm text-neutral-800">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="hover:text-neutral-950 hover:underline underline-offset-4 transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+        {/* Desktop Navigation with Visible Active Tab Indicator */}
+        <nav
+          id="desktop-main-navigation"
+          aria-label="Main Navigation"
+          className="hidden md:flex items-center p-1 bg-neutral-100/90 border border-neutral-300/80 rounded-full shadow-inner gap-0.5"
+        >
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.label}
+                id={`nav-tab-${link.id}`}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href, link.id)}
+                aria-current={isActive ? 'page' : undefined}
+                className={`relative px-3.5 py-1.5 rounded-full text-xs font-bold transition-colors z-10 flex items-center gap-1.5 whitespace-nowrap ${
+                  isActive
+                    ? 'text-white'
+                    : 'text-neutral-700 hover:text-neutral-950 hover:bg-neutral-200/60'
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="activeNavTabIndicator"
+                    className="absolute inset-0 bg-neutral-950 rounded-full shadow-sm -z-10"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                {isActive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                )}
+                <span>{link.label}</span>
+              </a>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-2.5">
@@ -97,7 +202,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
           <a
             id="nav-connect-btn"
             href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 bg-neutral-950 hover:bg-neutral-800 text-white px-4 py-2 rounded-xl font-bold text-sm shadow-sm transition-all"
+            onClick={(e) => handleNavClick(e, '#contact', 'contact')}
+            className={`hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl font-bold text-sm shadow-sm transition-all ${
+              activeSection === 'contact'
+                ? 'bg-neutral-900 text-white ring-2 ring-neutral-950 ring-offset-2'
+                : 'bg-neutral-950 hover:bg-neutral-800 text-white'
+            }`}
           >
             <Send className="w-3.5 h-3.5" />
             <span>Connect</span>
@@ -118,16 +228,30 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-neutral-200 px-4 pt-2 pb-5 space-y-2 bg-white/98 backdrop-blur-lg">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-neutral-950 font-bold hover:underline text-sm"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.label}
+                id={`mobile-nav-tab-${link.id}`}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href, link.id)}
+                className={`flex items-center justify-between py-2.5 px-3.5 rounded-xl font-bold text-sm transition-all ${
+                  isActive
+                    ? 'bg-neutral-950 text-white shadow-sm'
+                    : 'text-neutral-800 hover:bg-neutral-100'
+                }`}
+              >
+                <span>{link.label}</span>
+                {isActive && (
+                  <span className="text-xs bg-neutral-800 text-neutral-200 px-2 py-0.5 rounded-md font-semibold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    Active
+                  </span>
+                )}
+              </a>
+            );
+          })}
 
           {/* Social Links in Mobile Drawer */}
           <div className="flex items-center gap-3 py-2 border-t border-neutral-200">
@@ -164,8 +288,12 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, onOpenRes
             </button>
             <a
               href="#contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center bg-neutral-950 hover:bg-neutral-800 text-white py-2.5 rounded-xl font-bold text-sm shadow-md"
+              onClick={(e) => handleNavClick(e, '#contact', 'contact')}
+              className={`block w-full text-center py-2.5 rounded-xl font-bold text-sm shadow-md transition-all ${
+                activeSection === 'contact'
+                  ? 'bg-neutral-900 text-white ring-2 ring-neutral-950 ring-offset-2'
+                  : 'bg-neutral-950 hover:bg-neutral-800 text-white'
+              }`}
             >
               Connect with Awonke
             </a>
