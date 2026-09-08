@@ -51,13 +51,13 @@ export const AiChatbot: React.FC = () => {
     setInputQuery('');
     setIsLoading(true);
 
-    try {
-      // Build conversation history for context
-      const conversationHistory = messages.map((m) => ({
-        role: m.role === 'user' ? 'user' : 'assistant',
-        text: m.text,
-      }));
+    // Build conversation history for context
+    const conversationHistory = messages.map((m) => ({
+      role: m.role === 'user' ? 'user' : 'assistant',
+      text: m.text,
+    }));
 
+    try {
       let replyText = '';
 
       // 1. Try standard /api/chat endpoint (works locally, on Cloud Run, and on Netlify with proxy)
@@ -112,7 +112,7 @@ export const AiChatbot: React.FC = () => {
 
       // 3. Fallback to client-side grounded knowledge assistant (guarantees 100% uptime on Netlify even without backend/keys)
       if (!replyText) {
-        replyText = resolveClientSideGroundedFallback(trimmed);
+        replyText = resolveClientSideGroundedFallback(trimmed, conversationHistory);
       }
 
       const botMsg: ChatMessage = {
@@ -125,7 +125,7 @@ export const AiChatbot: React.FC = () => {
       setMessages((prev) => [...prev, botMsg]);
     } catch (err) {
       console.error('Chatbot processing error:', err);
-      const fallbackReply = resolveClientSideGroundedFallback(trimmed);
+      const fallbackReply = resolveClientSideGroundedFallback(trimmed, conversationHistory);
       const fallbackMsg: ChatMessage = {
         id: `bot-${Date.now()}`,
         role: 'assistant',
