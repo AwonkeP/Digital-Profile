@@ -356,7 +356,21 @@ export const handler: Handler = async (event) => {
     };
   }
 
-  const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+  let apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY || process.env.VITE_GEMINI_API_KEY;
+
+  if (!apiKey) {
+    // Safeguard: Check if the key was set with another name or if Key/Value were swapped in Netlify UI
+    for (const [k, v] of Object.entries(process.env)) {
+      if (typeof k === "string" && (k.startsWith("AQ.") || k.startsWith("AIza"))) {
+        apiKey = k;
+        break;
+      }
+      if (typeof v === "string" && (v.startsWith("AQ.") || v.startsWith("AIza"))) {
+        apiKey = v;
+        break;
+      }
+    }
+  }
 
   if (!apiKey) {
     const fallbackReply = resolveGroundedFallback(message, conversationHistory);
