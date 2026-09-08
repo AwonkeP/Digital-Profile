@@ -116,20 +116,20 @@ export const AiChatbot: React.FC = () => {
   };
 
   return (
-    <div id="chatbot-container" className="fixed bottom-6 right-6 z-50">
+    <div id="chatbot-container" className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50">
       {/* Trigger Button */}
       {!isOpen && (
         <button
           id="chatbot-toggle-btn"
           onClick={() => setIsOpen(true)}
           aria-label="Open AI Assistant"
-          className="flex items-center gap-3 bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-neutral-950 px-5 py-3.5 rounded-full shadow-2xl hover:scale-105 transition-all group border border-neutral-700 dark:border-neutral-300"
+          className="flex items-center gap-2.5 bg-neutral-950 dark:bg-white hover:bg-neutral-800 dark:hover:bg-neutral-200 text-white dark:text-neutral-950 px-4 sm:px-5 py-3 rounded-full shadow-2xl hover:scale-105 transition-all group border border-neutral-700 dark:border-neutral-300 cursor-pointer"
         >
           <div className="relative">
-            <Bot className="w-5 h-5" />
+            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 dark:text-emerald-600" />
             <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-neutral-900 dark:border-white animate-pulse"></span>
           </div>
-          <span className="font-bold text-xs sm:text-sm">Ask Awonke's AI Assistant</span>
+          <span className="font-bold text-xs sm:text-sm">Ask AI Assistant</span>
         </button>
       )}
 
