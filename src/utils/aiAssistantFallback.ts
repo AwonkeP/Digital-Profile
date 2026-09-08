@@ -10,6 +10,17 @@ export function resolveClientSideGroundedFallback(message: string): string {
   }
 
   if (
+    lower.includes("about") ||
+    lower.includes("who is awonke") ||
+    lower.includes("introduction") ||
+    lower.includes("bio") ||
+    lower.includes("background") ||
+    lower.includes("summary")
+  ) {
+    return "Awonke Philibane is an **IT Technical Support** professional with a strong background in **Business and Information Administration**, currently driving service excellence at **CAPACITI**.\n\nBy combining technical proficiency in **Fundamental Network (CCNA)** and **Microsoft 365** with a focus on operational excellence, he ensures that technology serves as a seamless backbone for organizational productivity.\n\nWould you like to explore his technical skills, projects, or professional experience?";
+  }
+
+  if (
     lower.includes("experience") ||
     lower.includes("work") ||
     lower.includes("job") ||

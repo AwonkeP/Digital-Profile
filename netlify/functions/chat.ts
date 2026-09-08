@@ -1,29 +1,5 @@
-import express from "express";
-import path from "path";
-import fs from "fs";
-import { createServer as createViteServer } from "vite";
+import type { Handler } from "@netlify/functions";
 import { GoogleGenAI } from "@google/genai";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-const PORT = 3000;
-
-// Initialize Gemini client lazily
-let genAI: GoogleGenAI | null = null;
-function getGeminiClient(): GoogleGenAI | null {
-  if (!genAI && process.env.GEMINI_API_KEY) {
-    genAI = new GoogleGenAI({
-      apiKey: process.env.GEMINI_API_KEY,
-      httpOptions: {
-        headers: {
-          'User-Agent': 'aistudio-build',
-        },
-      },
-    });
-  }
-  return genAI;
-}
 
 const SYSTEM_INSTRUCTION = `You are the official interactive AI Portfolio Assistant for Awonke Philibane, an IT Technical Support professional based in Cape Town, South Africa.
 
@@ -68,7 +44,7 @@ Awonke Philibane's Verified Profile Information:
   * User-Centric Service: Clear communication, rapid response times, and empathetic technical assistance across organizational tiers.
 `;
 
-function resolveStrictGroundedFallback(message: string): string {
+function resolveGroundedFallback(message: string): string {
   const lower = message.toLowerCase();
 
   if (lower.includes("sql") || lower.includes("database")) {
@@ -86,28 +62,69 @@ function resolveStrictGroundedFallback(message: string): string {
     return "Awonke Philibane is an **IT Technical Support** professional with a strong background in **Business and Information Administration**, currently driving service excellence at **CAPACITI**.\n\nBy combining technical proficiency in **Fundamental Network (CCNA)** and **Microsoft 365** with a focus on operational excellence, he ensures that technology serves as a seamless backbone for organizational productivity.\n\nWould you like to explore his technical skills, projects, or professional experience?";
   }
 
-  if (lower.includes("experience") || lower.includes("work") || lower.includes("job") || lower.includes("capaciti") || lower.includes("prasa") || lower.includes("wced") || lower.includes("innovate") || lower.includes("role") || lower.includes("career")) {
-    return "Awonke is currently an **IT Technical Support at CAPACITI** in Cape Town. His professional background also includes:\n- **PRASA** (Passenger Rail Agency of SA): Enterprise information systems & administrative workflows.\n- **WCED** (Western Cape Dept. of Education): Data management & user technical support.\n- **Innovate Technology**: Managed IT services, hardware diagnostics, and maintenance.\n\nWould you like details on any specific role?";
+  if (
+    lower.includes("experience") ||
+    lower.includes("work") ||
+    lower.includes("job") ||
+    lower.includes("capaciti") ||
+    lower.includes("prasa") ||
+    lower.includes("wced") ||
+    lower.includes("innovate") ||
+    lower.includes("role") ||
+    lower.includes("career")
+  ) {
+    return "Awonke is currently an **IT Technical Support at CAPACITI** in Cape Town. His professional background also includes:\n- **PRASA** (Passenger Rail Agency of SA): Enterprise information systems & administrative workflows.\n- **WCED** (Western Cape Dept. of Education): Data systems management & user technical support.\n- **Innovate Technology**: Managed IT services, hardware diagnostics, and maintenance.\n\nWould you like details on any specific role or his achievements?";
   }
 
-  if (lower.includes("skill") || lower.includes("ccna") || lower.includes("network") || lower.includes("m365") || lower.includes("sap") || lower.includes("hardware") || lower.includes("tools")) {
-    return "Awonke's core technical competencies include:\n- **Fundamental Network (CCNA)**: Routing & Switching, TCP/IP, VLANs, subnetting, gateway diagnostics.\n- **Microsoft 365 & Cloud Identity**: Azure AD / Entra ID, user provisioning, security licensing.\n- **Hardware & Workstation**: PC diagnostics, preventative maintenance, component replacement.\n- **Enterprise Tools**: SAP Enterprise Software & ITSM service desk ticketing.\n\nWhich technical area would you like to discuss further?";
+  if (
+    lower.includes("skill") ||
+    lower.includes("ccna") ||
+    lower.includes("network") ||
+    lower.includes("m365") ||
+    lower.includes("sap") ||
+    lower.includes("hardware") ||
+    lower.includes("tools") ||
+    lower.includes("vlan") ||
+    lower.includes("troubleshoot")
+  ) {
+    return "Awonke's core technical competencies include:\n- **Fundamental Network (CCNA)**: Routing & Switching, TCP/IP, VLAN segmentation, subnetting, gateway diagnostics.\n- **Microsoft 365 & Cloud Identity**: Azure AD / Entra ID, user provisioning, security licensing.\n- **Hardware & Workstation**: PC diagnostics, preventative maintenance, component replacement.\n- **Enterprise Tools**: SAP Enterprise Software & ITSM service desk ticketing platforms.\n\nWhich technical area would you like to discuss further?";
   }
 
-  if (lower.includes("education") || lower.includes("cput") || lower.includes("diploma") || lower.includes("degree") || lower.includes("cert") || lower.includes("qualification") || lower.includes("study")) {
-    return "Awonke holds a **Diploma in Business and Information Administration** from the **Cape Peninsula University of Technology (CPUT)**, alongside **Fundamental Network (CCNA)** from Cisco Networking Academy and Microsoft 365 systems administration modules.\n\nWould you like to know more about his academic background or IT credentials?";
+  if (
+    lower.includes("education") ||
+    lower.includes("cput") ||
+    lower.includes("diploma") ||
+    lower.includes("degree") ||
+    lower.includes("cert") ||
+    lower.includes("qualification") ||
+    lower.includes("study")
+  ) {
+    return "Awonke holds a **Diploma in Business and Information Administration** from the **Cape Peninsula University of Technology (CPUT)**, alongside **Fundamental Network (CCNA)** from Cisco Networking Academy and Microsoft 365 systems administration credentials.\n\nWould you like to know more about his academic background or IT credentials?";
   }
 
   if (lower.includes("github") || lower.includes("repo") || lower.includes("git")) {
     return "You can explore Awonke's GitHub repositories:\n- **Digital Profile (This Portfolio)**: [github.com/AwonkeP/Digital-Profile](https://github.com/AwonkeP/Digital-Profile)\n- **TechnoResolve Desk (CAPACITI Collaborative Project)**: [github.com/AvumileTati/CAPACITI-Project](https://github.com/AvumileTati/CAPACITI-Project)\n- **GitHub Profile**: [github.com/AwonkeP](https://github.com/AwonkeP)\n\nCan I help you with any other details from his profile?";
   }
 
-  if (lower.includes("project") || lower.includes("technoresolve") || lower.includes("capaciti-project") || lower.includes("digital-profile")) {
+  if (
+    lower.includes("project") ||
+    lower.includes("technoresolve") ||
+    lower.includes("capaciti-project") ||
+    lower.includes("digital-profile")
+  ) {
     return "Awonke's featured projects include:\n- **TechnoResolve Desk (CAPACITI Project)**: Enterprise tiered ITSM support portal with multi-role portals (Admin, Technician, Customer), AI ticket triage, and Firestore persistence. [View on GitHub](https://github.com/AvumileTati/CAPACITI-Project)\n- **Interactive Digital Profile**: Full-stack portfolio and technical architecture showcase with Gemini AI integration. [View on GitHub](https://github.com/AwonkeP/Digital-Profile)\n- **Fundamental Network (CCNA) Multi-VLAN Subnetting**: Branch office network simulation with 802.1Q encapsulation.\n- **Microsoft 365 & Azure AD Identity Administration**: Cloud onboarding automation & MFA security.\n\nWould you like more technical details on any of these?";
   }
 
-  if (lower.includes("contact") || lower.includes("email") || lower.includes("hire") || lower.includes("reach") || lower.includes("linkedin") || lower.includes("phone")) {
-    return "You can connect with Awonke directly:\n- **Email**: [Philibaneawonke@gmail.com](mailto:Philibaneawonke@gmail.com)\n- **LinkedIn**: [linkedin.com/in/awonke-philibane-710aaa103](https://www.linkedin.com/in/awonke-philibane-710aaa103)\n- **GitHub**: [github.com/AwonkeP](https://github.com/AwonkeP)\n\nWould you like to send him an inquiry or open his full CV?";
+  if (
+    lower.includes("contact") ||
+    lower.includes("email") ||
+    lower.includes("hire") ||
+    lower.includes("reach") ||
+    lower.includes("linkedin") ||
+    lower.includes("phone") ||
+    lower.includes("location")
+  ) {
+    return "You can connect with Awonke directly:\n- **Email**: [Philibaneawonke@gmail.com](mailto:Philibaneawonke@gmail.com)\n- **LinkedIn**: [linkedin.com/in/awonke-philibane-710aaa103](https://www.linkedin.com/in/awonke-philibane-710aaa103)\n- **GitHub**: [github.com/AwonkeP](https://github.com/AwonkeP)\n- **Location**: Cape Town, Western Cape, South Africa\n\nWould you like to send him an inquiry or view his full CV?";
   }
 
   if (
@@ -125,138 +142,149 @@ function resolveStrictGroundedFallback(message: string): string {
     return "I am Awonke Philibane's dedicated profile assistant. I can only answer questions strictly based on Awonke's verified profile, IT technical support experience, and qualifications.\n\nWould you like to hear about his current role at CAPACITI, his Fundamental Network (CCNA) skills, or his CPUT qualifications?";
   }
 
-  return "Awonke Philibane works in **IT Technical Support at CAPACITI** in Cape Town, combining Business & Information Administration from CPUT with technical skills in **Fundamental Network (CCNA)**, Microsoft 365, and hardware diagnostics.\n\nWould you like to know more about his role at CAPACITI, his Fundamental Network (CCNA) knowledge, or how to get in touch?";
+  return "Awonke Philibane works in **IT Technical Support at CAPACITI** in Cape Town, combining a Business & Information Administration Diploma from CPUT with technical skills in **Fundamental Network (CCNA)**, Microsoft 365, and PC hardware diagnostics.\n\nWould you like to know more about his role at CAPACITI, his Fundamental Network (CCNA) knowledge, or how to get in touch?";
 }
 
-async function startServer() {
-  const app = express();
-  app.use(express.json({ limit: "5mb" }));
+export const handler: Handler = async (event) => {
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
 
-  // Enable CORS & preflight handling so cross-origin, preview iframe, and deployed requests never fail
-  app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    if (req.method === "OPTIONS") {
-      return res.sendStatus(204);
-    }
-    next();
-  });
-
-  // API Health Check
-  app.get("/api/health", (req, res) => {
-    res.json({ status: "ok", timestamp: new Date().toISOString() });
-  });
-
-  // AI Chat Endpoint
-  app.post("/api/chat", async (req, res) => {
-    const { message, conversationHistory = [] } = req.body;
-
-    if (!message || typeof message !== "string") {
-      return res.status(400).json({ error: "Message string is required." });
-    }
-
-    try {
-      const ai = getGeminiClient();
-
-      if (!ai) {
-        const fallbackReply = resolveStrictGroundedFallback(message);
-        return res.json({ response: fallbackReply, fallback: true });
-      }
-
-      // Build contents array from history and new message
-      const formattedContents: Array<{ role: string; parts: Array<{ text: string }> }> = [];
-
-      if (Array.isArray(conversationHistory)) {
-        for (const turn of conversationHistory.slice(-8)) {
-          if (turn.role && turn.text) {
-            formattedContents.push({
-              role: turn.role === "assistant" || turn.role === "model" ? "model" : "user",
-              parts: [{ text: turn.text }],
-            });
-          }
-        }
-      }
-
-      formattedContents.push({
-        role: "user",
-        parts: [{ text: message }],
-      });
-
-      // Valid Gemini models supported by @google/genai (fastest & highly available first)
-      const candidateModels = ["gemini-3.1-flash-lite", "gemini-3.8-flash", "gemini-flash-latest"];
-      let replyText: string | null = null;
-
-      for (const candidateModel of candidateModels) {
-        try {
-          const timeoutPromise = new Promise<never>((_, reject) =>
-            setTimeout(() => reject(new Error(`Timeout with ${candidateModel}`)), 4500)
-          );
-
-          const response = await Promise.race([
-            ai.models.generateContent({
-              model: candidateModel,
-              contents: formattedContents as any,
-              config: {
-                systemInstruction: SYSTEM_INSTRUCTION,
-                temperature: 0.6,
-              },
-            }),
-            timeoutPromise,
-          ]);
-
-          if (response.text && response.text.trim()) {
-            replyText = response.text;
-            break;
-          }
-        } catch (modelErr: any) {
-          console.warn(`Model ${candidateModel} unavailable or busy (${modelErr?.status || modelErr?.message}), trying next fallback...`);
-        }
-      }
-
-      if (replyText) {
-        return res.json({ response: replyText });
-      }
-
-      // If all models failed or are temporarily busy, provide strictly grounded response
-      const fallbackReply = resolveStrictGroundedFallback(message);
-      return res.json({ response: fallbackReply, fallback: true });
-    } catch (err: any) {
-      console.warn("Recovered from error in /api/chat with grounded fallback:", err?.message);
-      const fallbackReply = resolveStrictGroundedFallback(message);
-      return res.json({
-        response: fallbackReply,
-        fallback: true,
-      });
-    }
-  });
-
-  // Handle Vite in dev or static files in production
-  const distPath = path.resolve(process.cwd(), "dist");
-  const indexPath = path.resolve(distPath, "index.html");
-  const distExists = fs.existsSync(indexPath);
-
-  const isProduction =
-    process.env.NODE_ENV === "production" ||
-    distExists ||
-    (process.argv[1] && process.argv[1].includes("dist"));
-
-  if (!isProduction) {
-    const vite = await createViteServer({
-      server: { middlewareMode: true },
-      appType: "spa",
-    });
-    app.use(vite.middlewares);
-  } else {
-    app.use(express.static(distPath));
-    app.get("*", (req, res) => {
-      res.sendFile(indexPath);
-    });
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 204,
+      headers,
+      body: "",
+    };
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://0.0.0.0:${PORT}`);
-  });
-}
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      headers,
+      body: JSON.stringify({ error: "Method not allowed" }),
+    };
+  }
 
-startServer();
+  let body: any = {};
+  try {
+    body = JSON.parse(event.body || "{}");
+  } catch {
+    return {
+      statusCode: 400,
+      headers,
+      body: JSON.stringify({ error: "Invalid JSON body" }),
+    };
+  }
+
+  const message = body.message;
+  const conversationHistory = body.conversationHistory || [];
+
+  if (!message || typeof message !== "string") {
+    return {
+      statusCode: 400,
+      headers,
+      body: JSON.stringify({ error: "Message string is required." }),
+    };
+  }
+
+  const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+
+  if (!apiKey) {
+    // If deployed on Netlify without GEMINI_API_KEY configured in Netlify environment variables,
+    // seamlessly provide grounded profile answers so the chatbot is always 100% operational!
+    const fallbackReply = resolveGroundedFallback(message);
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ response: fallbackReply, fallback: true }),
+    };
+  }
+
+  try {
+    const ai = new GoogleGenAI({
+      apiKey,
+      httpOptions: {
+        headers: {
+          "User-Agent": "aistudio-build",
+        },
+      },
+    });
+
+    const formattedContents: Array<{ role: string; parts: Array<{ text: string }> }> = [];
+
+    if (Array.isArray(conversationHistory)) {
+      for (const turn of conversationHistory.slice(-8)) {
+        if (turn.role && turn.text) {
+          formattedContents.push({
+            role: turn.role === "assistant" || turn.role === "model" ? "model" : "user",
+            parts: [{ text: turn.text }],
+          });
+        }
+      }
+    }
+
+    formattedContents.push({
+      role: "user",
+      parts: [{ text: message }],
+    });
+
+    const candidateModels = ["gemini-2.5-flash", "gemini-3.1-flash-lite", "gemini-flash-latest"];
+    let replyText: string | null = null;
+
+    for (const candidateModel of candidateModels) {
+      try {
+        const timeoutPromise = new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error(`Timeout with ${candidateModel}`)), 5000)
+        );
+
+        const response = await Promise.race([
+          ai.models.generateContent({
+            model: candidateModel,
+            contents: formattedContents as any,
+            config: {
+              systemInstruction: SYSTEM_INSTRUCTION,
+              temperature: 0.6,
+            },
+          }),
+          timeoutPromise,
+        ]);
+
+        if (response.text && response.text.trim()) {
+          replyText = response.text;
+          break;
+        }
+      } catch (modelErr) {
+        console.warn(`Netlify function: candidate ${candidateModel} failed, trying next...`);
+      }
+    }
+
+    if (replyText) {
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({ response: replyText }),
+      };
+    }
+
+    const fallbackReply = resolveGroundedFallback(message);
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ response: fallbackReply, fallback: true }),
+    };
+  } catch (err: any) {
+    console.warn("Netlify function error, falling back to grounded response:", err?.message);
+    const fallbackReply = resolveGroundedFallback(message);
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ response: fallbackReply, fallback: true }),
+    };
+  }
+};
+
+export default handler;
