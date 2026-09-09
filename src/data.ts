@@ -1,0 +1,375 @@
+import { SkillItem, ExperienceItem, EducationItem, Scenario, ProjectItem, Certificate } from './types';
+import profilePhoto from './assets/images/awonke_photo_actual.jpg';
+
+export const PROFILE_INFO = {
+  name: "Awonke Philibane",
+  role: "IT Technical Support",
+  headline: "IT Technical Support | Optimizing Systems & Business Workflows",
+  location: "Cape Town, Western Cape, South Africa",
+  email: "Philibaneawonke@gmail.com",
+  linkedin: "https://www.linkedin.com/in/awonke-philibane-710aaa103",
+  linkedinHandle: "awonke-philibane-710aaa103",
+  github: "https://github.com/AwonkeP",
+  githubHandle: "AwonkeP",
+  githubRepo: "https://github.com/AwonkeP/Digital-Profile",
+  currentCompany: "CAPACITI",
+  degree: "Diploma in Business & Information Administration (CPUT)",
+  profileImage: profilePhoto,
+  summary: "Dedicated IT Technical Support in Cape Town, combining Business and Information Administration expertise from CPUT with hands-on technical skills in Fundamental Network (CCNA), Microsoft 365, workstation hardware diagnostics, and enterprise service desk operations.",
+  elevatorPitch: "I am an IT Technical Support with a strong background in Business and Information Administration, currently driving service excellence at CAPACITI. By combining technical proficiency in Fundamental Network (CCNA) and Microsoft 365 with a focus on operational excellence, I ensure that technology serves as a seamless backbone for organizational productivity."
+};
+
+export const SKILLS_DATA: SkillItem[] = [
+  {
+    id: 'infra-1',
+    name: 'Infrastructure & Networking',
+    category: 'infra',
+    icon: 'Network',
+    description: 'Hardware, routing, switching, and end-to-end network connectivity troubleshooting.',
+    bullets: [
+      'Fundamental Network (CCNA) (Routing & Switching)',
+      'Microsoft 365 & Azure AD Identity Administration',
+      'Hardware Diagnostics & Workstation Maintenance',
+      'First-Line LAN/WAN & Gateway Troubleshooting'
+    ]
+  },
+  {
+    id: 'enterprise-1',
+    name: 'Enterprise Tools & Software',
+    category: 'enterprise',
+    icon: 'Layers',
+    description: 'Enterprise ERP platforms, CRM systems, and structured ITSM service desk workflows.',
+    bullets: [
+      'SAP Enterprise Software & Module Navigation',
+      'ITSM & Service Desk Incident Ticketing',
+      'Enterprise CRM Systems & User Account Management',
+      'SLA Compliance & Ticket Lifecycle Tracking'
+    ]
+  },
+  {
+    id: 'data-1',
+    name: 'Data & Operations',
+    category: 'data',
+    icon: 'LineChart',
+    description: 'Data hygiene, incident analysis, and workflow bottleneck identification.',
+    bullets: [
+      'Advanced Data Entry, Validation & Integrity',
+      'Workflow Bottleneck Identification & Removal',
+      'Rapid Incident Diagnosis & Root Cause Analysis',
+      'First-Line Technical Escalations & Resolution'
+    ]
+  },
+  {
+    id: 'admin-1',
+    name: 'Administration Strategy',
+    category: 'admin',
+    icon: 'Workflow',
+    description: 'Translating business processes into reliable, streamlined digital workflows.',
+    bullets: [
+      'Business Information Administration (CPUT Trained)',
+      'Process Automation & Form Digitalization',
+      'Cross-Departmental Systems Integration',
+      'End-User Training & Technical SOP Documentation'
+    ]
+  }
+];
+
+export const EXPERIENCE_DATA: ExperienceItem[] = [
+  {
+    id: 'capaciti',
+    role: 'IT Technical Support',
+    company: 'CAPACITI',
+    location: 'Cape Town, South Africa',
+    period: 'Current Role',
+    isCurrent: true,
+    type: 'Tech Talent Accelerator',
+    summary: 'Delivering first-line technical incident management, service desk triage, infrastructure reliability, and aligning business processes with technical tools.',
+    highlights: [
+      {
+        title: 'Service Desk Management',
+        desc: 'Delivering first-line technical analysis, rapid incident resolution, and structured service desk ticketing.',
+        icon: 'Headset'
+      },
+      {
+        title: 'Infrastructure Reliability',
+        desc: 'Ensuring continuous uptime, hardware health, and optimal connectivity across workplace environments.',
+        icon: 'Server'
+      },
+      {
+        title: 'Business Alignment',
+        desc: 'Bridging end-user requirements with technical solutions to maximize daily organizational productivity.',
+        icon: 'Handshake'
+      }
+    ]
+  },
+  {
+    id: 'prasa',
+    role: 'Information & Administrative Support',
+    company: 'PRASA (Passenger Rail Agency of South Africa)',
+    location: 'Cape Town, South Africa',
+    period: 'Enterprise Transport',
+    type: 'Public Transport & Rail Enterprise',
+    summary: 'Applied administrative strategy and robust information support within a large-scale national transport network environment.',
+    highlights: [
+      {
+        title: 'Enterprise Information Systems',
+        desc: 'Managed critical document registries, system record integrity, and inter-departmental operational flows.',
+        icon: 'Train'
+      },
+      {
+        title: 'Process Optimization',
+        desc: 'Identified documentation delays and introduced structured digital record filing to expedite data retrieval.',
+        icon: 'FileText'
+      },
+      {
+        title: 'Cross-Functional Support',
+        desc: 'Provided operational assistance to multidisciplinary technical teams during transport operations.',
+        icon: 'Users'
+      }
+    ]
+  },
+  {
+    id: 'wced',
+    role: 'Data Systems & Administrative Support',
+    company: 'Western Cape Department of Education (WCED)',
+    location: 'Western Cape, South Africa',
+    period: 'Public Sector',
+    type: 'Government Education Department',
+    summary: 'Managed data systems, administrative documentation, and user technical support within the provincial public education framework.',
+    highlights: [
+      {
+        title: 'Data Integrity & Systems',
+        desc: 'Ensured high-accuracy records management, validation audits, and compliant educational data entries.',
+        icon: 'Building2'
+      },
+      {
+        title: 'Administrative Documentation',
+        desc: 'Drafted standard operating procedures and streamlined routine reporting schedules.',
+        icon: 'ShieldCheck'
+      },
+      {
+        title: 'End-User Assistance',
+        desc: 'Provided compassionate first-line technical guidance to administrative staff across educational centers.',
+        icon: 'HelpCircle'
+      }
+    ]
+  },
+  {
+    id: 'innovate-tech',
+    role: 'IT Support & Technical Assistant',
+    company: 'Innovate Technology',
+    location: 'Cape Town, South Africa',
+    period: 'Managed Services',
+    type: 'IT Managed Services & Solutions',
+    summary: 'Supported IT service delivery, hardware/software troubleshooting, preventative maintenance, and client system updates.',
+    highlights: [
+      {
+        title: 'Technical Troubleshooting',
+        desc: 'Diagnosed PC hardware failures, OS corruptions, peripheral errors, and application crashes.',
+        icon: 'Laptop'
+      },
+      {
+        title: 'Maintenance & Upgrades',
+        desc: 'Executed scheduled patch management, anti-malware updates, and local database backup routines.',
+        icon: 'Wrench'
+      },
+      {
+        title: 'Client Service Delivery',
+        desc: 'Maintained customer satisfaction through prompt incident resolution and transparent status communication.',
+        icon: 'CheckCircle'
+      }
+    ]
+  }
+];
+
+export const EDUCATION_DATA: EducationItem[] = [
+  {
+    id: 'cput-diploma',
+    degree: 'Diploma in Business & Information Administration',
+    institution: 'Cape Peninsula University of Technology (CPUT)',
+    tag: 'Diploma',
+    type: 'Higher Education Diploma',
+    details: 'Comprehensive grounding in administrative information systems, workflow design, business records management, and enterprise organizational strategy.',
+    icon: 'GraduationCap',
+    badge: 'Systems & Admin Core'
+  },
+  {
+    id: 'ccna-cert',
+    degree: 'Fundamental Network (CCNA)',
+    institution: 'Cisco Networking Academy',
+    tag: 'Practical Experience',
+    type: 'Networking Certification Track',
+    details: 'Mastery of TCP/IP, IP subnetting, VLAN segmentation, switch and router configuration, ping/traceroute network diagnostic methodologies.',
+    icon: 'Network',
+    badge: 'Fundamental Network (CCNA)'
+  },
+  {
+    id: 'm365-admin',
+    degree: 'Microsoft 365 & IT Systems Administration',
+    institution: 'Enterprise Technical Training Modules',
+    tag: 'Technical Modules',
+    type: 'Enterprise Cloud & Systems Track',
+    details: 'Hands-on proficiency in Azure Active Directory / Entra ID, Microsoft 365 Admin Center, workstation hardware diagnostics, and role-based access management.',
+    icon: 'ShieldCheck',
+    badge: 'Cloud & Systems Admin'
+  }
+];
+
+export const CERTIFICATES_DATA: Certificate[] = [
+  {
+    id: 'unsupervised-learning',
+    name: 'Unsupervised Learning, Recommenders, Reinforcement Learning',
+    issuer: 'DeepLearning.AI',
+    issuerLogo: 'deeplearning',
+    issueDate: 'Issued Sep 2026',
+    credentialId: 'SR49AQ003TSJ',
+    url: 'https://coursera.org/share/47dfaf648dc57332ff79bd76e4048a3a',
+    skills: 'Machine Learning, Deep Learning, Reinforcement Learning, Anomaly Detection'
+  },
+  {
+    id: 'supervised-machine-learning',
+    name: 'Supervised Machine Learning: Regression and Classification',
+    issuer: 'DeepLearning.AI',
+    issuerLogo: 'deeplearning',
+    issueDate: 'Issued Aug 2026',
+    credentialId: 'DDLK0UQE5L0O',
+    url: 'https://coursera.org/share/e7065fb8615d29c89d5abd4a44df5cd6',
+    skills: 'Python (Programming Language), Machine Learning, Scikit-Learn'
+  },
+  {
+    id: 'genai-llms',
+    name: 'Generative AI with Large Language Models',
+    issuer: 'DeepLearning.AI',
+    issuerLogo: 'deeplearning',
+    issueDate: 'Issued Aug 2026',
+    credentialId: '0LDL6HM1OEVI',
+    url: 'https://coursera.org/share/fbe3354e51b259614bbb6f92a2e1d54f',
+    skills: 'Generative AI, Large Language Models (LLMs), Model Fine-tuning, Deployment'
+  },
+  {
+    id: 'ibm-python-ai',
+    name: 'Python for Data Science, AI & Development',
+    issuer: 'IBM',
+    issuerLogo: 'ibm',
+    issueDate: 'Issued Aug 2026',
+    credentialId: 'ARAQNGWV9QVU',
+    url: 'https://coursera.org/share/f45589bfefa83b5d0b98dc593d5df731',
+    skills: 'Python Programming, Data Science, AI & Scripting, NumPy'
+  },
+  {
+    id: 'ibm-prompt-engineering',
+    name: 'Generative AI: Prompt Engineering Basics',
+    issuer: 'IBM',
+    issuerLogo: 'ibm',
+    issueDate: 'Issued Aug 2026',
+    credentialId: '3OQHGBPK32XL',
+    url: 'https://coursera.org/share/915c85a289da86366f9f883f2c1af45a',
+    skills: 'Prompt Engineering, ChatGPT, Prompt Patterns, Generative AI'
+  },
+  {
+    id: 'ai-bootcamp',
+    name: 'Artificial Intelligence Bootcamp (AI)',
+    issuer: 'Coursera',
+    issuerLogo: 'coursera',
+    issueDate: 'Issued Aug 2026',
+    credentialId: 'nMSRtMJnQsWEkbTCZ3LFiw',
+    url: 'https://coursera.org/verify/nMSRtMJnQsWEkbTCZ3LFiw',
+    skills: 'Artificial Intelligence, Applied Deep Learning, Technical Workflows'
+  }
+];
+
+export const SCENARIOS: Record<string, Scenario> = {
+  network: {
+    id: 'network',
+    title: 'Network Connectivity & Gateway Diagnostics (Fundamental Network (CCNA))',
+    category: 'Infrastructure',
+    description: 'User reports intermittent connectivity, packet dropouts, and slow cloud sync within a branch office network.',
+    resolutionTime: '< 15 mins',
+    steps: [
+      'First-Line Analysis: Execute ping, traceroute, and ARP table checks to isolate the packet loss hop.',
+      'Network Layer Diagnostics: Inspect gateway switch VLAN configurations, duplex mismatches, and interface error rates.',
+      'Root-Cause Resolution: Flush local DNS/ARP cache, renew DHCP leases with correct DNS relays, and stabilize uplink channel.',
+      'Verification & Follow-up: Run continuous throughput benchmarks and confirm zero packet drop with the end-user.'
+    ]
+  },
+  hardware: {
+    id: 'hardware',
+    title: 'Workstation Hardware & OS Diagnostics',
+    category: 'Hardware & Systems',
+    description: 'Workstation boot failure with peripheral disconnects and system crash interrupting daily operational tasks.',
+    resolutionTime: '< 20 mins',
+    steps: [
+      'Incident Triage: Log ticket in ITSM tool, capture system crash stop code, and isolate failing hardware components.',
+      'Diagnostics & Testing: Test memory modules, examine system event logs, and execute system file integrity checks.',
+      'Hardware & Driver Remediation: Reseat internal connections, update conflicting drivers, and verify system temperatures.',
+      'Post-Repair Verification: Run automated diagnostic stress tests and confirm stable system recovery with the user.'
+    ]
+  },
+  m365: {
+    id: 'm365',
+    title: 'Microsoft 365 Role-Based Access & Licensing',
+    category: 'Cloud & Identity',
+    description: 'New department hire requires customized role-based access for Microsoft 365, Teams channels, SharePoint folders, and SAP ERP roles.',
+    resolutionTime: '< 10 mins',
+    steps: [
+      'Identity Verification: Cross-reference ticket authorization with approved HR onboarding credentials and department matrix.',
+      'Azure AD / Entra ID Provisioning: Assign enterprise license, configure MFA authentication, and map user to targeted security groups.',
+      'Application Permissions: Grant scoped SharePoint repository access and configure single-sign-on credentials for SAP ERP.',
+      'Guided Onboarding: Walk employee through first-time sign-in, MFA validation, and close ticket with full audit trail.'
+    ]
+  },
+  workflow: {
+    id: 'workflow',
+    title: 'Departmental Administrative Bottleneck',
+    category: 'Workflow Optimization',
+    description: 'High volume of manual paper-form entries creating a multi-day administrative backlog between operational units.',
+    resolutionTime: 'Process Transformation',
+    steps: [
+      'Workflow Mapping: Apply Business & Information Administration principles to pinpoint redundant manual review stages.',
+      'Digital Transformation: Replace paper forms with standardized digital Microsoft 365 Forms connected to structured operational registries.',
+      'Administrative Training: Conduct interactive enablement session for operational staff on automated record validation.',
+      'Impact Measurement: Eliminated duplicate data entry, reduced processing turnaround time from 3 days to under 2 hours.'
+    ]
+  }
+};
+
+export const PROJECTS_DATA: ProjectItem[] = [
+  {
+    id: 'capaciti-technoresolve-desk',
+    title: 'TechnoResolve Desk – Enterprise Tiered ITSM Support Portal (CAPACITI Project)',
+    category: 'IT Service Management',
+    summary: 'Tiered enterprise service desk with AI ticket triage, role-specific workspaces (Admin, Technician, Customer), Firestore cloud persistence, and notification alerts.',
+    description: 'Collaborative enterprise IT service desk platform engineered during the UVU Africa (CAPACITI) IT Technical Support programme. Built dedicated role-specific portals (Customer Self-Service & Ticket Submission, Technician Incident Queue & Diagnostic Workspace, and Admin Control Center for SLA management and team oversight). Integrated AI ticket classification, priority grading, and end-to-end resolution audit logs.',
+    highlights: [
+      'Engineered multi-role permission architecture separating Customer self-service, Technician diagnostic queues, and Admin approval oversight.',
+      'Integrated AI-assisted ticket triage automatically categorizing hardware, network, and software incidents with urgency and SLA grading.',
+      'Built persistent ticket lifecycle tracking with real-time Firestore database updates, diagnostic audit histories, and resolution notifications.'
+    ],
+    technologies: ['React 19', 'TypeScript', 'Tailwind CSS', 'Firebase Firestore', 'Express', 'Gemini AI API', 'ITSM / SLA Tracking'],
+    status: 'Featured Team Project',
+    icon: 'Headset',
+    badge: 'UVU Africa / CAPACITI',
+    featured: true,
+    githubUrl: 'https://github.com/AvumileTati/CAPACITI-Project'
+  },
+  {
+    id: 'awonke-digital-profile',
+    title: 'Awonke Philibane – Interactive IT Technical Systems Portfolio',
+    category: 'Web & Systems Architecture',
+    summary: 'High-performance interactive digital portfolio and system architecture showcase with AI assistant integration, verified IT competencies, and dark mode persistence.',
+    description: 'Custom-built responsive digital portfolio and IT technical support demonstration platform. Highlights verified competencies across Fundamental Network (CCNA), Microsoft 365, workstation support, and enterprise administrative processes. Features an AI assistant powered by Google Gemini, dark/light theme switching, and accessible design.',
+    highlights: [
+      'Built with React 19, TypeScript, Tailwind CSS, and Express server with full mobile responsiveness.',
+      'Embedded server-side Gemini AI assistant grounded with verified CV context for interactive recruiter inquiries.',
+      'Architected client-side dark/light mode toggle with local storage persistence and keyboard shortcuts.'
+    ],
+    technologies: ['React 19', 'TypeScript', 'Tailwind CSS', 'Express Server', 'Gemini AI SDK', 'Vite', 'Motion'],
+    status: 'Live & Open Source',
+    icon: 'Workflow',
+    badge: 'Personal Repository',
+    featured: true,
+    githubUrl: 'https://github.com/AwonkeP/Digital-Profile'
+  }
+];
+
+
