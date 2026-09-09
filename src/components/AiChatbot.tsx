@@ -22,10 +22,10 @@ export const AiChatbot: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const quickChips = [
-    'Current Role @ CAPACITI',
-    'Fundamental Network (CCNA)',
-    'CPUT Diploma',
-    'Experience @ PRASA & WCED',
+    'Current Role @ IT Support',
+    'Current Company @CAPACITI',
+    'Education @CPUT Diploma',
+    'Experience @ Innovate Tecnology (Pty) Ltd PRASA & WCED',
     'Contact Info & Links',
   ];
 
@@ -155,7 +155,7 @@ export const AiChatbot: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-extrabold text-sm leading-tight text-white">
-                  Awonke's AI Profile Assistant
+                  Awonke's AI Assistant
                 </h4>
                 <div className="flex items-center gap-1.5 text-[10px] text-emerald-400 font-bold">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
