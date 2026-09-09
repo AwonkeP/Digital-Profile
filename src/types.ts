@@ -66,6 +66,17 @@ export interface Scenario {
   steps: string[];
 }
 
+export interface Certificate {
+  id: string;
+  name: string;
+  issuer: string;
+  issuerLogo: 'coursera' | 'deeplearning' | 'ibm' | 'cisco' | 'other';
+  issueDate: string;
+  credentialId: string;
+  url: string;
+  skills?: string;
+}
+
 export interface ChatMessage {
   id: string;
   role: 'user' | 'assistant';

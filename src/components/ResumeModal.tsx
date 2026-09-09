@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Printer, Download, Mail, MapPin, Briefcase, GraduationCap, CheckCircle2, Copy, Check, Linkedin, Github, ExternalLink, ChevronDown, Loader2 } from 'lucide-react';
-import { PROFILE_INFO, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA } from '../data';
+import { PROFILE_INFO, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA, CERTIFICATES_DATA } from '../data';
 import { generateResumePdf, triggerPrintCv } from '../utils/generatePdf';
 
 interface ResumeModalProps {
@@ -293,7 +293,7 @@ EDUCATION & QUALIFICATIONS
           {/* Education & Qualifications */}
           <div className="space-y-3">
             <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-400">
-              Education & Certifications
+              Education & Training
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {EDUCATION_DATA.map((edu) => (
@@ -302,6 +302,31 @@ EDUCATION & QUALIFICATIONS
                   <div className="font-bold text-neutral-950 dark:text-white text-xs">{edu.degree}</div>
                   <div className="text-[11px] text-neutral-600 dark:text-neutral-400 font-medium">{edu.institution}</div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Licenses & Certifications */}
+          <div className="space-y-3">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-400">
+              Licenses & Certifications
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {CERTIFICATES_DATA.map((cert) => (
+                <a
+                  key={cert.id}
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 space-y-1.5 block hover:border-neutral-400 dark:hover:border-neutral-500 transition-colors group"
+                >
+                  <div className="text-[10px] font-bold text-neutral-500 dark:text-neutral-400">{cert.issuer} • {cert.issueDate}</div>
+                  <div className="font-bold text-neutral-950 dark:text-white text-xs group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors flex items-center justify-between gap-1">
+                    <span className="line-clamp-2">{cert.name}</span>
+                    <ExternalLink className="w-3 h-3 shrink-0 opacity-70 group-hover:opacity-100" />
+                  </div>
+                  <div className="text-[10px] text-neutral-500 dark:text-neutral-400 font-mono">ID: {cert.credentialId}</div>
+                </a>
               ))}
             </div>
           </div>

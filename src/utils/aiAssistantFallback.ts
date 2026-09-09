@@ -278,13 +278,24 @@ export function resolveClientSideGroundedFallback(
     lower.includes("qualification") ||
     lower.includes("study") ||
     lower.includes("school") ||
-    lower.includes("university")
+    lower.includes("university") ||
+    lower.includes("coursera") ||
+    lower.includes("deeplearning") ||
+    lower.includes("ibm") ||
+    lower.includes("machine learning") ||
+    lower.includes("ai")
   ) {
-    return "Awonke's educational qualifications include:\n\n" +
-      "- **Diploma in Business and Information Administration:** Cape Peninsula University of Technology (CPUT). Provides him with a unique blend of business management and information systems expertise.\n" +
-      "- **Fundamental Network (CCNA):** Cisco Networking Academy credential covering routing, switching, VLANs, and network diagnostics.\n" +
+    return "Awonke's education and accredited credentials include:\n\n" +
+      "- **Unsupervised Learning, Recommenders, Reinforcement Learning:** DeepLearning.AI (Credential ID: `SR49AQ003TSJ`)\n" +
+      "- **Supervised Machine Learning: Regression and Classification:** DeepLearning.AI (Credential ID: `DDLK0UQE5L0O`)\n" +
+      "- **Generative AI with Large Language Models:** DeepLearning.AI (Credential ID: `0LDL6HM1OEVI`)\n" +
+      "- **Python for Data Science, AI & Development:** IBM (Credential ID: `ARAQNGWV9QVU`)\n" +
+      "- **Generative AI: Prompt Engineering Basics:** IBM (Credential ID: `3OQHGBPK32XL`)\n" +
+      "- **Artificial Intelligence Bootcamp (AI):** Coursera (Credential ID: `nMSRtMJnQsWEkbTCZ3LFiw`)\n" +
+      "- **Diploma in Business and Information Administration:** Cape Peninsula University of Technology (CPUT)\n" +
+      "- **Fundamental Network (CCNA):** Cisco Networking Academy credential covering routing, switching, and VLAN diagnostics\n" +
       "- **Microsoft 365 Administration:** Systems administration, cloud identity, and Azure Active Directory.\n\n" +
-      "Would you like to know how his business diploma complements his IT technical support career?";
+      "You can click 'Show credential' on any card in the Certifications grid to verify them directly on Coursera!";
   }
 
   // 17. Projects / GitHub / TechnoResolve

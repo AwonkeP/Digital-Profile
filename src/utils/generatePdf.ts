@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf';
-import { PROFILE_INFO, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA, PROJECTS_DATA } from '../data';
+import { PROFILE_INFO, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA, PROJECTS_DATA, CERTIFICATES_DATA } from '../data';
 
 export function generateResumePdf(): void {
   const doc = new jsPDF({
@@ -208,6 +208,35 @@ export function generateResumePdf(): void {
     y += detailLines.length * 4 + 3;
   });
 
+  // 4b. LICENSES & CERTIFICATIONS
+  if (CERTIFICATES_DATA && CERTIFICATES_DATA.length > 0) {
+    addSectionTitle('Verified Licenses & Certifications');
+
+    CERTIFICATES_DATA.forEach((cert) => {
+      checkPageBreak(14);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(15, 23, 42);
+      doc.text(cert.name, margin, y);
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8);
+      doc.setTextColor(100, 116, 139);
+      const yrWidth = doc.getTextWidth(cert.issueDate);
+      doc.text(cert.issueDate, margin + contentWidth - yrWidth, y);
+
+      y += 4.2;
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(8);
+      doc.setTextColor(71, 85, 105);
+      const credText = `${cert.issuer}  •  Credential ID: ${cert.credentialId}${cert.skills ? `  •  Skills: ${cert.skills}` : ''}`;
+      const credLines = doc.splitTextToSize(credText, contentWidth);
+      doc.text(credLines, margin, y);
+      y += credLines.length * 3.8 + 2.5;
+    });
+  }
+
   // 5. FEATURED TECHNICAL PROJECTS
   if (PROJECTS_DATA && PROJECTS_DATA.length > 0) {
     addSectionTitle('Featured Technical Projects & Repositories');
@@ -289,6 +318,19 @@ export function triggerPrintCv(): void {
           <span style="font-size: 11px; color: #64748b; font-weight: bold;">${edu.badge || edu.tag}</span>
         </div>
         <div style="font-size: 11px; color: #475569;">${edu.institution} — ${edu.details}</div>
+      </div>
+    `
+    ).join('');
+
+    const certHtml = CERTIFICATES_DATA.map(
+      (cert) => `
+      <div style="margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline;">
+          <h4 style="margin: 0; font-size: 12px; font-weight: bold; color: #0f172a;">${cert.name}</h4>
+          <span style="font-size: 11px; color: #64748b; font-weight: bold;">${cert.issueDate}</span>
+        </div>
+        <div style="font-size: 11px; color: #475569;">${cert.issuer} • Credential ID: ${cert.credentialId}</div>
+        ${cert.skills ? `<div style="font-size: 10.5px; color: #64748b; margin-top: 2px;"><strong>Skills:</strong> ${cert.skills}</div>` : ''}
       </div>
     `
     ).join('');
@@ -390,8 +432,11 @@ export function triggerPrintCv(): void {
           <div class="section-title">Professional Experience</div>
           ${expHtml}
 
-          <div class="section-title">Education & Certifications</div>
+          <div class="section-title">Education & Training</div>
           ${eduHtml}
+
+          <div class="section-title">Licenses & Certifications</div>
+          ${certHtml}
 
           <div class="section-title">Featured Technical Projects</div>
           ${projHtml}

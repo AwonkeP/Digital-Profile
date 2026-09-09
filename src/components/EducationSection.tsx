@@ -23,7 +23,7 @@ export const EducationSection: React.FC = () => {
           Qualifications
         </h2>
         <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 dark:text-white">
-          Education & Certifications
+          Education & Training
         </h3>
       </div>
 

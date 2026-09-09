@@ -5,6 +5,7 @@ import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
 import { ExperienceSection } from './components/ExperienceSection';
 import { EducationSection } from './components/EducationSection';
+import { CertificationsSection } from './components/CertificationsSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { ContactSection } from './components/ContactSection';
 import { AiChatbot } from './components/AiChatbot';
@@ -61,6 +62,7 @@ export default function App() {
         <SkillsSection />
         <ExperienceSection />
         <EducationSection />
+        <CertificationsSection />
         <ProjectsSection />
         <ContactSection onOpenResume={() => setIsResumeOpen(true)} />
       </main>

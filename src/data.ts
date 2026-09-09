@@ -1,4 +1,4 @@
-import { SkillItem, ExperienceItem, EducationItem, Scenario, ProjectItem } from './types';
+import { SkillItem, ExperienceItem, EducationItem, Scenario, ProjectItem, Certificate } from './types';
 import profilePhoto from './assets/images/awonke_photo_actual.jpg';
 
 export const PROFILE_INFO = {
@@ -212,6 +212,69 @@ export const EDUCATION_DATA: EducationItem[] = [
     details: 'Hands-on proficiency in Azure Active Directory / Entra ID, Microsoft 365 Admin Center, workstation hardware diagnostics, and role-based access management.',
     icon: 'ShieldCheck',
     badge: 'Cloud & Systems Admin'
+  }
+];
+
+export const CERTIFICATES_DATA: Certificate[] = [
+  {
+    id: 'unsupervised-learning',
+    name: 'Unsupervised Learning, Recommenders, Reinforcement Learning',
+    issuer: 'DeepLearning.AI',
+    issuerLogo: 'deeplearning',
+    issueDate: 'Issued Sep 2026',
+    credentialId: 'SR49AQ003TSJ',
+    url: 'https://coursera.org/share/47dfaf648dc57332ff79bd76e4048a3a',
+    skills: 'Machine Learning, Deep Learning, Reinforcement Learning, Anomaly Detection'
+  },
+  {
+    id: 'supervised-machine-learning',
+    name: 'Supervised Machine Learning: Regression and Classification',
+    issuer: 'DeepLearning.AI',
+    issuerLogo: 'deeplearning',
+    issueDate: 'Issued Aug 2026',
+    credentialId: 'DDLK0UQE5L0O',
+    url: 'https://coursera.org/share/e7065fb8615d29c89d5abd4a44df5cd6',
+    skills: 'Python (Programming Language), Machine Learning, Scikit-Learn'
+  },
+  {
+    id: 'genai-llms',
+    name: 'Generative AI with Large Language Models',
+    issuer: 'DeepLearning.AI',
+    issuerLogo: 'deeplearning',
+    issueDate: 'Issued Aug 2026',
+    credentialId: '0LDL6HM1OEVI',
+    url: 'https://coursera.org/share/fbe3354e51b259614bbb6f92a2e1d54f',
+    skills: 'Generative AI, Large Language Models (LLMs), Model Fine-tuning, Deployment'
+  },
+  {
+    id: 'ibm-python-ai',
+    name: 'Python for Data Science, AI & Development',
+    issuer: 'IBM',
+    issuerLogo: 'ibm',
+    issueDate: 'Issued Aug 2026',
+    credentialId: 'ARAQNGWV9QVU',
+    url: 'https://coursera.org/share/f45589bfefa83b5d0b98dc593d5df731',
+    skills: 'Python Programming, Data Science, AI & Scripting, NumPy'
+  },
+  {
+    id: 'ibm-prompt-engineering',
+    name: 'Generative AI: Prompt Engineering Basics',
+    issuer: 'IBM',
+    issuerLogo: 'ibm',
+    issueDate: 'Issued Aug 2026',
+    credentialId: '3OQHGBPK32XL',
+    url: 'https://coursera.org/share/915c85a289da86366f9f883f2c1af45a',
+    skills: 'Prompt Engineering, ChatGPT, Prompt Patterns, Generative AI'
+  },
+  {
+    id: 'ai-bootcamp',
+    name: 'Artificial Intelligence Bootcamp (AI)',
+    issuer: 'Coursera',
+    issuerLogo: 'coursera',
+    issueDate: 'Issued Aug 2026',
+    credentialId: 'nMSRtMJnQsWEkbTCZ3LFiw',
+    url: 'https://coursera.org/verify/nMSRtMJnQsWEkbTCZ3LFiw',
+    skills: 'Artificial Intelligence, Applied Deep Learning, Technical Workflows'
   }
 ];
 
