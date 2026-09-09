@@ -197,7 +197,7 @@ export const EDUCATION_DATA: EducationItem[] = [
     id: 'ccna-cert',
     degree: 'Fundamental Network (CCNA)',
     institution: 'Cisco Networking Academy',
-    tag: 'Professional Track',
+    tag: 'Practical Experience',
     type: 'Networking Certification Track',
     details: 'Mastery of TCP/IP, IP subnetting, VLAN segmentation, switch and router configuration, ping/traceroute network diagnostic methodologies.',
     icon: 'Network',
