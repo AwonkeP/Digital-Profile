@@ -25,7 +25,7 @@ export const AiChatbot: React.FC = () => {
     'Current Role @ IT Support',
     'Current Company @CAPACITI',
     'Education @CPUT Diploma',
-    'Experience @ Innovate Tecnology (Pty) Ltd PRASA & WCED',
+    'Work Experience',
     'Contact Info & Links',
   ];
 
