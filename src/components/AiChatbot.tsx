@@ -13,7 +13,7 @@ export const AiChatbot: React.FC = () => {
     {
       id: 'welcome-1',
       role: 'assistant',
-      text: "Hello! I am Awonke's interactive AI Profile Assistant. I answer questions strictly based on Awonke Philibane's verified profile, IT technical support experience, Fundamental Network (CCNA) knowledge, and qualifications. How can I help you today?",
+      text: "Hello! I am Awonke's interactive AI Profile Assistant. I answer questions strictly based on his profile. How can I help you today?",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
