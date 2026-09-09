@@ -410,7 +410,7 @@ async function startServer() {
       });
 
       // Valid Gemini models supported by @google/genai (fastest & highly available first)
-      const candidateModels = ["gemini-3.8-flash", "gemini-3.1-flash-lite", "gemini-flash-latest"];
+      const candidateModels = ["gemini-2.5-flash", "gemini-2.0-flash"];
       let replyText: string | null = null;
 
       for (const candidateModel of candidateModels) {
@@ -458,22 +458,15 @@ async function startServer() {
   });
 
   // Handle Vite in dev or static files in production
-  const distPath = path.resolve(process.cwd(), "dist");
-  const indexPath = path.resolve(distPath, "index.html");
-  const distExists = fs.existsSync(indexPath);
-
-  const isProduction =
-    process.env.NODE_ENV === "production" ||
-    distExists ||
-    (process.argv[1] && process.argv[1].includes("dist"));
-
-  if (!isProduction) {
+  if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
     });
     app.use(vite.middlewares);
   } else {
+    const distPath = path.resolve(process.cwd(), "dist");
+    const indexPath = path.resolve(distPath, "index.html");
     app.use(express.static(distPath));
     app.get("*", (req, res) => {
       res.sendFile(indexPath);

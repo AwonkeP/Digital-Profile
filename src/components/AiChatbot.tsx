@@ -60,7 +60,7 @@ export const AiChatbot: React.FC = () => {
     try {
       let replyText = '';
 
-      // 1. Try standard /api/chat endpoint (works locally, on Cloud Run, and on Netlify with proxy)
+      // 1. Try standard /api/chat endpoint (handles Gemini API with server-side proxy)
       try {
         const res = await fetch('/api/chat', {
           method: 'POST',
@@ -84,33 +84,7 @@ export const AiChatbot: React.FC = () => {
         console.warn('Call to /api/chat failed:', networkErr);
       }
 
-      // 2. If /api/chat did not succeed (e.g. on Netlify where rewrite wasn't applied), try Netlify serverless function directly
-      if (!replyText) {
-        try {
-          const netlifyRes = await fetch('/.netlify/functions/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              message: trimmed,
-              conversationHistory,
-            }),
-          });
-
-          if (netlifyRes.ok) {
-            const contentType = netlifyRes.headers.get('content-type') || '';
-            if (contentType.includes('application/json')) {
-              const data = await netlifyRes.json();
-              if (data && typeof data.response === 'string' && data.response.trim()) {
-                replyText = data.response;
-              }
-            }
-          }
-        } catch (netlifyErr) {
-          console.warn('Call to /.netlify/functions/chat failed:', netlifyErr);
-        }
-      }
-
-      // 3. Fallback to client-side grounded knowledge assistant (guarantees 100% uptime on Netlify even without backend/keys)
+      // 2. Fallback to client-side grounded knowledge assistant if offline or without keys
       if (!replyText) {
         replyText = resolveClientSideGroundedFallback(trimmed, conversationHistory);
       }
