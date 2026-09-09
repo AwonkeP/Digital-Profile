@@ -24,7 +24,6 @@ export const SKILLS_DATA: SkillItem[] = [
     id: 'infra-1',
     name: 'Infrastructure & Networking',
     category: 'infra',
-    domain: 'Domain 1',
     icon: 'Network',
     description: 'Hardware, routing, switching, and end-to-end network connectivity troubleshooting.',
     bullets: [
@@ -38,7 +37,6 @@ export const SKILLS_DATA: SkillItem[] = [
     id: 'enterprise-1',
     name: 'Enterprise Tools & Software',
     category: 'enterprise',
-    domain: 'Domain 2',
     icon: 'Layers',
     description: 'Enterprise ERP platforms, CRM systems, and structured ITSM service desk workflows.',
     bullets: [
@@ -52,7 +50,6 @@ export const SKILLS_DATA: SkillItem[] = [
     id: 'data-1',
     name: 'Data & Operations',
     category: 'data',
-    domain: 'Domain 3',
     icon: 'LineChart',
     description: 'Data hygiene, incident analysis, and workflow bottleneck identification.',
     bullets: [
@@ -66,7 +63,6 @@ export const SKILLS_DATA: SkillItem[] = [
     id: 'admin-1',
     name: 'Administration Strategy',
     category: 'admin',
-    domain: 'Domain 4',
     icon: 'Workflow',
     description: 'Translating business processes into reliable, streamlined digital workflows.',
     bullets: [

@@ -2,7 +2,7 @@ export interface SkillItem {
   id: string;
   name: string;
   category: 'infra' | 'enterprise' | 'data' | 'admin';
-  domain: string;
+  domain?: string;
   icon: string;
   description: string;
   bullets: string[];
