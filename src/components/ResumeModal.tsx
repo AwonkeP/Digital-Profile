@@ -188,7 +188,7 @@ EDUCATION & QUALIFICATIONS
               src={PROFILE_INFO.profileImage}
               alt={PROFILE_INFO.name}
               referrerPolicy="no-referrer"
-              className="w-20 h-20 rounded-full object-cover ring-2 ring-neutral-950 dark:ring-white border-2 border-white dark:border-neutral-900 shadow-md shrink-0"
+              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover ring-2 ring-neutral-950 dark:ring-white border-2 border-white dark:border-neutral-900 shadow-md shrink-0"
             />
             <div className="space-y-1.5 text-center sm:text-left flex-1">
               <h1 className="text-2xl sm:text-3xl font-black text-neutral-950 dark:text-white tracking-tight">

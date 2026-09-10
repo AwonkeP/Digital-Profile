@@ -194,26 +194,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
           >
             {/* Centered Round Circle Picture with Spring Hover */}
             <motion.div 
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.98 }}
               className="relative shrink-0 cursor-pointer"
               onClick={() => setActivePopup('experience')}
               title="Click to view background details"
             >
-              <div className="w-28 h-28 rounded-full p-1 bg-neutral-900 dark:bg-neutral-800 ring-4 ring-neutral-200/80 dark:ring-neutral-800 shadow-md">
+              <div className="w-44 h-44 sm:w-52 sm:h-52 md:w-56 md:h-56 rounded-full p-1.5 bg-neutral-900 dark:bg-neutral-800 ring-4 sm:ring-6 ring-neutral-200/90 dark:ring-neutral-800 shadow-xl transition-all">
                 <img
                   id="hero-profile-avatar"
                   src={PROFILE_INFO.profileImage}
                   alt={PROFILE_INFO.name}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full rounded-full object-cover border-2 border-white dark:border-neutral-900"
+                  className="w-full h-full rounded-full object-cover border-2 sm:border-3 border-white dark:border-neutral-900"
                 />
               </div>
               {/* Active Indicator Dot */}
               <span
                 title="Active IT Technical Support"
-                className="absolute bottom-1 right-1 w-4.5 h-4.5 bg-emerald-500 rounded-full ring-2 ring-white dark:ring-neutral-900 shadow-xs"
-              />
+                className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 w-5 h-5 sm:w-6 sm:h-6 bg-emerald-500 rounded-full ring-3 sm:ring-4 ring-white dark:ring-neutral-900 shadow-md flex items-center justify-center"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-white opacity-90 animate-pulse" />
+              </span>
             </motion.div>
 
             {/* Centered Name, Role, Location, and Status */}
