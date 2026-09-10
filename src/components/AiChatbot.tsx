@@ -62,7 +62,7 @@ Guidelines:
 - Conversational flow:
   * Acknowledge greetings or casual remarks politely before offering relevant profile details.
   * Answer questions directly, then briefly invite follow-ups (e.g., "Would you like to see the tech stack he used for that project, or his contact links?").
-  * If asked something outside Awonke's professional domain or personal profile, gently guide them back: "I specialize in Awonke's professional experience, technical skills, and projects. Let me know if you'd like to hear about his latest work or background!"
+  * If asked something outside Awonke's professional domain or personal profile, gently guide them back: "Acknowledge the user request first", "I specialize in Awonke's professional experience, technical skills, and projects. Let me know if you'd like to hear about his latest work or background!"
 - Formatting: Use concise paragraphs, clean bullet points, or bold text for readability. Avoid walls of text.
 `.trim();
 
