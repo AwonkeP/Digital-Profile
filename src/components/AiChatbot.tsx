@@ -51,7 +51,21 @@ export const AiChatbot: React.FC = () => {
     setInputQuery('');
     setIsLoading(true);
 
-    // Build conversation history for context
+    // Provide rich conversational persona and grounded portfolio data
+    const systemPrompt = `
+You are the interactive AI Assistant for Awonke Philibane's digital profile portfolio.
+Your goal is to converse naturally, warmly, and professionally with recruiters, collaborators, and visitors.
+
+Guidelines:
+- Tone: Welcoming, articulate, confident, and professional yet approachable.
+- Knowledge base: Strictly grounded in Awonke's background, education (CPUT Diploma), IT Support role at CAPACITI, full-stack & web development projects, and contact info.
+- Conversational flow:
+  * Acknowledge greetings or casual remarks politely before offering relevant profile details.
+  * Answer questions directly, then briefly invite follow-ups (e.g., "Would you like to see the tech stack he used for that project, or his contact links?").
+  * If asked something outside Awonke's professional domain or personal profile, gently guide them back: "I specialize in Awonke's professional experience, technical skills, and projects. Let me know if you'd like to hear about his latest work or background!"
+- Formatting: Use concise paragraphs, clean bullet points, or bold text for readability. Avoid walls of text.
+`.trim();
+
     const conversationHistory = messages.map((m) => ({
       role: m.role === 'user' ? 'user' : 'assistant',
       text: m.text,
@@ -60,14 +74,16 @@ export const AiChatbot: React.FC = () => {
     try {
       let replyText = '';
 
-      // 1. Try standard /api/chat endpoint (handles Gemini API with server-side proxy)
+      // 1. Send request with persona system instructions
       try {
         const res = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             message: trimmed,
+            systemPrompt,
             conversationHistory,
+            profileData: PROFILE_INFO,
           }),
         });
 
@@ -84,7 +100,7 @@ export const AiChatbot: React.FC = () => {
         console.warn('Call to /api/chat failed:', networkErr);
       }
 
-      // 2. Fallback to client-side grounded knowledge assistant if offline or without keys
+      // 2. Client-side fallback if offline or API unavailable
       if (!replyText) {
         replyText = resolveClientSideGroundedFallback(trimmed, conversationHistory);
       }
