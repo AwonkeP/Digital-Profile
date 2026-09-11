@@ -1,0 +1,2 @@
+# Netlify SPA routing: redirect all requests to /index.html with 200 OK
+/*    /index.html   200

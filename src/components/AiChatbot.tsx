@@ -5,7 +5,11 @@ import { ChatMessage } from '../types';
 import { PROFILE_INFO } from '../data';
 import { resolveClientSideGroundedFallback } from '../utils/aiAssistantFallback';
 
-export const AiChatbot: React.FC = () => {
+interface AiChatbotProps {
+  onOpenResume?: () => void;
+}
+
+export const AiChatbot: React.FC<AiChatbotProps> = ({ onOpenResume }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputQuery, setInputQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
