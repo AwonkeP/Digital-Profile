@@ -71,7 +71,7 @@ export default function App() {
       <Footer />
 
       {/* Floating Interactive Gemini-Powered AI Chatbot */}
-      <AiChatbot />
+      <AiChatbot onOpenResume={() => setIsResumeOpen(true)} />
 
       {/* Printable / Viewable Resume Modal */}
       <ResumeModal

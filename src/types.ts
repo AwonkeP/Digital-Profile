@@ -77,9 +77,19 @@ export interface Certificate {
   skills?: string;
 }
 
+export interface ChatAction {
+  label: string;
+  type: 'resume' | 'contact' | 'projects' | 'education' | 'skills' | 'link';
+  url?: string;
+  icon?: string;
+}
+
 export interface ChatMessage {
   id: string;
   role: 'user' | 'assistant';
   text: string;
   timestamp: string;
+  suggestedReplies?: string[];
+  actions?: ChatAction[];
 }
+
