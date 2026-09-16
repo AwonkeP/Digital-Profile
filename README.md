@@ -18,8 +18,8 @@ This project is pre-configured for one-click deployment on [Netlify](https://www
    - **Publish directory:** `dist`
    - **Functions directory:** `netlify/functions`
 5. *(Optional for live Gemini AI chat)*: Under **Site configuration** > **Environment variables**, add:
-   - `GEMINI_API_KEY`: Your Google Gemini API key
-   *(Note: If omitted, the chatbot automatically uses the built-in grounded profile fallback engine).*
+   - `Google_API_Key` (or `GEMINI_API_KEY`): Your Google Gemini API key
+   *(Note: The serverless function automatically recognizes `Google_API_Key`, `GOOGLE_API_KEY`, and `GEMINI_API_KEY` across Builds, Functions, and Runtime).*
 6. Click **Deploy Site**.
 
 ---

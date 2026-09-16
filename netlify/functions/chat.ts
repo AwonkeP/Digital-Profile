@@ -31,7 +31,17 @@ export default async (req: Request) => {
       });
     }
 
-    const apiKey = process.env.GEMINI_API_KEY;
+    const apiKey =
+      process.env.Google_API_Key ||
+      process.env.GOOGLE_API_KEY ||
+      process.env.GEMINI_API_KEY ||
+      process.env.API_KEY ||
+      Object.entries(process.env).find(
+        ([k]) =>
+          k.toLowerCase().replace(/_/g, '') === 'googleapikey' ||
+          k.toLowerCase().replace(/_/g, '') === 'geminiapikey'
+      )?.[1];
+
     if (!apiKey) {
       // Hand off gracefully to client-side grounded fallback
       return new Response(JSON.stringify({ fallback: true }), {

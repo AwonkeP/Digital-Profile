@@ -13,7 +13,11 @@ const PORT = 3000;
 // Initialize Gemini client lazily
 let genAI: GoogleGenAI | null = null;
 function getGeminiClient(): GoogleGenAI | null {
-  let apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+  let apiKey =
+    process.env.Google_API_Key ||
+    process.env.GOOGLE_API_KEY ||
+    process.env.GEMINI_API_KEY ||
+    process.env.API_KEY;
 
   if (!apiKey) {
     for (const [k, v] of Object.entries(process.env)) {
