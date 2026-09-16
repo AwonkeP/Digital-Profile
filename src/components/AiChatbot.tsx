@@ -80,16 +80,31 @@ Guidelines:
 
       // 1. Send request with persona system instructions
       try {
-        const res = await fetch('/api/chat', {
+        const payload = JSON.stringify({
+          message: trimmed,
+          systemPrompt,
+          conversationHistory,
+          profileData: PROFILE_INFO,
+        });
+
+        let res = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            message: trimmed,
-            systemPrompt,
-            conversationHistory,
-            profileData: PROFILE_INFO,
-          }),
+          body: payload,
         });
+
+        // In Netlify environments without proxy rewrite active, try the direct functions path
+        if (!res.ok && (res.status === 404 || res.status === 502)) {
+          try {
+            res = await fetch('/.netlify/functions/chat', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: payload,
+            });
+          } catch {
+            // continue
+          }
+        }
 
         if (res.ok) {
           const contentType = res.headers.get('content-type') || '';

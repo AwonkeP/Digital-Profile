@@ -14,9 +14,10 @@ const PORT = 3000;
 let genAI: GoogleGenAI | null = null;
 function getGeminiClient(): GoogleGenAI | null {
   let apiKey =
+    (process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY.startsWith("AQ.") ? process.env.GEMINI_API_KEY : null) ||
     process.env.Google_API_Key ||
-    process.env.GOOGLE_API_KEY ||
     process.env.GEMINI_API_KEY ||
+    process.env.GOOGLE_API_KEY ||
     process.env.API_KEY;
 
   if (!apiKey) {
@@ -30,6 +31,11 @@ function getGeminiClient(): GoogleGenAI | null {
         break;
       }
     }
+  }
+
+  // Prevent GoogleGenAI from picking up an un-enabled Firebase GOOGLE_API_KEY
+  if (apiKey && apiKey.startsWith("AQ.") && process.env.GOOGLE_API_KEY && !process.env.GOOGLE_API_KEY.startsWith("AQ.")) {
+    delete process.env.GOOGLE_API_KEY;
   }
 
   if (!genAI && apiKey) {
