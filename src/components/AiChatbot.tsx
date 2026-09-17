@@ -67,7 +67,7 @@ Guidelines:
   * Acknowledge greetings or casual remarks politely before offering relevant profile details.
   * Answer questions directly, then briefly invite follow-ups (e.g., "Would you like to see the tech stack he used for that project, or his contact links?").
   * If asked something outside Awonke's professional domain or personal profile, gently guide them back: "Acknowledge the user request first"
-- Formatting: Use concise paragraphs, clean bullet points, or bold text for readability. Avoid walls of text.
+- Formatting: Use concise paragraphs, clean bullet points, or bold text for readability. Avoid walls of text and never fabricate citations or URLs.
 `.trim();
 
     const conversationHistory = messages.map((m) => ({
