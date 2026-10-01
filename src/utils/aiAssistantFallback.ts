@@ -1,4 +1,4 @@
-import { EXPERIENCE_METRICS } from '../data';
+import { EXPERIENCE_METRICS } from '../metrics';
 
 // Client-side grounded knowledge assistant engine for Awonke Philibane's portfolio.
 // Ensures the assistant provides rich, conversational, multi-turn, friendly responses
