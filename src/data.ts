@@ -74,6 +74,11 @@ export const SKILLS_DATA: SkillItem[] = [
   }
 ];
 
+export const EXPERIENCE_METRICS = {
+  yearsExperience: '4+ Years',
+  usersSupported: '20+'
+};
+
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     id: 'capaciti',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Headset, Server, Handshake, Train, Building2, Laptop, FileText, Users, ShieldCheck, HelpCircle, Wrench, CheckCircle } from 'lucide-react';
-import { EXPERIENCE_DATA } from '../data';
+import { EXPERIENCE_DATA, EXPERIENCE_METRICS } from '../data';
 
 export const ExperienceSection: React.FC = () => {
   const currentRole = EXPERIENCE_DATA.find((e) => e.isCurrent);
@@ -44,6 +44,17 @@ export const ExperienceSection: React.FC = () => {
         <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 dark:text-white">
           Professional Work Experience
         </h3>
+      </div>
+
+      <div className="flex flex-wrap gap-x-8 gap-y-3 border-y border-neutral-200 dark:border-neutral-800 py-4 mb-6">
+        <div>
+          <div className="text-xs font-bold text-neutral-600 dark:text-neutral-400">Total Experience</div>
+          <div className="text-lg font-extrabold text-neutral-950 dark:text-white">{EXPERIENCE_METRICS.yearsExperience}</div>
+        </div>
+        <div>
+          <div className="text-xs font-bold text-neutral-600 dark:text-neutral-400">Users Supported</div>
+          <div className="text-lg font-extrabold text-neutral-950 dark:text-white">{EXPERIENCE_METRICS.usersSupported}</div>
+        </div>
       </div>
 
       <div className="space-y-6">

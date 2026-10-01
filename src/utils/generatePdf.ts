@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf';
-import { PROFILE_INFO, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA, PROJECTS_DATA, CERTIFICATES_DATA } from '../data';
+import { PROFILE_INFO, EXPERIENCE_METRICS, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA, PROJECTS_DATA, CERTIFICATES_DATA } from '../data';
 
 export function generateResumePdf(): void {
   const doc = new jsPDF({
@@ -139,6 +139,11 @@ export function generateResumePdf(): void {
 
   // 3. PROFESSIONAL EXPERIENCE
   addSectionTitle('Professional Experience');
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
+  doc.setTextColor(51, 65, 85);
+  doc.text(`${EXPERIENCE_METRICS.yearsExperience} total experience | ${EXPERIENCE_METRICS.usersSupported} users supported`, margin, y);
+  y += 6;
 
   EXPERIENCE_DATA.forEach((exp) => {
     checkPageBreak(25);
@@ -295,7 +300,9 @@ export function triggerPrintCv(): void {
       return;
     }
 
-    const expHtml = EXPERIENCE_DATA.map(
+    const expHtml = `
+      <p style="font-size: 11px; font-weight: bold; color: #334155; margin: 0 0 10px;">${EXPERIENCE_METRICS.yearsExperience} total experience | ${EXPERIENCE_METRICS.usersSupported} users supported</p>
+    ` + EXPERIENCE_DATA.map(
       (exp) => `
       <div style="margin-bottom: 16px;">
         <div style="display: flex; justify-content: space-between; align-items: baseline;">

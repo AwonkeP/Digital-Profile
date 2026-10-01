@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Send, MapPin, CheckCircle2, ArrowUpRight, Linkedin, Github, X, Shield, Cpu, Network, Building2, ChevronRight, Award, Sparkles, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { PROFILE_INFO } from '../data';
+import { EXPERIENCE_METRICS, PROFILE_INFO } from '../data';
 
 interface HeroProps {
   onOpenResume: () => void;
@@ -90,18 +90,18 @@ const PILLAR_DETAILS: Record<string, PillarDetail> = {
     keyPoints: [
       'CAPACITI: Full-lifecycle IT support, M365 provisioning, hybrid meeting room tech, and fast-paced accelerator workflows.',
       'PRASA: Public rail transport IT operations, enterprise equipment maintenance, and mission-critical communications.',
-      'Western Cape Education Department (WCED): Supported 1,200+ students and educators across institutional computer labs.',
+      'Western Cape Education Department (WCED): Supported chief markers and teachers in assessment administration and procedural compliance.',
       'Business-IT Alignment: Bridging technical problem-solving with organizational compliance and productivity.'
     ],
     metrics: [
-      { label: 'Enterprise Roles', value: '4+ Organizations' },
-      { label: 'Users Supported', value: '1,200+' },
+      { label: 'Enterprise Roles', value: '4 Organizations' },
+      { label: 'Users Supported', value: EXPERIENCE_METRICS.usersSupported },
       { label: 'Infrastructure Scope', value: 'Multi-Site' }
     ]
   },
   stats: {
     id: 'stats',
-    title: '4+ Enterprise Roles',
+    title: '4 Enterprise Roles',
     subtitle: 'Track Record of Progressive IT Support Delivery',
     icon: Award,
     badge: 'Career History',
@@ -113,7 +113,7 @@ const PILLAR_DETAILS: Record<string, PillarDetail> = {
       'Student Academic IT & Administrative Support at CPUT'
     ],
     metrics: [
-      { label: 'Total Experience', value: '4+ Years Foundation' },
+      { label: 'Total Experience', value: `${EXPERIENCE_METRICS.yearsExperience} Foundation` },
       { label: 'Environments', value: 'Hybrid & On-Premise' },
       { label: 'Focus', value: 'Service Excellence' }
     ]

@@ -26,7 +26,6 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ onOpenResume }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const quickChips = [
-    'Current Role @ IT Support',
     'Current Company @CAPACITI',
     'Education @CPUT Diploma',
     'Work Experience',

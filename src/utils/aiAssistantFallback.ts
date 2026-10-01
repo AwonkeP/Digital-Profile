@@ -1,3 +1,5 @@
+import { EXPERIENCE_METRICS } from '../data';
+
 // Client-side grounded knowledge assistant engine for Awonke Philibane's portfolio.
 // Ensures the assistant provides rich, conversational, multi-turn, friendly responses
 // even when deployed statically, when network is unavailable, or before API keys are configured.
@@ -236,7 +238,7 @@ export function resolveClientSideGroundedFallback(
     lower.includes("employment") ||
     lower.includes("history")
   ) {
-    return "Awonke has built a well-rounded career spanning enterprise technical support and systems administration:\n\n" +
+    return `Awonke has built a well-rounded career spanning ${EXPERIENCE_METRICS.yearsExperience} in enterprise technical support and systems administration, supporting ${EXPERIENCE_METRICS.usersSupported} users:\n\n` +
       "- **CAPACITI (Current):** IT Technical Support specializing in first-line diagnostics, network reliability, M365 user management, and service desk excellence.\n" +
       "- **PRASA (Passenger Rail Agency of SA):** Managed enterprise information systems, operational documentation, and data coordination.\n" +
       "- **WCED (Western Cape Dept. of Education):** Supported educational database administration and front-line staff technical issues.\n" +

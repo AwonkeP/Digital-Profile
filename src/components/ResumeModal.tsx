@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, Printer, Download, Mail, MapPin, Briefcase, GraduationCap, CheckCircle2, Copy, Check, Linkedin, Github, ExternalLink, ChevronDown, Loader2 } from 'lucide-react';
-import { PROFILE_INFO, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA, CERTIFICATES_DATA } from '../data';
+import { PROFILE_INFO, EXPERIENCE_METRICS, EXPERIENCE_DATA, EDUCATION_DATA, SKILLS_DATA, CERTIFICATES_DATA } from '../data';
 import { generateResumePdf, triggerPrintCv } from '../utils/generatePdf';
 
 interface ResumeModalProps {
@@ -66,6 +66,7 @@ CORE COMPETENCIES
 - Business Information Administration & Workflow Automation
 
 WORK EXPERIENCE
+${EXPERIENCE_METRICS.yearsExperience} total experience | ${EXPERIENCE_METRICS.usersSupported} users supported
 1. ${EXPERIENCE_DATA[0].company} - ${EXPERIENCE_DATA[0].role} (${EXPERIENCE_DATA[0].period})
    - Service desk triage, first-line technical incident resolution, uptime assurance.
 2. ${EXPERIENCE_DATA[1].company} - ${EXPERIENCE_DATA[1].role}
@@ -261,6 +262,9 @@ EDUCATION & QUALIFICATIONS
             <h2 className="text-xs font-bold uppercase tracking-wider text-neutral-700 dark:text-neutral-400">
               Work Experience
             </h2>
+            <p className="text-xs font-bold text-neutral-800 dark:text-neutral-200">
+              {EXPERIENCE_METRICS.yearsExperience} total experience <span className="mx-2">|</span> {EXPERIENCE_METRICS.usersSupported} users supported
+            </p>
             <div className="space-y-4">
               {EXPERIENCE_DATA.map((exp) => (
                 <div key={exp.id} className="p-4 rounded-2xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700 space-y-2">
