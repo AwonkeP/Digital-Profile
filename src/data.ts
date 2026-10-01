@@ -1,7 +1,5 @@
 import { SkillItem, ExperienceItem, EducationItem, Scenario, ProjectItem, Certificate } from './types';
-
 import profilePhoto from './assets/images/awonke_photo_actual.jpg';
-const profilePhoto = '/images/awonke_photo_actual.jpg';
 
 export const PROFILE_INFO = {
   name: "Awonke Philibane",
@@ -76,10 +74,7 @@ export const SKILLS_DATA: SkillItem[] = [
   }
 ];
 
-export const EXPERIENCE_METRICS = {
-  yearsExperience: '4+ Years',
-  usersSupported: '20+'
-};
+export { EXPERIENCE_METRICS } from './metrics';
 
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
