@@ -1,8 +1,5 @@
 import { SkillItem, ExperienceItem, EducationItem, Scenario, ProjectItem, Certificate } from './types';
-// Remove the import statement:
-// import profilePhoto from './assets/images/awonke_photo_actual.jpg';
 
-// Use the public absolute path:
 import profilePhoto from './assets/images/awonke_photo_actual.jpg';
 const profilePhoto = '/images/awonke_photo_actual.jpg';
 
