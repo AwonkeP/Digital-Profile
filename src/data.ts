@@ -4,7 +4,6 @@ import { SkillItem, ExperienceItem, EducationItem, Scenario, ProjectItem, Certif
 
 // Use the public absolute path:
 const profilePhoto = '/images/awonke_photo_actual.jpg';
-import profilePhoto from './assets/images/awonke_photo_actual.jpg';
 
 export const PROFILE_INFO = {
   name: "Awonke Philibane",
