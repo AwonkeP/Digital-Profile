@@ -3,6 +3,7 @@ import { SkillItem, ExperienceItem, EducationItem, Scenario, ProjectItem, Certif
 // import profilePhoto from './assets/images/awonke_photo_actual.jpg';
 
 // Use the public absolute path:
+import profilePhoto from './assets/images/awonke_photo_actual.jpg';
 const profilePhoto = '/images/awonke_photo_actual.jpg';
 
 export const PROFILE_INFO = {
