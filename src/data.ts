@@ -76,6 +76,11 @@ export const SKILLS_DATA: SkillItem[] = [
   }
 ];
 
+<<<<<<< HEAD
+=======
+export { EXPERIENCE_METRICS } from './metrics';
+
+>>>>>>> 6969f2bb3d36aadf7da9976109610555592f54a9
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     id: 'capaciti',
