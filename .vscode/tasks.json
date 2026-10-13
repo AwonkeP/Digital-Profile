@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Preview Digital Profile (Spring Boot)",
+			"type": "shell",
+			"command": "mvn",
+			"args": [
+				"spring-boot:run",
+				"-Dspring-boot.run.arguments=--server.port=18080"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

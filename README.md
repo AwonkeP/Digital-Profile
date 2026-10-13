@@ -1,57 +1,40 @@
-# Awonke Philibane | Digital Profile & IT Portfolio
+# Awonke Philibane — Digital Profile
 
-An enterprise-grade IT Technical Support and Systems Workflow Optimization digital profile and interactive portfolio.
+The portfolio is a single Spring Boot application. Java provides the profile API and optional Gemini-backed assistant; the browser UI is built with semantic HTML, responsive CSS, and vanilla JavaScript. Profile content is served by the API and includes skills, experience, education, certificates, projects, troubleshooting scenarios, contact links, and metrics.
 
----
+## Requirements
 
-## 🚀 Deploying to Netlify
+- Java 21 or newer
+- Maven 3.6 or newer
 
-This project is pre-configured for one-click deployment on [Netlify](https://www.netlify.com/).
+## Run locally
 
-### Option 1: Git-Connected Deployment (Recommended)
+```sh
+mvn spring-boot:run
+```
 
-1. Push or export this project repository to **GitHub** (via AI Studio Settings > Export to GitHub, or standard git push).
-2. Go to [app.netlify.com](https://app.netlify.com/) and click **"Add new site"** > **"Import an existing project"**.
-3. Select your repository.
-4. Netlify will automatically detect the settings from `netlify.toml`:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-   - **Functions directory:** `netlify/functions`
-5. *(Optional for live Gemini AI chat)*: Under **Site configuration** > **Environment variables**, add:
-   - `Google_API_Key` (or `GEMINI_API_KEY`): Your Google Gemini API key
-   *(Note: The serverless function automatically recognizes `Google_API_Key`, `GOOGLE_API_KEY`, and `GEMINI_API_KEY` across Builds, Functions, and Runtime).*
-6. Click **Deploy Site**.
+Open [http://localhost:8080](http://localhost:8080). The frontend requests the complete portfolio from `GET /api/portfolio`. Individual datasets are also available at `/api/profile`, `/api/skills`, `/api/experience`, `/api/education`, `/api/certificates`, `/api/projects`, and `/api/scenarios`.
 
----
+The profile assistant has a grounded local response mode by default. To enable Gemini responses, provide a server-side API key:
 
-### Option 2: Netlify Drop (Instant Drag & Drop)
+```sh
+GEMINI_API_KEY=your-key mvn spring-boot:run
+```
 
-1. Run `npm run build` to generate the production `/dist` folder.
-2. Visit [app.netlify.com/drop](https://app.netlify.com/drop).
-3. Drag and drop the `dist/` folder directly into the browser.
-4. Your site will be live instantly with complete SPA routing.
+The key is only used by the Java server and is never exposed to the browser. Do not commit real API keys.
 
----
+## Test and package
 
-## 📁 Key Files for Netlify
+```sh
+mvn test
+mvn package
+java -jar target/digital-profile-1.0.0.jar
+```
 
-- `index.html`: The HTML5 entry point with complete metadata, favicon, and SEO tags.
-- `dist/index.html`: The compiled, bundled, production-ready static entry point.
-- `public/_redirects`: Guarantees single-page application (SPA) routing on Netlify (`/* /index.html 200`).
-- `netlify.toml`: Netlify build specification, caching headers, and function redirects.
-- `netlify/functions/chat.ts`: Serverless function proxying the Gemini AI assistant on Netlify.
+## Project structure
 
----
-
-## 🛠️ Local Development
-
-```bash
-# Install dependencies
-npm install
-
-# Run dev server on port 3000
-npm run dev
-
-# Build for production
-npm run build
+```text
+src/main/java/com/awonke/profile/       Spring Boot app, portfolio data, and APIs
+src/main/resources/static/              HTML, CSS, JavaScript, and profile image
+src/test/java/com/awonke/profile/       API and portfolio data tests
 ```
