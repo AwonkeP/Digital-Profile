@@ -36,7 +36,7 @@ java -jar target/digital-profile-1.0.0.jar
 Vercel does not run this as a conventional long-lived Spring Boot server. This repository includes a root `Dockerfile.vercel`, which uses Vercel's Container Runtime to build the Spring Boot JAR and run it as an HTTP container. Spring Boot listens on Vercel's injected `PORT` (defaulting to port 80 in the container).
 
 1. Import this repository into Vercel and use the repository root as the project root.
-2. Ensure the project has Vercel's **Container Runtime** enabled (currently beta).
+2. The root `vercel.json` selects Vercel's **Container** preset and clears any stale dashboard Build Command such as `vite build`. Ensure the project has Vercel's **Container Runtime** enabled (currently beta).
 3. Add `GEMINI_API_KEY` in the Vercel project's environment variables if Gemini chat responses are wanted. The assistant works in local profile-response mode if it is not set.
 4. Deploy. Vercel detects `Dockerfile.vercel`; no Node.js build command or output directory is required.
 
