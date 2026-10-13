@@ -371,6 +371,24 @@ export const PROJECTS_DATA: ProjectItem[] = [
     badge: 'Personal Repository',
     featured: true,
     githubUrl: 'https://github.com/AwonkeP/Digital-Profile'
+  },
+  {
+    id: 'ubuntu-innovations-capaciti',
+    title: 'Ubuntu Innovations – IT Infrastructure & Support Solution',
+    category: 'Infrastructure & Support',
+    summary: 'Four-week CAPACITI capstone designing a secure IT environment for a 25-person startup with networks, identity controls, backups, and support procedures.',
+    description: 'Capstone project developed for Ubuntu Innovations (Pty) Ltd during the UVU Africa / CAPACITI programme. The project maps a complete IT infrastructure blueprint for a growing Cape Town technology startup, covering network architecture, hardware and software planning, role-based access control, backup strategy, cybersecurity governance, and helpdesk support workflows.',
+    highlights: [
+      'Designed a segmented office network with dedicated subnets for servers, user devices, printers, and Wi‑Fi, improving performance and isolation.',
+      'Defined access controls for management, finance, HR, sales, and development teams using structured RBAC and shared folder permissions.',
+      'Documented hardware inventory, software licensing, business continuity planning, and cybersecurity controls for a scalable startup environment.',
+      'Created support runbooks and troubleshooting procedures to manage day-to-day IT incidents and user support efficiently.'
+    ],
+    technologies: ['Linux / Ubuntu', 'Windows 11', 'Networking', 'VLANs', 'RBAC', 'NAS', 'Backup & DR', 'Cybersecurity', 'IT Support Operations'],
+    status: 'CAPACITI Capstone',
+    icon: 'Network',
+    badge: 'UVU Africa / CAPACITI',
+    githubUrl: 'https://github.com/MRMUGERI/Ubuntu-Innovations-CAPACITI'
   }
 ];
 
