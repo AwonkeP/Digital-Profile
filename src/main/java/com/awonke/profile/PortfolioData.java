@@ -18,7 +18,7 @@ public final class PortfolioData {
         "Diploma in Business & Information Administration (CPUT)",
         "/assets/profile.jpg",
         "Dedicated IT Technical Support in Cape Town, combining Business and Information Administration expertise from CPUT with hands-on technical skills in Fundamental Network (CCNA), Microsoft 365, workstation hardware diagnostics, and enterprise service desk operations.",
-        "I am an IT Technical Support professional with a strong background in Business and Information Administration, currently driving service excellence at CAPACITI. By combining technical proficiency in Fundamental Network (CCNA) and Microsoft 365 with a focus on operational excellence, I ensure that technology serves as a seamless backbone for organizational productivity."
+        "I am an IT Technical Support technician with a strong background in Business and Information Administration, currently driving service excellence at CAPACITI. By combining technical proficiency in Fundamental Network (CCNA) and Microsoft 365 with a focus on operational excellence, I ensure that technology serves as a seamless backbone for organizational productivity."
     );
 
     public static final Metrics METRICS = new Metrics("4+ Years", "20+");
