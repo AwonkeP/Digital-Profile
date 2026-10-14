@@ -2,6 +2,7 @@ const state = {
   portfolio: null,
   category: "All",
   search: "",
+  chatHistory: [],
 };
 
 const escapeHtml = (value) =>
@@ -255,18 +256,28 @@ function enableChat() {
     input.value = "";
     const submit = form.querySelector("button");
     submit.disabled = true;
+    input.disabled = true;
+    const history = state.chatHistory.slice(-10);
+    const pendingReply = addChatMessage("Thinking…", "assistant");
+    pendingReply.setAttribute("aria-label", "Assistant is thinking");
     try {
       const reply = await requestJson("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message, history }),
       });
       document.querySelector("#chat-mode").textContent = reply.engine === "gemini" ? "Gemini · grounded in Awonke's profile" : "Profile assistant";
+      pendingReply.remove();
       addChatMessage(reply.answer, "assistant");
+      state.chatHistory.push({ role: "user", content: message });
+      state.chatHistory.push({ role: "assistant", content: reply.answer });
+      state.chatHistory = state.chatHistory.slice(-10);
     } catch (error) {
+      pendingReply.remove();
       addChatMessage(`I couldn't answer just now: ${error.message}`, "assistant");
     } finally {
       submit.disabled = false;
+      input.disabled = false;
       input.focus();
     }
   });

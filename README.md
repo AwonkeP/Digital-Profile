@@ -22,6 +22,7 @@ GEMINI_API_KEY=your-key mvn spring-boot:run
 ```
 
 The key is only used by the Java server and is never exposed to the browser. Do not commit real API keys.
+The assistant can use up to 10 recent messages to follow the conversation; that history is kept in the open page only and is not persisted.
 
 ## Test and package
 
