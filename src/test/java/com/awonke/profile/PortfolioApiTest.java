@@ -29,6 +29,11 @@ class PortfolioApiTest {
             .andExpect(jsonPath("$.experience.length()").value(4))
             .andExpect(jsonPath("$.education.length()").value(3))
             .andExpect(jsonPath("$.certificates.length()").value(6))
+            .andExpect(jsonPath("$.certificates[0].name").value("IT Support"))
+            .andExpect(jsonPath("$.certificates[0].credentialId").value("a1JLNeeJS3mSSzXniat5yQ"))
+            .andExpect(jsonPath("$.certificates[3].url").value("https://coursera.org/share/f45589bfefa83b5d0b98dc593d5df731"))
+            .andExpect(jsonPath("$.certificates[5].name").value("First Line Support"))
+            .andExpect(jsonPath("$.certificates[5].url").value("https://servicedesk-simulator.com/verify/FaWQo18TZKX6i3oapUyNaEYvh2t2/first_line_support"))
             .andExpect(jsonPath("$.scenarios.length()").value(4))
             .andExpect(jsonPath("$.projects.length()").value(3))
             .andExpect(jsonPath("$.projects[2].githubUrl").value("https://github.com/MRMUGERI/Ubuntu-Innovations-CAPACITI"));
@@ -55,7 +60,7 @@ class PortfolioApiTest {
                 .content("{\"message\":\"Tell me about his certificates\"}"))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.engine").value("profile"))
-            .andExpect(jsonPath("$.answer").value(org.hamcrest.Matchers.containsString("DeepLearning.AI")));
+            .andExpect(jsonPath("$.answer").value(org.hamcrest.Matchers.containsString("First Line Support")));
     }
 
     @Test
@@ -79,7 +84,7 @@ class PortfolioApiTest {
                     }
                     """))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$.answer").value(org.hamcrest.Matchers.containsString("DeepLearning.AI")));
+            .andExpect(jsonPath("$.answer").value(org.hamcrest.Matchers.containsString("First Line Support")));
     }
 
     @Test

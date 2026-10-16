@@ -126,7 +126,7 @@ public class ProfileChatService {
             return "Sure! Awonke's featured work includes TechnoResolve Desk, the Ubuntu Innovations IT infrastructure capstone, and this interactive digital profile. You can explore the project cards and their repositories in the Projects section. Is there one you'd like to hear more about?";
         }
         if (containsAny(query, "certificate", "certification", "credential", "course")) {
-            return "Awonke's credentials include DeepLearning.AI courses in machine learning and generative AI, IBM certificates in Python and prompt engineering, and Coursera's Artificial Intelligence Bootcamp. Each certificate card links to its verification. Would you like to know about a particular one?";
+            return "Awonke's credentials include Coursera's IT Support badge, Google's IT security, system administration, and IT Support credentials, IBM's Python for Data Science, AI & Development certificate, and ServiceDesk Simulator's First Line Support credential. Each certificate card links to its verification. Would you like to know about a particular one?";
         }
         if (containsAny(query, "skill", "technical", "technology", "network", "support")) {
             return "Awonke's skills cover infrastructure and networking, Microsoft 365 and identity administration, hardware diagnostics, enterprise tools and ITSM, data operations, and workflow improvement. The Skills section has the full details. What kind of skill are you most interested in?";

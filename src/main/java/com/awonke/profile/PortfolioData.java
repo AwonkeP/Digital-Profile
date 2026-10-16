@@ -31,8 +31,8 @@ public final class PortfolioData {
             "Enterprise ERP platforms, CRM systems, and structured ITSM service desk workflows.",
             List.of("SAP Enterprise Software & Module Navigation", "ITSM & Service Desk Incident Ticketing", "Enterprise CRM Systems & User Account Management", "SLA Compliance & Ticket Lifecycle Tracking")),
         new Skill("data-1", "Data & Operations", "data", "LineChart",
-            "Data hygiene, incident analysis, and workflow bottleneck identification.",
-            List.of("Advanced Data Entry, Validation & Integrity", "Workflow Bottleneck Identification & Removal", "Rapid Incident Diagnosis & Root Cause Analysis", "First-Line Technical Escalations & Resolution")),
+            "Data hygiene, incident analysis, and Optimizing Operational Workflows.",
+            List.of("Advanced Data Entry, Validation & Integrity", "Optimizing Operational Workflows", "Rapid Incident Diagnosis & Root Cause Analysis", "First-Line Technical Escalations & Resolution")),
         new Skill("admin-1", "Administration Strategy", "admin", "Workflow",
             "Translating business processes into reliable, streamlined digital workflows.",
             List.of("Business Information Administration (CPUT Trained)", "Process Automation & Form Digitalization", "Cross-Departmental Systems Integration", "End-User Training & Technical SOP Documentation"))
@@ -75,12 +75,12 @@ public final class PortfolioData {
     );
 
     public static final List<Certificate> CERTIFICATES = List.of(
-        new Certificate("unsupervised-learning", "Unsupervised Learning, Recommenders, Reinforcement Learning", "DeepLearning.AI", "deeplearning", "Issued Sep 2026", "SR49AQ003TSJ", "https://coursera.org/share/47dfaf648dc57332ff79bd76e4048a3a", "Machine Learning, Deep Learning, Reinforcement Learning, Anomaly Detection"),
-        new Certificate("supervised-machine-learning", "Supervised Machine Learning: Regression and Classification", "DeepLearning.AI", "deeplearning", "Issued Aug 2026", "DDLK0UQE5L0O", "https://coursera.org/share/e7065fb8615d29c89d5abd4a44df5cd6", "Python (Programming Language), Machine Learning, Scikit-Learn"),
-        new Certificate("genai-llms", "Generative AI with Large Language Models", "DeepLearning.AI", "deeplearning", "Issued Aug 2026", "0LDL6HM1OEVI", "https://coursera.org/share/fbe3354e51b259614bbb6f92a2e1d54f", "Generative AI, Large Language Models (LLMs), Model Fine-tuning, Deployment"),
+        new Certificate("it-support", "IT Support", "Coursera", "coursera", "Issued Oct 15, 2026", "a1JLNeeJS3mSSzXniat5yQ", "https://coursera.org/share/d5012d0f8d098032bd2edb17e11c1b7f", "IT support, service desk operations, technical troubleshooting"),
+        new Certificate("it-security-defense", "IT Security: Defense against the digital dark arts", "Google", "google", "Issued Oct 15, 2026", "8O053MZJHOL9", "https://coursera.org/share/e2d317328be28f5b119ef788c43d253b", "IT security, cybersecurity, digital threat defense"),
+        new Certificate("system-administration-infrastructure", "System Administration and IT Infrastructure Services", "Google", "google", "Issued Oct 15, 2026", "8VB06NZPWP2M", "https://coursera.org/share/5b7f59f9069489017c5d9d9b21462368", "System administration, IT infrastructure, cloud services"),
         new Certificate("ibm-python-ai", "Python for Data Science, AI & Development", "IBM", "ibm", "Issued Aug 2026", "ARAQNGWV9QVU", "https://coursera.org/share/f45589bfefa83b5d0b98dc593d5df731", "Python Programming, Data Science, AI & Scripting, NumPy"),
-        new Certificate("ibm-prompt-engineering", "Generative AI: Prompt Engineering Basics", "IBM", "ibm", "Issued Aug 2026", "3OQHGBPK32XL", "https://coursera.org/share/915c85a289da86366f9f883f2c1af45a", "Prompt Engineering, ChatGPT, Prompt Patterns, Generative AI"),
-        new Certificate("ai-bootcamp", "Artificial Intelligence Bootcamp (AI)", "Coursera", "coursera", "Issued Aug 2026", "nMSRtMJnQsWEkbTCZ3LFiw", "https://coursera.org/verify/nMSRtMJnQsWEkbTCZ3LFiw", "Artificial Intelligence, Applied Deep Learning, Technical Workflows")
+        new Certificate("google-it-support", "Google IT Support Certificate", "Google", "google", "Issue date not listed", "UNG8J4W8RMV1", "https://coursera.org/share/baecae692d67df4cb579ce99ec03f5c3", "IT support, networking, operating systems, system administration"),
+        new Certificate("first-line-support", "First Line Support", "ServiceDesk Simulator", "servicedesk", "Issue date not listed", "FaWQo18TZKX6i3oapUyNaEYvh2t2", "https://servicedesk-simulator.com/verify/FaWQo18TZKX6i3oapUyNaEYvh2t2/first_line_support", "IT support, service desk workflows, first-line troubleshooting")
     );
 
     public static final List<Scenario> SCENARIOS = List.of(
