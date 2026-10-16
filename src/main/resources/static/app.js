@@ -227,6 +227,7 @@ function addChatMessage(message, role) {
   bubble.textContent = message;
   document.querySelector("#chat-messages").append(bubble);
   bubble.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  return bubble;
 }
 
 function closeChat() {

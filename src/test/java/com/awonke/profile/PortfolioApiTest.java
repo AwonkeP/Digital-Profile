@@ -69,8 +69,14 @@ class PortfolioApiTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"message\":\"Hello!\"}"))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$.answer").value(org.hamcrest.Matchers.containsString("Hi there!")))
-            .andExpect(jsonPath("$.answer").value(org.hamcrest.Matchers.containsString("Are you curious")));
+            .andExpect(jsonPath("$.answer").value(containsString("Hi!")))
+            .andExpect(jsonPath("$.answer").value(containsString("What would you like to know")));
+
+        mockMvc.perform(post("/api/chat")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"message\":\"Thanks, that's helpful\"}"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.answer").value(containsString("Glad I could help")));
 
         mockMvc.perform(post("/api/chat")
                 .contentType(MediaType.APPLICATION_JSON)
