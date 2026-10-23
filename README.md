@@ -13,7 +13,7 @@ The portfolio is a single Spring Boot application. Java provides the profile API
 mvn spring-boot:run
 ```
 
-Open [http://localhost:8080](http://localhost:8080). The frontend requests the complete portfolio from `GET /api/portfolio`. Individual datasets are also available at `/api/profile`, `/api/skills`, `/api/experience`, `/api/education`, `/api/certificates`, `/api/projects`, and `/api/scenarios`.
+The frontend requests the complete portfolio from `GET /api/portfolio`. Individual datasets are also available at `/api/profile`, `/api/skills`, `/api/experience`, `/api/education`, `/api/certificates`, `/api/projects`, and `/api/scenarios`.
 
 The profile assistant has a grounded local response mode by default. To enable Gemini responses, provide a server-side API key:
 
