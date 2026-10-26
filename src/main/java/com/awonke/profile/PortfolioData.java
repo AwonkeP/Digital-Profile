@@ -6,9 +6,9 @@ public final class PortfolioData {
     public static final Profile PROFILE = new Profile(
         "Awonke Philibane",
         "IT Technical Support",
-        "IT Technical Support | Optimizing Systems & Business Workflows",
+        "IT Technical Support | Optimising Systems & Business Workflows",
         "Cape Town, Western Cape, South Africa",
-        "Philibaneawonke@gmail.com",
+        "philibaneawonke@gmail.com",
         "https://www.linkedin.com/in/awonke-philibane-710aaa103",
         "awonke-philibane-710aaa103",
         "https://github.com/AwonkeP",
@@ -17,8 +17,8 @@ public final class PortfolioData {
         "CAPACITI",
         "Diploma in Business & Information Administration (CPUT)",
         "/assets/profile.jpg",
-        "Dedicated IT Technical Support in Cape Town, combining Business and Information Administration expertise from CPUT with hands-on technical skills in Fundamental Network (CCNA), Microsoft 365, workstation hardware diagnostics, and enterprise service desk operations.",
-        "I am an IT Technical Support technician with a strong background in Business and Information Administration, currently driving service excellence at CAPACITI. By combining technical proficiency in Fundamental Network (CCNA) and Microsoft 365 with a focus on operational excellence, I ensure that technology serves as a seamless backbone for organizational productivity."
+        "Dedicated IT Technical Support in Cape Town, combining Information & Systems Administration expertise from the Cape Peninsula University of Technology with hands-on technical skills in Fundamental Network (CCNA), Microsoft 365, workstation hardware diagnostics, and enterprise service desk operations.",
+        "I am an IT Technical Support technician with a strong background in Information  Administration, currently at CAPACITI. By combining technical proficiency in Fundamental Network (CCNA) and Microsoft 365 with a focus on operational excellence, I ensure that technology serves as a seamless backbone for organisational productivity."
     );
 
     public static final Metrics METRICS = new Metrics("4+ Years", "20+");
@@ -26,39 +26,39 @@ public final class PortfolioData {
     public static final List<Skill> SKILLS = List.of(
         new Skill("infra-1", "Infrastructure & Networking", "infra", "Network",
             "Hardware, routing, switching, and end-to-end network connectivity troubleshooting.",
-            List.of("Fundamental Network (CCNA) (Routing & Switching)", "Microsoft 365 & Azure AD Identity Administration", "Hardware Diagnostics & Workstation Maintenance", "First-Line LAN/WAN & Gateway Troubleshooting")),
+            List.of("Fundamental Network (CCNA) (Routing & Switching)", "Microsoft 365 & Windows Directory", "Hardware Diagnostics & Workstation Maintenance", "First-Line LAN/WAN & Gateway Troubleshooting")),
         new Skill("enterprise-1", "Enterprise Tools & Software", "enterprise", "Layers",
-            "Enterprise ERP platforms, CRM systems, and structured ITSM service desk workflows.",
+            "Enterprise Resource Planning(ERP) platforms, Customer Relationship Management(CRM) systems, and structured ITSM service desk workflows.",
             List.of("SAP Enterprise Software & Module Navigation", "ITSM & Service Desk Incident Ticketing", "Enterprise CRM Systems & User Account Management", "SLA Compliance & Ticket Lifecycle Tracking")),
         new Skill("data-1", "Data & Operations", "data", "LineChart",
-            "Data hygiene, incident analysis, and Optimizing Operational Workflows.",
-            List.of("Advanced Data Entry, Validation & Integrity", "Optimizing Operational Workflows", "Rapid Incident Diagnosis & Root Cause Analysis", "First-Line Technical Escalations & Resolution")),
+            "Data hygiene, incident analysis, and Optimising Operational Workflows.",
+            List.of("Advanced Data Entry, Validation & Integrity", "Optimising Operational Workflows", "Rapid Incident Diagnosis & Root Cause Analysis", "First-Line Technical Escalations & Resolution")),
         new Skill("admin-1", "Administration Strategy", "admin", "Workflow",
             "Translating business processes into reliable, streamlined digital workflows.",
-            List.of("Business Information Administration (CPUT Trained)", "Process Automation & Form Digitalization", "Cross-Departmental Systems Integration", "End-User Training & Technical SOP Documentation"))
+            List.of("Business Information Administration (CPUT Trained)", "Process Automation & Form Digitalisation", "Cross-Departmental Systems Integration", "End-User Training & Technical SOP Documentation"))
     );
 
     public static final List<Experience> EXPERIENCE = List.of(
         new Experience("capaciti", "IT Technical Support", "CAPACITI", "Cape Town, South Africa", "Current Role", true, "Tech Talent Accelerator",
-            "Delivering first-line technical incident management, service desk triage, infrastructure reliability, and aligning business processes with technical tools.",
+            "Delivering first-line technical support, service desk triage, infrastructure reliability, and aligning business processes with technical tools.",
             List.of(
                 new Highlight("Service Desk Management", "Delivering first-line technical analysis, rapid incident resolution, and structured service desk ticketing.", "Headset"),
                 new Highlight("Infrastructure Reliability", "Ensuring continuous uptime, hardware health, and optimal connectivity across workplace environments.", "Server"),
-                new Highlight("Business Alignment", "Bridging end-user requirements with technical solutions to maximize daily organizational productivity.", "Handshake"))),
+                new Highlight("Business Alignment", "Bridging end-user requirements with technical solutions to maximize daily organisational productivity.", "Handshake"))),
         new Experience("prasa", "Information & Administrative Support", "PRASA (Passenger Rail Agency of South Africa)", "Cape Town, South Africa", "Enterprise Transport", false, "Public Transport & Rail Enterprise",
-            "Applied administrative strategy and robust information support within a large-scale national transport network environment.",
+            "Applied administrative strategy and information support within a large-scale national transport network environment.",
             List.of(
-                new Highlight("Enterprise Information Systems", "Managed critical document registries, system record integrity, and inter-departmental operational flows.", "Train"),
-                new Highlight("Process Optimization", "Identified documentation delays and introduced structured digital record filing to expedite data retrieval.", "FileText"),
+                new Highlight("Enterprise Information Systems", "Managed critical document recording, system record integrity, and inter-departmental operational flows.", "Train"),
+                new Highlight("Process Optimisation", "Identified documentation delays and introduced structured digital record filing to expedite data retrieval.", "FileText"),
                 new Highlight("Cross-Functional Support", "Provided operational assistance to multidisciplinary technical teams during transport operations.", "Users"))),
         new Experience("wced", "Data Systems & Administrative Support", "Western Cape Department of Education (WCED)", "Western Cape, South Africa", "Public Sector", false, "Government Education Department",
             "Managed data systems, administrative documentation, and user technical support within the provincial public education framework.",
             List.of(
                 new Highlight("Data Integrity & Systems", "Ensured high-accuracy records management, validation audits, and compliant educational data entries.", "Building2"),
-                new Highlight("Administrative Documentation", "Drafted standard operating procedures and streamlined routine reporting schedules.", "ShieldCheck"),
-                new Highlight("End-User Assistance", "Provided compassionate first-line technical guidance to administrative staff across educational centers.", "HelpCircle"))),
+                new Highlight("Administrative Documentation", "Drafted standard operating procedures and documented operational procedures.", "ShieldCheck"),
+                new Highlight("End-User Assistance", "Provided compassionate first-line technical guidance to administrative staff and educators.", "HelpCircle"))),
         new Experience("innovate-tech", "IT Support & Technical Assistant", "Innovate Technology", "Cape Town, South Africa", "Managed Services", false, "IT Managed Services & Solutions",
-            "Supported IT service delivery, hardware/software troubleshooting, preventative maintenance, and client system updates.",
+            "Supported IT service delivery, hardware/software troubleshooting, service maintenance, and client system updates.",
             List.of(
                 new Highlight("Technical Troubleshooting", "Diagnosed PC hardware failures, OS corruptions, peripheral errors, and application crashes.", "Laptop"),
                 new Highlight("Maintenance & Upgrades", "Executed scheduled patch management, anti-malware updates, and local database backup routines.", "Wrench"),
@@ -66,12 +66,12 @@ public final class PortfolioData {
     );
 
     public static final List<Education> EDUCATION = List.of(
-        new Education("cput-diploma", "Diploma in Business & Information Administration", "Cape Peninsula University of Technology (CPUT)", "Diploma", "Higher Education Diploma",
-            "Comprehensive grounding in administrative information systems, workflow design, business records management, and enterprise organizational strategy.", "GraduationCap", "Systems & Admin Core"),
-        new Education("ccna-cert", "Fundamental Network (CCNA)", "Cisco Networking Academy", "Practical Experience", "Networking Certification Track",
-            "Mastery of TCP/IP, IP subnetting, VLAN segmentation, switch and router configuration, ping/traceroute network diagnostic methodologies.", "Network", "Fundamental Network (CCNA)"),
+        new Education("cput-diploma", "Diploma in Business & Information Administration", "Cape Peninsula University of Technology (CPUT)", "Diploma", "Diploma",
+            "Comprehensive grounding in administrative information systems, workflow design, business records management, and enterprise organisational strategy.", "GraduationCap", "Systems & Admin Core"),
+        new Education("ccna-cert", "Fundamental Network (CCNA)", "Cisco Networking Academy", "Practical Experience", "Fundamental Network Certification",
+            "Expertise in TCP/IP, IP subnetting, VLAN segmentation, switch and router configuration, ping/traceroute network diagnostic methodologies.", "Network", "Fundamental Network (CCNA)"),
         new Education("m365-admin", "Microsoft 365 & IT Systems Administration", "Enterprise Technical Training Modules", "Technical Modules", "Enterprise Cloud & Systems Track",
-            "Hands-on proficiency in Azure Active Directory / Entra ID, Microsoft 365 Admin Center, workstation hardware diagnostics, and role-based access management.", "ShieldCheck", "Cloud & Systems Admin")
+            "Hands-on proficiency in Windows Directory, Microsoft 365 Admin Center, workstation hardware diagnostics, and role-based access management.", "ShieldCheck", "Cloud & Systems Admin")
     );
 
     public static final List<Certificate> CERTIFICATES = List.of(
@@ -91,11 +91,11 @@ public final class PortfolioData {
             "Workstation boot failure with peripheral disconnects and system crash interrupting daily operational tasks.", "< 20 mins",
             List.of("Incident Triage: Log ticket in ITSM tool, capture system crash stop code, and isolate failing hardware components.", "Diagnostics & Testing: Test memory modules, examine system event logs, and execute system file integrity checks.", "Hardware & Driver Remediation: Reseat internal connections, update conflicting drivers, and verify system temperatures.", "Post-Repair Verification: Run automated diagnostic stress tests and confirm stable system recovery with the user.")),
         new Scenario("m365", "Microsoft 365 Role-Based Access & Licensing", "Cloud & Identity",
-            "New department hire requires customized role-based access for Microsoft 365, Teams channels, SharePoint folders, and SAP ERP roles.", "< 10 mins",
-            List.of("Identity Verification: Cross-reference ticket authorization with approved HR onboarding credentials and department matrix.", "Azure AD / Entra ID Provisioning: Assign enterprise license, configure MFA authentication, and map user to targeted security groups.", "Application Permissions: Grant scoped SharePoint repository access and configure single-sign-on credentials for SAP ERP.", "Guided Onboarding: Walk employee through first-time sign-in, MFA validation, and close ticket with full audit trail.")),
-        new Scenario("workflow", "Departmental Administrative Bottleneck", "Workflow Optimization",
+            "New department hire requires customised role-based access for Microsoft 365, Teams channels, SharePoint folders, and SAP ERP roles.", "< 10 mins",
+            List.of("Identity Verification: Cross-reference ticket authorisation with approved HR onboarding credentials and department requests.", "Windows Directory Provisioning: Assign user license, configure MFA authentication, and map user to targeted security groups.", "Application Permissions: Grant scoped SharePoint repository access and configure single-sign-on credentials for SAP ERP.", "Guided Onboarding: Walk employee through first-time sign-in, MFA validation, and close ticket with full audit trail.")),
+        new Scenario("workflow", "Data Systems & Administrative Support", "Workflow Optimisation",
             "High volume of manual paper-form entries creating a multi-day administrative backlog between operational units.", "Process Transformation",
-            List.of("Workflow Mapping: Apply Business & Information Administration principles to pinpoint redundant manual review stages.", "Digital Transformation: Replace paper forms with standardized digital Microsoft 365 Forms connected to structured operational registries.", "Administrative Training: Conduct interactive enablement session for operational staff on automated record validation.", "Impact Measurement: Eliminated duplicate data entry, reduced processing turnaround time from 3 days to under 2 hours."))
+            List.of("Workflow Mapping: Apply Business & Information Administration principles to pinpoint redundant manual review stages.", "Digital Transformation: Replace paper forms with standardised digital Microsoft 365 Forms connected to structured operational registries.", "Administrative Training: Conduct interactive enablement session for operational staff on automated record validation.", "Impact Measurement: Eliminated duplicate data entry, reduced processing turnaround time from 3 days to under 2 hours."))
     );
 
     public static final List<Project> PROJECTS = List.of(
