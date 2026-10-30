@@ -79,7 +79,7 @@ public final class PortfolioData {
         new Certificate("it-security-defense", "IT Security: Defense against the digital dark arts", "Google", "google", "Issued Oct 2026", "8O053MZJHOL9", "https://coursera.org/share/e2d317328be28f5b119ef788c43d253b", "IT security, cybersecurity, digital threat defense"),
         new Certificate("system-administration-infrastructure", "System Administration and IT Infrastructure Services", "Google", "google", "Issued Oct 2026", "8VB06NZPWP2M", "https://coursera.org/share/5b7f59f9069489017c5d9d9b21462368", "System administration, IT infrastructure, cloud services"),
         new Certificate("ibm-python-ai", "Python for Data Science, AI & Development", "IBM", "ibm", "Issued Aug 2026", "ARAQNGWV9QVU", "https://coursera.org/share/f45589bfefa83b5d0b98dc593d5df731", "Python Programming, Data Science, AI & Scripting, NumPy"),
-        new Certificate("google-it-support", "Google IT Support Certificate", "Google", "google", "Issued Oct 2026", "UNG8J4W8RMV1", "https://coursera.org/share/baecae692d67df4cb579ce99ec03f5c3", "IT support, networking, operating systems, system administration"),
+        new Certificate("google-ai-essentials", "Google AI Essentials Certificate", "Google", "google", "Issued Oct 2026", "UNG8J4W8RMV1", "https://coursera.org/share/baecae692d67df4cb579ce99ec03f5c3", "IT support, networking, operating systems, system administration"),
         new Certificate("first-line-support", "First Line Support", "ServiceDesk Simulator", "servicedesk", "Issued Sep 2026", "FaWQo18TZKX6i3oapUyNaEYvh2t2", "https://servicedesk-simulator.com/verify/FaWQo18TZKX6i3oapUyNaEYvh2t2/first_line_support", "IT support, service desk workflows, first-line troubleshooting")
     );
 
