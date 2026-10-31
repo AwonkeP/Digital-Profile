@@ -68,8 +68,10 @@ public final class PortfolioData {
     public static final List<Education> EDUCATION = List.of(
                 new Education("cput-diploma", "Diploma in Business & Information Administration", "Cape Peninsula University of Technology (CPUT)", "Diploma", "Diploma"),
                 ("Comprehensive grounding in administrative information systems, workflow design, business records management, and enterprise organisational strategy.", "GraduationCap", "Systems & Admin Core"),
-                new Education("nsc-cert", "National Senior Certificate", "Iingcinga Zethu Secondary School", "NSC", "NSC")
-  
+                      new Education("ccna-cert", "Fundamental Network (CCNA)", "Cisco Networking Academy", "Practical Experience", "Fundamental Network Certification",
+            "Expertise in TCP/IP, IP subnetting, VLAN segmentation, switch and router configuration, ping/traceroute network diagnostic methodologies.", "Network", "Fundamental Network (CCNA)"),
+        new Education("m365-admin", "Microsoft 365 & IT Systems Administration", "Enterprise Technical Training Modules", "Technical Modules", "Enterprise Cloud & Systems Track",
+            "Hands-on proficiency in Windows Directory, Microsoft 365 Admin Center, workstation hardware diagnostics, and role-based access management.", "ShieldCheck", "Cloud & Systems Admin")
     );
 
     public static final List<Certificate> CERTIFICATES = List.of(
