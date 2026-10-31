@@ -66,7 +66,7 @@ public final class PortfolioData {
     );
 
     public static final List<Education> EDUCATION = List.of(
-                new Education("cput-diploma", "Diploma in Business & Information Administration", "Cape Peninsula University of Technology (CPUT)", "Diploma", "Diploma",
+                new Education("cput-diploma", "Diploma in Business & Information Administration", "Cape Peninsula University of Technology (CPUT)", "Diploma", "Diploma"),
              "Comprehensive grounding in administrative information systems, workflow design, business records management, and enterprise organisational strategy.", "GraduationCap", "Systems & Admin Core"),
                 new Education("nsc-cert", "National Senior Certificate", "Iingcinga Zethu Secondary School", "NSC", "NSC")
   
