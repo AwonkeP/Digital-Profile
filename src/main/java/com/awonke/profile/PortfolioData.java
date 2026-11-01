@@ -69,8 +69,7 @@ public final class PortfolioData {
                 new Education("cput-diploma", "Diploma in Business & Information Administration", "Cape Peninsula University of Technology (CPUT)", "Diploma", "Diploma"),
                 ("Comprehensive grounding in administrative information systems, workflow design, business records management, and enterprise organisational strategy.", "GraduationCap", "Systems & Admin Core"),
                 new Education("nsc-cert", "National Senior Certificate", "Iingcinga Zethu Secondary School", "NSC", "NSC"),
-  
-    );
+      );
 
     public static final List<Certificate> CERTIFICATES = List.of(
         new Certificate("it-support", "IT Support", "Coursera", "coursera", "Issued Oct 2026", "a1JLNeeJS3mSSzXniat5yQ", "https://coursera.org/share/d5012d0f8d098032bd2edb17e11c1b7f", "IT support, service desk operations, technical troubleshooting"),
