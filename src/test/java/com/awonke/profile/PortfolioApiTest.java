@@ -31,6 +31,7 @@ class PortfolioApiTest {
             .andExpect(jsonPath("$.education[0].institution").value("Cape Peninsula University of Technology (CPUT)"))
             .andExpect(jsonPath("$.education[1].degree").value("National Senior Certificate"))
             .andExpect(jsonPath("$.education[1].institution").value("Iingcinga Zethu Secondary School"))
+            .andExpect(jsonPath("$.education[1].details").value("South Africa’s official high school-leaving qualification. It is registered at NQF Level 4 on the National Qualifications Framework and quality-assured by the statutory council Umalusi."))
             .andExpect(jsonPath("$.certificates.length()").value(6))
             .andExpect(jsonPath("$.certificates[0].name").value("IT Support"))
             .andExpect(jsonPath("$.certificates[0].credentialId").value("a1JLNeeJS3mSSzXniat5yQ"))

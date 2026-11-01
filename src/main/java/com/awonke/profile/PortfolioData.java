@@ -68,7 +68,8 @@ public final class PortfolioData {
     public static final List<Education> EDUCATION = List.of(
         new Education("cput-diploma", "Diploma in Business & Information Administration", "Cape Peninsula University of Technology (CPUT)", "Diploma", "Higher Education Diploma",
             "Comprehensive grounding in administrative information systems, workflow design, business records management, and enterprise organizational strategy.", "GraduationCap", "Systems & Admin Core"),
-        new Education("nsc-cert", "National Senior Certificate", "Iingcinga Zethu Secondary School", "NSC", "NSC", "", "", "")
+        new Education("nsc-cert", "National Senior Certificate", "Iingcinga Zethu Secondary School", "NSC", "NSC",
+            "South Africa’s official high school-leaving qualification. It is registered at NQF Level 4 on the National Qualifications Framework and quality-assured by the statutory council Umalusi.", "", "Matric Certificate")
     );
 
     public static final List<Certificate> CERTIFICATES = List.of(
