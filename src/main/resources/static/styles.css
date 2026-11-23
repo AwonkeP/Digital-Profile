@@ -262,7 +262,6 @@ h2 { margin: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.2; letter-spac
   .reveal { opacity: 1; transform: none; }
 }
 
-.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 .print-button { border: 0; background: transparent; cursor: pointer; }
 .skill-proficiency { display: flex; justify-content: space-between; gap: 8px; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--subtle); font-size: 8px; }
 .skill-proficiency strong { color: var(--text); }
@@ -331,23 +330,6 @@ h2 { margin: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.2; letter-spac
 .contact-form textarea { resize: vertical; }
 .contact-form > button { align-self: end; }
 .contact-feedback { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: 9px; }
-.chat-launcher { position: fixed; z-index: 24; right: 22px; bottom: 22px; display: inline-flex; align-items: center; gap: 9px; padding: 12px 15px; border: 1px solid rgba(131, 240, 207, .4); border-radius: 99px; color: #07130f; background: var(--accent); box-shadow: 0 8px 30px rgba(0, 0, 0, .22); cursor: pointer; font-size: 12px; font-weight: 800; }
-.chat-launcher span { font-size: 9px; }
-.chat-panel { position: fixed; z-index: 25; right: 22px; bottom: 82px; width: min(360px, calc(100vw - 32px)); max-height: min(480px, calc(100vh - 105px)); display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: var(--bg); box-shadow: 0 18px 60px rgba(0, 0, 0, .3); }
-.chat-panel[hidden] { display: none; }
-.chat-heading { display: flex; justify-content: space-between; align-items: center; padding: 14px; border-bottom: 1px solid var(--line); background: var(--surface); }
-.chat-heading strong, .chat-heading span { display: block; }
-.chat-heading strong { font-size: 11px; }
-.chat-heading span { margin-top: 2px; color: var(--subtle); font-size: 8px; }
-.chat-close { width: 28px; height: 28px; border: 1px solid var(--line); border-radius: 50%; color: var(--text); background: transparent; cursor: pointer; font-size: 18px; }
-.chat-messages { display: flex; min-height: 130px; flex-direction: column; gap: 9px; overflow-y: auto; padding: 13px; }
-.chat-messages p { max-width: 88%; margin: 0; padding: 9px 11px; border: 1px solid var(--line); border-radius: 9px; font-size: 9px; line-height: 1.65; }
-.assistant-message { align-self: flex-start; color: var(--muted); background: var(--surface); }
-.user-message { align-self: flex-end; color: #07130f; background: var(--accent); }
-.chat-form { display: flex; gap: 7px; padding: 10px; border-top: 1px solid var(--line); }
-.chat-form input { min-width: 0; flex: 1; padding: 9px 10px; border: 1px solid var(--line); border-radius: 7px; color: var(--text); background: var(--surface); font-size: 10px; }
-.chat-form button { width: 36px; border: 0; border-radius: 7px; color: #07130f; background: var(--accent); cursor: pointer; font-size: 17px; }
-.chat-form button:disabled { opacity: .5; cursor: wait; }
 .api-status.is-error { border-color: rgba(255, 112, 112, .5); }
 @media (max-width: 900px) {
   .site-nav { gap: 15px; }
@@ -362,13 +344,11 @@ h2 { margin: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.2; letter-spac
   .certificate-card { min-height: 0; }
   .contact-form { grid-template-columns: 1fr; }
   .contact-form .message-field, .contact-form > button, .contact-feedback { grid-column: 1; }
-  .chat-launcher { right: 12px; bottom: 12px; }
-  .chat-panel { right: 12px; bottom: 68px; }
 }
 @media print {
   :root { color-scheme: light; --bg: white; --surface: white; --surface-raised: white; --text: #111; --muted: #333; --subtle: #555; --line: #ccc; --accent: #087d62; --violet: #6252d8; }
   body { background: white; color: #111; font-size: 10pt; }
-  .site-header, .chat-launcher, .chat-panel, .scroll-cue, .project-controls, .contact-form, .copy-summary, .theme-toggle, .menu-toggle, .print-button, .api-status { display: none !important; }
+  .site-header, .scroll-cue, .project-controls, .contact-form, .copy-summary, .theme-toggle, .menu-toggle, .print-button, .api-status { display: none !important; }
   .section-wrap { width: 100%; }
   .section-pad { padding-top: 20px; padding-bottom: 12px; }
   .hero { min-height: 0; padding: 16px 0 24px; }

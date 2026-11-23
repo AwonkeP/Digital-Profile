@@ -2,7 +2,6 @@ const state = {
   portfolio: null,
   category: "All",
   search: "",
-  chatHistory: [],
 };
 
 const escapeHtml = (value) =>
@@ -177,7 +176,6 @@ function enableNavigation() {
     if ((event.key === "d" || event.key === "D") && !["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) {
       themeButton.click();
     }
-    if (event.key === "Escape") closeChat();
   });
 }
 
@@ -221,75 +219,11 @@ function enableContact() {
   document.querySelector("#year").textContent = new Date().getFullYear();
 }
 
-function addChatMessage(message, role) {
-  const bubble = document.createElement("p");
-  bubble.className = role === "user" ? "user-message" : "assistant-message";
-  bubble.textContent = message;
-  document.querySelector("#chat-messages").append(bubble);
-  bubble.scrollIntoView({ block: "nearest", behavior: "smooth" });
-  return bubble;
-}
-
-function closeChat() {
-  const panel = document.querySelector("#chat-panel");
-  const launcher = document.querySelector(".chat-launcher");
-  if (!panel || panel.hidden) return;
-  panel.hidden = true;
-  launcher.setAttribute("aria-expanded", "false");
-}
-
-function enableChat() {
-  const launcher = document.querySelector(".chat-launcher");
-  const panel = document.querySelector("#chat-panel");
-  launcher.addEventListener("click", () => {
-    panel.hidden = !panel.hidden;
-    launcher.setAttribute("aria-expanded", String(!panel.hidden));
-    if (!panel.hidden) document.querySelector("#chat-input").focus();
-  });
-  document.querySelector(".chat-close").addEventListener("click", closeChat);
-  document.querySelector("#chat-form").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    const input = form.elements.message;
-    const message = input.value.trim();
-    if (!message) return;
-    addChatMessage(message, "user");
-    input.value = "";
-    const submit = form.querySelector("button");
-    submit.disabled = true;
-    input.disabled = true;
-    const history = state.chatHistory.slice(-10);
-    const pendingReply = addChatMessage("Thinking…", "assistant");
-    pendingReply.setAttribute("aria-label", "Assistant is thinking");
-    try {
-      const reply = await requestJson("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, history }),
-      });
-      document.querySelector("#chat-mode").textContent = reply.engine === "gemini" ? "Gemini · grounded in Awonke's profile" : "Profile assistant";
-      pendingReply.remove();
-      addChatMessage(reply.answer, "assistant");
-      state.chatHistory.push({ role: "user", content: message });
-      state.chatHistory.push({ role: "assistant", content: reply.answer });
-      state.chatHistory = state.chatHistory.slice(-10);
-    } catch (error) {
-      pendingReply.remove();
-      addChatMessage(`I couldn't answer just now: ${error.message}`, "assistant");
-    } finally {
-      submit.disabled = false;
-      input.disabled = false;
-      input.focus();
-    }
-  });
-}
-
 async function initialize() {
   enableNavigation();
   enableRevealAnimations();
   enableProjectControls();
   enableContact();
-  enableChat();
   try {
     state.portfolio = await requestJson("/api/portfolio");
     bindProfile(state.portfolio.profile);

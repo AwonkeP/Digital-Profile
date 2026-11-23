@@ -1,10 +1,10 @@
 # Awonke Philibane — Digital Profile
 
-The portfolio is a single Spring Boot application. Java provides the profile API and optional Gemini-backed assistant; the browser UI is built with semantic HTML, responsive CSS, and vanilla JavaScript. Profile content is served by the API and includes skills, experience, education, certificates, projects, troubleshooting scenarios, contact links, and metrics.
+The portfolio is a single Spring Boot application. Java provides the profile API; the browser UI is built with semantic HTML, responsive CSS, and vanilla JavaScript. Profile content is served by the API and includes skills, experience, education, certificates, projects, troubleshooting scenarios, contact links, and metrics.
 
 ## Requirements
 
-- Java 21 or newer
+- Java 25 or newer
 - Maven 3.6 or newer
 
 ## Run locally
@@ -14,15 +14,6 @@ mvn spring-boot:run
 ```
 
 The frontend requests the complete portfolio from `GET /api/portfolio`. Individual datasets are also available at `/api/profile`, `/api/skills`, `/api/experience`, `/api/education`, `/api/certificates`, `/api/projects`, and `/api/scenarios`.
-
-The profile assistant has a grounded local response mode by default. To enable Gemini responses, provide a server-side API key:
-
-```sh
-GEMINI_API_KEY=your-key mvn spring-boot:run
-```
-
-The key is only used by the Java server and is never exposed to the browser. Do not commit real API keys.
-The assistant can use up to 10 recent messages to follow the conversation; that history is kept in the open page only and is not persisted.
 
 ## Test and package
 
@@ -38,8 +29,7 @@ Vercel does not run this as a conventional long-lived Spring Boot server. This r
 
 1. Import this repository into Vercel and use the repository root as the project root.
 2. The root `vercel.json` selects Vercel's **Container** preset and clears any stale dashboard Build Command such as `vite build`. Ensure the project has Vercel's **Container Runtime** enabled (currently beta).
-3. Add `GEMINI_API_KEY` in the Vercel project's environment variables if Gemini chat responses are wanted. The assistant works in local profile-response mode if it is not set.
-4. Deploy. Vercel detects `Dockerfile.vercel`; no Node.js build command or output directory is required.
+3. Deploy. Vercel detects `Dockerfile.vercel`; no Node.js build command or output directory is required.
 
 The production container runs the same Spring Boot application and serves both the HTML/CSS/JavaScript frontend and `/api/*` endpoints.
 
